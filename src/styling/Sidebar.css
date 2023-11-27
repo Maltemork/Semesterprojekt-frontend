@@ -9,7 +9,7 @@
   .SidebarList {
     height: auto;
     width: 100%;
-    padding: 0;
+    padding:  20px 0 0 0;
     margin: 0;
   }
   
@@ -26,6 +26,7 @@
   
   .SidebarList .row-icon {
     flex: 30%;
+    padding-left: 25px;
   }
   
   .SidebarList .row-title {
@@ -37,11 +38,25 @@
     color: #d14063;
   }
   
-  .Sidebar #active .row-icon {
+  .Sidebar .active .row-icon {
     color: #d14063;
     border-left: 3px solid #d14063;
+    padding-left: 22px;
   }
 
   .Sidebar .Hidden {
     display: none;
+  }
+
+  .MenuIcon {
+    display: flex;
+    flex: 100%;
+    padding: 20px 0 0 25px;
+    align-self: left;
+    justify-content: left;
+  }
+
+  .MenuIcon:hover {
+    cursor: pointer;
+    color: #d14063;
   }

@@ -5,8 +5,8 @@ import "../styling/Header.css";
 
 function Header() {
     return (
-        <div className="Header">
-           <img src={logo} alt="logo-200px"/>
+        <div className="Header" key="header" onClick={() => window.location = "https://periamma.org/"}>
+           <img src={logo} alt="logo-200px" key="HeaderLogo"/>
         </div>
     )
 }
