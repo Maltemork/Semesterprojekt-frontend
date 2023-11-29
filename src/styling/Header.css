@@ -1,0 +1,14 @@
+.Header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid gray;
+}
+
+.Header img {
+    max-width: 230px;
+    padding: 10px;
+}
+
+.Header img:hover {
+    cursor: pointer;
+}
