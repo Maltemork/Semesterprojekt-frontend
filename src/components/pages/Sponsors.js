@@ -1,6 +1,6 @@
 import { getData } from "../crud/getData";
 import React from 'react';
-import * as sponsor from '../Renderers/sponsorObject.js';
+import * as sponsor from '../Renderers/sponsorObject';
 
 let sponsorsArray = [];
 buildSponsorsList();
