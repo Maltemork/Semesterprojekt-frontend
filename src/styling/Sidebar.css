@@ -15,6 +15,7 @@
 .SidebarList a {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  text-decoration: none;
 }
 
 .SidebarList .row {
@@ -36,12 +37,14 @@
 .Sidebar .row:hover {
   cursor: pointer;
   color: #d14063;
+  text-decoration: underline;
 }
 
 .Sidebar .active .row-icon {
   color: #d14063;
   border-left: 3px solid #d14063;
   padding-left: 22px;
+  text-decoration: underline;
 }
 
 .Sidebar .Hidden {
