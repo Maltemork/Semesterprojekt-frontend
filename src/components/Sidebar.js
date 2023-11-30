@@ -46,7 +46,8 @@ function Sidebar() {
             className="row-title"
             style={{ display: isOpen ? "block" : "none" }}
           >
-            {item.title}
+            <p>{item.title}</p> 
+            {/* VS Code gives a dumb error about "using a button" instead, just ignore this */}
           </div>
         </Link>
       </li>

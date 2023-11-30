@@ -8,9 +8,6 @@ import AddIcon from "@mui/icons-material/Add";
 
 export const SidebarData = [
   {
-    title: "Home",
-  },
-  {
     title: "Sponsors",
     icon: <GroupIcon />,
   },
@@ -33,5 +30,5 @@ export const SidebarData = [
   {
     title: "Search",
     icon: <SearchIcon />,
-  },
+  }
 ];

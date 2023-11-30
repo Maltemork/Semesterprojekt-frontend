@@ -1,4 +1,4 @@
-import Home from "../components/pages/Home";
+import Redirect from "../components/pages/Redirect";
 import Sponsors from "../components/pages/Sponsors";
 import Children from "../components/pages/Children";
 import Payments from "../components/pages/Payments";
@@ -7,11 +7,6 @@ import Saved from "../components/pages/Saved";
 import Search from "../components/pages/Search";
 
 const AppRoutes = [
-  {
-    path: "/",
-    exact: true,
-    Element: Home,
-  },
   {
     path: "/sponsors",
     Element: Sponsors,
@@ -35,6 +30,10 @@ const AppRoutes = [
   {
     path: "/search",
     Element: Search,
+  },
+  {
+    path: "/",
+    Element: Redirect
   },
 ];
 

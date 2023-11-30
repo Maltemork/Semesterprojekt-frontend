@@ -1,5 +1,5 @@
 const Home = () => {
   console.log("Home Page");
-  return <h1>Home Page</h1>;
+  return window.location.href = "./sponsors";
 };
 export default Home;

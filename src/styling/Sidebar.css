@@ -1,8 +1,10 @@
 .Sidebar {
-  height: 100vh;
+  height: 100%;
   width: 250px;
   background-color: white;
   border-right: 1px solid gray;
+  position: sticky;
+  top: 0;
 }
 
 .SidebarList {
@@ -19,31 +21,41 @@
 }
 
 .SidebarList .row {
+  margin-top: 20px;
+  margin-bottom: 50px;
   width: 100%;
-  height: 60px;
+  height: 24px;
   justify-content: space-between;
   align-items: center;
-  color: black;
 }
 
 .SidebarList .row-icon {
+  margin-top: auto;
+  margin-bottom: auto;
   padding-left: 25px;
+  color: black;
 }
 
 .SidebarList .row-title {
+  margin-top: auto;
+  margin-bottom: auto;
   font-weight: bold;
+  color: black;
 }
 
 .Sidebar .row:hover {
   cursor: pointer;
   color: #d14063;
-  text-decoration: underline;
 }
 
 .Sidebar .active .row-icon {
   color: #d14063;
   border-left: 3px solid #d14063;
   padding-left: 22px;
+}
+
+.Sidebar .active .row-title {
+  color: #d14063;
 }
 
 .Sidebar .Hidden {
@@ -64,6 +76,17 @@
 }
 
 .SidebarList :nth-child(4) {
-  margin-bottom: 230px;
-  flex-grow: 1;
+  margin-top: 180px;
+}
+
+.SidebarList :nth-child(5) {
+  margin-top: calc(100vh - 240px);
+  position: sticky;
+  bottom: 100px;
+}
+
+.SidebarList :nth-child(6) {
+  margin-top: auto;
+  position: sticky;
+  bottom: 20px;
 }
