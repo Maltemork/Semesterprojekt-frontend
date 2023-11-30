@@ -6,36 +6,36 @@ import Add from "../components/pages/Add";
 import Saved from "../components/pages/Saved";
 import Search from "../components/pages/Search";
 
-const Routes = [
+const AppRoutes = [
   {
     path: "/",
     exact: true,
-    component: Home,
+    Element: Home,
   },
   {
     path: "/sponsors",
-    component: Sponsors,
+    Element: Sponsors,
   },
   {
     path: "/children",
-    component: Children,
+    Element: Children,
   },
   {
     path: "/payments",
-    component: Payments,
+    Element: Payments,
   },
   {
     path: "/add",
-    component: Add,
+    Element: Add,
   },
   {
     path: "/saved",
-    component: Saved,
+    Element: Saved,
   },
   {
     path: "/search",
-    component: Search,
+    Element: Search,
   },
 ];
 
-export default Routes;
+export default AppRoutes;
