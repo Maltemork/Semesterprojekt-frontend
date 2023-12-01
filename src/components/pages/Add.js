@@ -1,8 +1,8 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import PersonIcon from "@mui/icons-material/Person";
-// import PublicIcon from "@mui/icons-material/Public";
-// import PaymentIcon from "@mui/icons-material/Payment";
+import { Link } from "react-router-dom";
+import PersonIcon from "@mui/icons-material/Person";
+import PublicIcon from "@mui/icons-material/Public";
+import PaymentIcon from "@mui/icons-material/Payment";
 
 const Add = () => {
   console.log("Add Page");
