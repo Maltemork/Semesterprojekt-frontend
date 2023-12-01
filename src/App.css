@@ -31,12 +31,16 @@
 .App {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 body {
   font-family: "roboto";
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .routeContent {
@@ -44,4 +48,13 @@ body {
   margin-left: 100px;
   width: calc(100vw - 200px);
   margin-right: 100px;
+}
+
+#table-title {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: left;
+  text-align: left;
+  margin-top: -100px;
+  margin-left: 50px;  
 }

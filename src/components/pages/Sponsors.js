@@ -5,7 +5,7 @@ import { constructSponsorObject } from "../Renderers/sponsorObject";
 import GroupIcon from "@mui/icons-material/Group";
 
 let sponsorsArray = [];
-buildSponsorsList();
+await buildSponsorsList();
 
 const sponsorRenderer = (sponsor) => {
   return <tr key={sponsor.id} className="sponsor-list-item">
@@ -43,7 +43,7 @@ const Sponsors = () => {
               <option>Type</option>
               <option>Active</option>
             </select>
-            <input placeholder="Search" id="sponsor-search"></input>
+            <input placeholder="Search" id="sponsor-search" ></input>
           </div>
         </div>
         <table id="sponsors-table">

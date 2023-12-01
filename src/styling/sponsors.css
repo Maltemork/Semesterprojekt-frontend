@@ -32,6 +32,11 @@
     padding-left: 10px;
 }
 
+.sponsor-list-item:hover {
+    scale: 1.01;
+    cursor: pointer;
+}
+
 .sponsor-list-item * {
     border-right: 1px solid black;
     margin-right: 10px;
