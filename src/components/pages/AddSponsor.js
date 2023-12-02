@@ -5,7 +5,7 @@ const AddSponsor = () => {
   const addSponsorForm = (
     <form className="addSponsorForm">
       <label htmlFor="fullName">Fulde Navn</label>
-      <input type="text" name="fullName"></input>
+      <input type="text" name="sponsorFullName"></input>
       <label htmlFor="email">E-mail</label>
       <input type="text" name="email"></input>
       <label htmlFor="businessPrivate">Privat / Erhverv</label>
