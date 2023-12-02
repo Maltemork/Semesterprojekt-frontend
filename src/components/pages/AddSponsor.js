@@ -4,7 +4,6 @@ import React from "react";
 const AddSponsor = () => {
   const addSponsorForm = (
     <form className="addSponsorForm">
-      <h1>Add Sponsor</h1>
       <label htmlFor="fullName">Fulde Navn</label>
       <input type="text" name="fullName"></input>
       <label htmlFor="email">E-mail</label>
@@ -21,22 +20,32 @@ const AddSponsor = () => {
     </form>
   );
 
-  const attachedPayment = (
-    <form>
-      <label></label>
-      <input></input>
-      <label></label>
-      <input></input>
-      <label></label>
-      <input></input>
-      <label></label>
-      <input></input>
-      <label></label>
-      <input></input>
+  const attachedPaymentForm = (
+    <form className="attachedPaymentForm">
+      <label htmlFor="reepayHandlePeriamma">Reepay Handle - Periamma</label>
+      <input type="text" name="reepayHandlePeriamma"></input>
+      <label htmlFor="foreningLetId">ForeningLetId</label>
+      <input type="text" name="foreningLetId"></input>
+      <label htmlFor="reepayHandleDonations">Reepay Handle - Donations</label>
+      <input type="text" name="reepayHandleDonations"></input>
+      <label htmlFor="paymentPlatform">Payment Platform</label>
+      <input type="text" name="paymentPlatform"></input>
+      <label htmlFor="active">Active</label>
+      <input type="checkbox" name="active"></input>
+      <button>Attach Payment</button>
     </form>
   );
+  const addSponsorPayment = (
+    <div>
+      <h1>Add Sponsor</h1>
+      <div className="addSponsorPayment">
+        {addSponsorForm}
+        {attachedPaymentForm}
+      </div>
+    </div>
+  );
 
-  return addSponsorForm;
+  return addSponsorPayment;
 };
 
 export default AddSponsor;
