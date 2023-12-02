@@ -1,52 +1,73 @@
 import "../../styling/AddSponsor.css";
 import React from "react";
 
-const AddSponsor = () => {
-  const addSponsorForm = (
-    <form className="addSponsorForm">
+const AddSponsor = ({ onSubmit }) => {
+  const handleFormsSubmit = (type, data) => {
+    onSubmit(type, data);
+  };
+
+  const AddSponsorForm = (
+    <form
+      className="addSponsorForm"
+      onSubmit={(e) => handleFormsSubmit("sponsor", e)}
+    >
       <label htmlFor="fullName">Fulde Navn</label>
-      <input type="text" name="sponsorFullName"></input>
+      <input type="text" name="sponsorFullName" />
+
       <label htmlFor="email">E-mail</label>
-      <input type="text" name="email"></input>
+      <input type="text" name="email" />
+
       <label htmlFor="businessPrivate">Privat / Erhverv</label>
-      <input type="text" name="businessPrivate"></input>
+      <input type="text" name="businessPrivate" />
+
       <label htmlFor="cprCvr"> CPR / CVR</label>
-      <input type="text" name="cprCvr"></input>
+      <input type="text" name="cprCvr" />
+
       <label htmlFor="sponsorPhone">Sponsor Telefon</label>
-      <input type="text" name="sponsorPhone"></input>
+      <input type="text" name="sponsorPhone" />
+
       <label htmlFor="notes">Noter</label>
-      <input type="text" name="notes"></input>
+      <input type="text" name="notes" />
+
       <button>Add Sponsor</button>
     </form>
   );
 
-  const attachedPaymentForm = (
-    <form className="attachedPaymentForm">
+  const AttachedPaymentForm = (
+    <form
+      className="attachedPaymentForm"
+      onSubmit={(e) => handleFormsSubmit("payment", e)}
+    >
       <label htmlFor="reepayHandlePeriamma">Reepay Handle - Periamma</label>
-      <input type="text" name="reepayHandlePeriamma"></input>
+      <input type="text" name="reepayHandlePeriamma" />
+
       <label htmlFor="foreningLetId">ForeningLetId</label>
-      <input type="text" name="foreningLetId"></input>
+      <input type="text" name="foreningLetId" />
+
       <label htmlFor="reepayHandleDonations">Reepay Handle - Donations</label>
-      <input type="text" name="reepayHandleDonations"></input>
+      <input type="text" name="reepayHandleDonations" />
+
       <label htmlFor="paymentPlatform">Payment Platform</label>
-      <input type="text" name="paymentPlatform"></input>
+      <input type="text" name="paymentPlatform" />
+
       <label htmlFor="active">Active</label>
-      <input type="checkbox" name="active"></input>
+      <input type="checkbox" name="active" />
+
       <button>Attach Payment</button>
     </form>
   );
 
-  const addSponsorPayment = (
+  const AddSponsorPayment = (
     <div className="addSponsorContainer">
       <h1>Add Sponsor</h1>
       <div className="addSponsorPayment">
-        {addSponsorForm}
-        {attachedPaymentForm}
+        {AddSponsorForm}
+        {AttachedPaymentForm}
       </div>
     </div>
   );
 
-  return addSponsorPayment;
+  return AddSponsorPayment;
 };
 
 export default AddSponsor;

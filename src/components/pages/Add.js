@@ -11,7 +11,7 @@ const buttonTitles = ["Sponsor", "Child", "Payment"];
 const Add = () => {
   console.log("Add Page");
 
-  const addButtons = AddSectionRoutes.map((item, key) => {
+  const AddButtons = AddSectionRoutes.map((item, key) => {
     const Icon = icons[key];
     const buttonTitle = buttonTitles[key];
     return (
@@ -30,7 +30,7 @@ const Add = () => {
       <br />
       <p>What would you like to add?</p>
       <br />
-      <div className="addButtons">{addButtons}</div>
+      <div className="addButtons">{AddButtons}</div>
     </>
   );
 };
