@@ -13,7 +13,7 @@ const AddPayment = (onSubmit) => {
       <label htmlFor="invoiceDate">Invoice Date</label>
       <input type="text" name="invoiceDate" />
 
-      <label htmlFor="currency">Currence</label>
+      <label htmlFor="currency">Currency</label>
       <input type="text" name="currency" />
 
       <label htmlFor="paymentPlatform">Payment Platform</label>
