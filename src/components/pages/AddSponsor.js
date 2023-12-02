@@ -35,8 +35,9 @@ const AddSponsor = () => {
       <button>Attach Payment</button>
     </form>
   );
+
   const addSponsorPayment = (
-    <div>
+    <div className="addSponsorContainer">
       <h1>Add Sponsor</h1>
       <div className="addSponsorPayment">
         {addSponsorForm}
