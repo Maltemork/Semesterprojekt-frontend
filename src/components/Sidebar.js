@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "../App.css";
 import "../styling/Sidebar.css";
 import { SidebarData } from "./SidebarData";
-import Routes from "./Routes";
+import { AppRoutes } from "./Routes";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Sidebar() {
@@ -27,7 +27,7 @@ function Sidebar() {
   const location = useLocation();
 
   const sidebarDataAndRoutes = SidebarData.map((item, key) => {
-    const correspondingRoute = Routes[key].path;
+    const correspondingRoute = AppRoutes[key].path;
     return {
       ...item,
       route: correspondingRoute,

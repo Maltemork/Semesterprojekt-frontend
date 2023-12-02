@@ -3,11 +3,13 @@ import "./App.css";
 // import { Route, IndexRoute } from 'react-router';
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AppRoutes from "./components/Routes";
+import { AppRoutes, AddSectionRoutes } from "./components/Routes";
 
 // Import of page compononents
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
+
+const allRoutes = [...AppRoutes, ...AddSectionRoutes];
 
 // Main app function
 function App() {
@@ -18,11 +20,10 @@ function App() {
         <Sidebar />
         <div className="routeContent">
           <Routes>
-            {AppRoutes.map((route, index) => (
+            {allRoutes.map((route, index) => (
               <Route
                 key={index}
                 path={route.path}
-                exact={route.exact}
                 element={<route.Element />}
               />
             ))}

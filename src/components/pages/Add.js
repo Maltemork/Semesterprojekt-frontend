@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AddSectionRoutes } from "../Routes";
 import PersonIcon from "@mui/icons-material/Person";
 import PublicIcon from "@mui/icons-material/Public";
 import PaymentIcon from "@mui/icons-material/Payment";
+
+const icons = [PersonIcon, PublicIcon, PaymentIcon];
 
 const Add = () => {
   console.log("Add Page");
