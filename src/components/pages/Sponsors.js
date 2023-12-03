@@ -12,7 +12,7 @@ const sponsorRenderer = (sponsor) => {
            <td>{sponsor.customerId}</td>
            <td>{sponsor.name}</td>
            <td>{sponsor.email}</td>
-           <td>{sponsor.phone}</td>
+           <td>+{sponsor.phone}</td>
            <td>{sponsor.type}</td>
            <td>{sponsor.reepayHandleDonations}</td>
            <td>{sponsor.reepayHandlePeriamma}</td>
@@ -24,6 +24,7 @@ const sponsorRenderer = (sponsor) => {
 async function buildSponsorsList() {
   const data = await getData("sponsors");
   sponsorsArray = data.map((sponsordata) => constructSponsorObject(sponsordata));
+  console.log(sponsorsArray);
 }
 
 const Sponsors = () => {

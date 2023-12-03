@@ -22,13 +22,12 @@
 .routeContent {
   position: absolute;
   width: 100%;
-  height: fit-content;
   text-align: center;
   top: 10em;
-  z-index: 10;
+  z-index: 0;
   margin-left: 100px;
-  width: calc(100vw - 200px);
-  margin-right: 100px;
+  width: calc(100vw - 150px);
+  margin-right: 50px;
 }
 
 .App {
@@ -46,7 +45,6 @@ body {
   overflow: hidden;
 }
 
-
 #table-title {
   display: flex;
   flex-wrap: nowrap;
@@ -54,4 +52,13 @@ body {
   text-align: left;
   margin-top: -100px;
   margin-left: 50px;  
+}
+
+#table-title :first-child {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
+  height: 100%;
+  width: 50px;
+  color: red;
 }
