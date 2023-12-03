@@ -20,12 +20,15 @@
 /* Add more styles and weights as needed */
 
 .routeContent {
-  z-index: -1;
   position: absolute;
   width: 100%;
   height: fit-content;
   text-align: center;
   top: 10em;
+  z-index: 10;
+  margin-left: 100px;
+  width: calc(100vw - 200px);
+  margin-right: 100px;
 }
 
 .App {
@@ -43,12 +46,6 @@ body {
   overflow: hidden;
 }
 
-.routeContent {
-  z-index: 1;
-  margin-left: 100px;
-  width: calc(100vw - 200px);
-  margin-right: 100px;
-}
 
 #table-title {
   display: flex;
