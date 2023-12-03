@@ -5,7 +5,7 @@ export function constructSponsorObject(sponsordata) {
         name: sponsordata.sponsorName,
         email: sponsordata.sponsorEmail,
         phone: sponsordata.sponsorPhone,
-        active: sponsordata.active,
+        active: sponsordata.active ? "True" : "False",
         paymentPlatform: sponsordata.paymentPlatform,
         reepayHandleDonations: sponsordata.reepayHandleDonations,
         reepayHandlePeriamma: sponsordata.reepayHandlePeriamma,

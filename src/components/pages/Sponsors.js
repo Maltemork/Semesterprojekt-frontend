@@ -24,10 +24,15 @@ const sponsorRenderer = (sponsor) => {
 async function buildSponsorsList() {
   const data = await getData("sponsors");
   sponsorsArray = data.map((sponsordata) => constructSponsorObject(sponsordata));
+  sponsorsArray.sort((a, b) => a.active.localeCompare(b.active));
   console.log(sponsorsArray);
+  
 }
 
-const Sponsors = () => {
+
+
+const Sponsors = 
+() => {
   return (
     <>
       <div id="table-title">
@@ -38,11 +43,11 @@ const Sponsors = () => {
         <div id="functions-container">
           <div className="search-sort-container">
             <select id="sponsor-sort">
-              <option>ID</option>
-              <option>Name</option>
-              <option>E-mail</option>
-              <option>Type</option>
-              <option>Active</option>
+              <option value="id">ID</option>
+              <option value="name">Name</option>
+              <option value="e-mail">E-mail</option>
+              <option value="type">Type</option>
+              <option value="active">Active</option>
             </select>
             <input placeholder="Search" id="sponsor-search" ></input>
           </div>
@@ -69,5 +74,7 @@ const Sponsors = () => {
     </>
   );
 };
+
+
 
 export default Sponsors;
