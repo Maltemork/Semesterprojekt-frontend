@@ -1,13 +1,8 @@
 import "../../styling/AddSponsor.css";
-import React, { useState } from "react";
 
-const AddSponsor = () => {
+const AddSponsor = (onSubmit) => {
   const handleFormsSubmit = (data) => {
-    console.log(data);
-  };
-  const [sponsorPayment, setSponsorPayment] = useState("");
-  const handleChange = (event) => {
-    setSponsorPayment(event.target.value);
+    onSubmit(data);
   };
 
   const AddSponsorForm = (
@@ -39,20 +34,11 @@ const AddSponsor = () => {
       <label htmlFor="reepayHandleDonations">Reepay Handle - Donations</label>
       <input type="text" name="reepayHandleDonations" />
 
-      <label htmlFor="paymentPlatform">Payment Platform</label>
+      <label htmlFor="paymentPlatform">Payment Platform (Optional)</label>
       <input type="text" name="paymentPlatform" />
 
       <label htmlFor="active">Active</label>
       <input type="checkbox" name="active" />
-
-      <div className="selectSponsorContainer">
-        <p>Select Payment (Optional)</p>
-        <select
-          value={sponsorPayment}
-          onChange={handleChange}
-          id="sponsorSelect"
-        ></select>
-      </div>
 
       <button>Add Sponsor</button>
     </form>

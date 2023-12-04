@@ -16,9 +16,6 @@ const AddPayment = (onSubmit) => {
       <label htmlFor="currency">Currency</label>
       <input type="text" name="currency" />
 
-      <label htmlFor="paymentPlatform">Payment Platform</label>
-      <input type="text" name="paymentPlatform" />
-
       <label htmlFor="invoiceHandle">Invoice Handle</label>
       <input type="text" name="invoiceHandle" />
 

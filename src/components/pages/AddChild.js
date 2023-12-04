@@ -1,13 +1,8 @@
-import React, { useState } from "react";
 import "../../styling/AddChild.css";
 
 const AddChild = (onSubmit) => {
   const handleFormSubmit = (type, data) => {
     onSubmit(type, data);
-  };
-  const [childSponsor, setChildSponsor] = useState("");
-  const handleChange = (event) => {
-    setChildSponsor(event.target.value);
   };
 
   const AddChildForm = (
@@ -29,15 +24,6 @@ const AddChild = (onSubmit) => {
 
       <label htmlFor="schoolClass">Class</label>
       <input type="text" name="schoolClass" />
-
-      <div className="selectSponsorContainer">
-        <p>Select Sponsor (Optional)</p>
-        <select
-          value={childSponsor}
-          onChange={handleChange}
-          id="sponsorSelect"
-        ></select>
-      </div>
 
       <button>Add child</button>
     </form>
