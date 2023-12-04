@@ -1,10 +1,4 @@
-.addSponsorPayment {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.addSponsorForm,
-.attachedPaymentForm {
+.addSponsorForm {
   display: grid;
   grid-template-columns: 1fr;
 }

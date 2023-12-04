@@ -1,16 +1,17 @@
 import "../../styling/AddSponsor.css";
-import React from "react";
+import React, { useState } from "react";
 
-const AddSponsor = ({ onSubmit }) => {
-  const handleFormsSubmit = (type, data) => {
-    onSubmit(type, data);
+const AddSponsor = () => {
+  const handleFormsSubmit = (data) => {
+    console.log(data);
+  };
+  const [sponsorPayment, setSponsorPayment] = useState("");
+  const handleChange = (event) => {
+    setSponsorPayment(event.target.value);
   };
 
   const AddSponsorForm = (
-    <form
-      className="addSponsorForm"
-      onSubmit={(e) => handleFormsSubmit("sponsor", e)}
-    >
+    <form className="addSponsorForm" onSubmit={handleFormsSubmit}>
       <label htmlFor="fullName">Fulde Navn</label>
       <input type="text" name="sponsorFullName" />
 
@@ -29,15 +30,6 @@ const AddSponsor = ({ onSubmit }) => {
       <label htmlFor="notes">Noter</label>
       <input type="text" name="notes" />
 
-      <button>Add Sponsor</button>
-    </form>
-  );
-
-  const AttachedPaymentForm = (
-    <form
-      className="attachedPaymentForm"
-      onSubmit={(e) => handleFormsSubmit("payment", e)}
-    >
       <label htmlFor="reepayHandlePeriamma">Reepay Handle - Periamma</label>
       <input type="text" name="reepayHandlePeriamma" />
 
@@ -53,17 +45,23 @@ const AddSponsor = ({ onSubmit }) => {
       <label htmlFor="active">Active</label>
       <input type="checkbox" name="active" />
 
-      <button>Attach Payment</button>
+      <div className="selectSponsorContainer">
+        <p>Select Payment (Optional)</p>
+        <select
+          value={sponsorPayment}
+          onChange={handleChange}
+          id="sponsorSelect"
+        ></select>
+      </div>
+
+      <button>Add Sponsor</button>
     </form>
   );
 
   const AddSponsorPayment = (
     <div className="addSponsorContainer">
       <h1>Add Sponsor</h1>
-      <div className="addSponsorPayment">
-        {AddSponsorForm}
-        {AttachedPaymentForm}
-      </div>
+      <div className="addSponsorPayment">{AddSponsorForm}</div>
     </div>
   );
 
