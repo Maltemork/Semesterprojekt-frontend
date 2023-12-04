@@ -1,7 +1,7 @@
 import React from "react";
 const Sponsors = () => {
 
-  const sponsor = [
+  const Sponsors = [
     { Sub: 'Kenya', id: 'K1023', name: 'Kirsten Hansen', email: 'placeholder@periamma.org', Periamma: 'cust-0138', Donations: '', Active: true },
     { Sub: 'Kenya', id: 'K2386', name: 'Martin Jensen', email: 'Martin-j@havton', Periamma: 'cust-0821', Donations: '', Active: true },
     { Sub: 'Kenya', id: 'K6499', name: 'Adrianna Danielka', email: 'Ad.da@company.dk', Periamma: 'cust-1650', Donations: 'cust-6557', Active: true },
@@ -18,12 +18,20 @@ const Sponsors = () => {
   return (
     <div>
       <h1>Sponsors</h1>
-
-    <div>
-    <h2>Sponsor Details</h2>
-    <p>Name: {sponsor.name}</p>
-    <p>Email: {sponsor.email}</p>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sub</th>
+            <th>id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Periamma</th>
+            <th>Donations</th>
+            <th>Active</th>
+          </tr>
+        </thead>
+      </table>
+    
       </div>
   )
  
