@@ -47,7 +47,6 @@ function Sidebar() {
             style={{ display: isOpen ? "block" : "none" }}
           >
             <p>{item.title}</p> 
-            {/* VS Code gives a dumb error about "using a button" instead, just ignore this */}
           </div>
         </Link>
       </li>

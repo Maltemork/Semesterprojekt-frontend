@@ -1,11 +1,12 @@
-export function constructSponsorObject(sponsordata) {
-    const sponsorObject = {
+export function ConstructSponsorObject(sponsordata) {
+    const SponsorObject = {
         id: sponsordata.id,
         customerId: sponsordata.sponsorId,
+        subitems: sponsordata.subitems,
         name: sponsordata.sponsorName,
         email: sponsordata.sponsorEmail,
         phone: sponsordata.sponsorPhone,
-        active: sponsordata.aktive,
+        active: sponsordata.active,
         paymentPlatform: sponsordata.paymentPlatform,
         reepayHandleDonations: sponsordata.reepayHandleDonations,
         reepayHandlePeriamma: sponsordata.reepayHandlePeriamma,
@@ -15,6 +16,11 @@ export function constructSponsorObject(sponsordata) {
         notes: sponsordata.notes
     }
 
-    return sponsorObject;
+    Object.defineProperty(SponsorObject, "id", {
+        configurable: false,
+        writable: false
+      });
+
+    return SponsorObject;
 }
 

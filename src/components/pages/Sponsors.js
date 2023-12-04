@@ -1,72 +1,159 @@
-import { getData } from "../crud/getData";
-import "../../styling/sponsors.css";
+// Essential
 import React from 'react';
-import { constructSponsorObject } from "../Renderers/sponsorObject";
+import { getData } from "../crud/getData";
+// Specific
+import { SponsorRenderer } from "../Renderers/sponsorRenderer.js";
+import * as sponsor from "../Renderers/sponsorObject";
+// Styling & CSS
 import GroupIcon from "@mui/icons-material/Group";
+import Caret from "../icons/Caret.jsx"
+import "../../styling/Table.css"
 
+// Array
 let sponsorsArray = [];
 await buildSponsorsList();
 
-const sponsorRenderer = (sponsor) => {
-  return <tr key={sponsor.id} className="sponsor-list-item">
-           <td>{sponsor.customerId}</td>
-           <td>{sponsor.name}</td>
-           <td>{sponsor.email}</td>
-           <td>{sponsor.phone}</td>
-           <td>{sponsor.type}</td>
-           <td>{sponsor.reepayHandleDonations}</td>
-           <td>{sponsor.reepayHandlePeriamma}</td>
-           <td>{sponsor.foreningLetID}</td>
-           <td>{sponsor.active}</td>
-         </tr>;
-         };
-
+// Build array
 async function buildSponsorsList() {
   const data = await getData("sponsors");
-  sponsorsArray = data.map((sponsordata) => constructSponsorObject(sponsordata));
+  sponsorsArray = data.map(sponsor.ConstructSponsorObject);
+  console.log(sponsorsArray);
 }
 
-const Sponsors = () => {
-  return (
-    <>
-      <div id="table-title">
-        <GroupIcon />
-        <h1> Sponsors</h1>
-      </div>
-      <div id="sponsors-container">
-        <div id="functions-container">
-          <div className="search-sort-container">
-            <select id="sponsor-sort">
-              <option>ID</option>
-              <option>Name</option>
-              <option>E-mail</option>
-              <option>Type</option>
-              <option>Active</option>
-            </select>
-            <input placeholder="Search" id="sponsor-search" ></input>
-          </div>
-        </div>
-        <table id="sponsors-table">
-          <thead id="sponsors-table-head">
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Type</th>
-              <th>Reepay Handle Donations</th>
-              <th>Reepay Handle Periamma</th>
-              <th>foreningLetID</th>
-              <th>Active</th>
-            </tr>
-          </thead>
-          <tbody id="sponsors-table-body">
-            { sponsorsArray.map(sponsorRenderer) }
-          </tbody>
-        </table>
-      </div>
-    </>
-  );
-};
+// Sponsors object
+const SponsorsPage = 
+  () => {
+    const [search, setSearch] = React.useState('');
+    const [sort, setSort] = React.useState({ keyToSort: "ID", direction: "asc"});
 
-export default Sponsors;
+    const headers = [
+      {
+        id: 1,
+        KEY: "customerId",
+        LABEL: "ID"
+      },
+      {
+        id: 2,
+        KEY: "subitems",
+        LABEL: "Subitems"
+      },
+      {
+        id: 3,
+        KEY: "name",
+        LABEL: "Name"
+      },
+      {
+        id: 4,
+        KEY: "email",
+        LABEL: "E-mail"
+      },
+      {
+        id: 5,
+        KEY: "phone",
+        LABEL: "Phone"
+      },
+      {
+        id: 6,
+        KEY: "type",
+        LABEL: "Type"
+      },
+      {
+        id: 7,
+        KEY: "reepayHandleDonations",
+        LABEL: "Reepay Handle Donations"
+      },
+      {
+        id: 8,
+        KEY: "reepayHandlePeriamma",
+        LABEL: "Reepay Handle Periamma"
+      },
+      {
+        id: 9,
+        KEY: "foreningLetID",
+        LABEL: "ForeningLetID"
+      },
+      {
+        id: 10,
+        KEY: "active",
+        LABEL: "Active"
+      }
+    ];
+
+    function HandleHeaderClick(header) {
+      console.log(header.KEY);
+      setSort({
+        keyToSort: header.KEY,
+        direction: 
+          header.KEY === sort.keyToSort
+           ? sort.direction === "asc" 
+              ? "desc" 
+              : "asc"
+          :  "desc",
+      });
+    }
+
+    function getSortedArray(arrayToSort) {
+      if (sort.direction === "asc") {
+        return arrayToSort.sort((a, b) => (a[sort.keyToSort] > b[sort.keyToSort] ? 1 : -1));
+      }
+      return arrayToSort.sort((a, b) => (a[sort.keyToSort] > b[sort.keyToSort] ? -1 : 1));
+    }
+  
+    const searchInput = (item) => {
+      return search.toLowerCase() === "" ? item : 
+      item.name.toLowerCase().includes(search.toLowerCase()) ||
+      item.email.toLowerCase().includes(search.toLowerCase()) ||
+      item.customerId.toLowerCase().includes(search.toLowerCase()) ||
+      item.subitems.toLowerCase().includes(search.toLowerCase()) ||
+      item.phone.includes(search)
+    };
+
+    const handleSearch = (e) => {
+      setSearch(e.target.value);
+    };
+
+    
+
+    
+
+    return (
+            <>
+              <div id="table-title">
+                <GroupIcon />
+                <h1> Sponsors</h1>
+              </div>
+              <div id="table-container">
+                <div id="functions-container">
+                  <div className="search-sort-container">
+                    <input placeholder="Search" id="search" type="text" onChange={handleSearch}></input>
+                  </div>
+                </div>
+                <div id="table-body-container">
+                  <table id="table">
+                    <thead id="table-head">
+                      <tr>
+                      {
+                        headers.map((header, index) => (
+                          <th key={index} onClick={() => HandleHeaderClick(header)}>
+                            <span className="text">
+                              {header.LABEL}
+                              {header.KEY === sort.keyToSort && (
+                              <Caret direction={sort.keyToSort === header.KEY ? sort.direction : "asc" }/>
+                            ) }  
+                            </span>
+                          </th>
+                        ))
+                      }
+                      </tr>
+                    </thead>
+                    <tbody id="table-body">
+                      { getSortedArray(sponsorsArray).filter(searchInput).map(SponsorRenderer.render) }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </>
+          );
+        };
+
+export default SponsorsPage;

@@ -1,0 +1,133 @@
+/* TABLE CONTAINER */
+
+#table-container {
+    display: block;
+    border: 2px solid rgb(156, 156, 156);
+    border-radius: 7px;
+    overflow: auto;
+    background-color: rgb(236, 236, 236);
+    max-height: calc(100vh - 160px);
+}
+
+/* TABLE HEAD */
+
+#table-head {
+    position: sticky;
+    top: 75px;
+    background-color: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 40px;
+    z-index: 9999;
+}
+
+#table-head tr {
+    border-bottom: 1px solid black;
+}
+
+#table-head * {
+    padding-left: 5px;
+    margin-right: 100px;
+    
+}
+
+
+#table-head th :hover {
+    cursor: pointer;
+}
+
+/* TABLE BODY */
+
+#table {
+    border-collapse: collapse;
+    background-color: white;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    z-index: -10;
+    overflow: auto;
+    max-height: calc(100vh - 280px);
+    overflow: auto;
+    width: calc(100% - 40px);
+}
+
+#table-body td, tr {
+    padding: 8px;
+    margin-right: 100px;
+    margin-bottom: 5px;
+}
+
+#table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#table tr:nth-child(even):hover {
+    background-color: rgb(218, 218, 218);
+    scale: 1.005;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.295);
+}
+
+
+
+/* TABLE ITEMS */
+
+.table-item:hover {
+    background-color: rgb(218, 218, 218);
+    cursor: pointer;
+    scale: 1.005;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.295);
+}
+
+.table-item * {
+    min-width: fit-content;
+    height: 40px;
+}
+
+.table-item :last-child {
+    border-right: none;
+}
+
+/* Search & sort box */
+
+input {
+    outline: none;
+}
+
+#search {
+    width: calc(100% - 10px);
+    margin-right: 10px;
+}
+
+.search-sort-container {
+    margin-left: 50px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(207, 207, 207);
+    width: 300px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 1000px;
+    background-color: white;
+}
+
+.search-sort-container * {
+    border: none;
+    background: white;
+}
+
+#functions-container {
+    position: sticky;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    background-color: rgb(236, 236, 236);
+    padding: 10px 0 5px 10px;
+    z-index: 10;
+    min-width: 1789px;
+}
+
+
