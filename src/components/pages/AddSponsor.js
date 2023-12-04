@@ -1,8 +1,8 @@
 import "../../styling/AddSponsor.css";
 
-const AddSponsor = (onSubmit) => {
+const AddSponsor = () => {
   const handleFormsSubmit = (data) => {
-    onSubmit(data);
+    console.log(data);
   };
 
   const AddSponsorForm = (
