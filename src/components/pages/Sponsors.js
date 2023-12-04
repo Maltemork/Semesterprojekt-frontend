@@ -103,7 +103,9 @@ const SponsorsPage =
       return search.toLowerCase() === "" ? item : 
       item.name.toLowerCase().includes(search.toLowerCase()) ||
       item.email.toLowerCase().includes(search.toLowerCase()) ||
-      item.customerId.toLowerCase().includes(search.toLowerCase()) 
+      item.customerId.toLowerCase().includes(search.toLowerCase()) ||
+      item.subitems.toLowerCase().includes(search.toLowerCase()) ||
+      item.phone.includes(search)
     };
 
     const handleSearch = (e) => {
@@ -126,27 +128,29 @@ const SponsorsPage =
                     <input placeholder="Search" id="search" type="text" onChange={handleSearch}></input>
                   </div>
                 </div>
-                <table id="table">
-                  <thead id="table-head">
-                    <tr>
-                     {
-                      headers.map((header, index) => (
-                        <th key={index} onClick={() => HandleHeaderClick(header)}>
-                          <span className="text">{header.LABEL}</span>
-
-                          { header.KEY === sort.keyToSort && (
-                            <Caret direction={sort.keyToSort === header.KEY ? sort.direction : "asc" }/>
-                          )}
-
-                        </th>
-                      ))
-                     }
-                    </tr>
-                  </thead>
-                  <tbody id="sponsors-table-body">
-                    { getSortedArray(sponsorsArray).filter(searchInput).map(SponsorRenderer.render) }
-                  </tbody>
-                </table>
+                <div id="table-body-container">
+                  <table id="table">
+                    <thead id="table-head">
+                      <tr>
+                      {
+                        headers.map((header, index) => (
+                          <th key={index} onClick={() => HandleHeaderClick(header)}>
+                            <span className="text">
+                              {header.LABEL}
+                              {header.KEY === sort.keyToSort && (
+                              <Caret direction={sort.keyToSort === header.KEY ? sort.direction : "asc" }/>
+                            ) }  
+                            </span>
+                          </th>
+                        ))
+                      }
+                      </tr>
+                    </thead>
+                    <tbody id="table-body">
+                      { getSortedArray(sponsorsArray).filter(searchInput).map(SponsorRenderer.render) }
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </>
           );

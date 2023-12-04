@@ -6,7 +6,6 @@ export function ConstructChildObject(childdata) {
         sponsor: childdata.sponsor,
         name: childdata.fullname,
         gender: childdata.gender,
-        age: childdata.age,
         birthdate: new Date(childdata.birthdate).toLocaleDateString("en-DE"),
         type: childdata.type,
         school: childdata.school,
@@ -14,7 +13,12 @@ export function ConstructChildObject(childdata) {
         class: childdata.class,
         sponsoredBy: childdata.sponsoredBy,
         secondSponsor: childdata.secondSponsor,
-        notes: childdata.notes
+        notes: childdata.notes,
+        getAge() {
+            let date = new Date(childdata.birthdate);
+            let age = Math.floor((Date.now() - date.getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+            return age;
+        }
     }
 
     Object.defineProperty(ChildObject, "childNo", {

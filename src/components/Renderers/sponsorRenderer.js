@@ -15,7 +15,7 @@ export const SponsorRenderer = {
                 <td>{sponsor.reepayHandleDonations}</td>
                 <td>{sponsor.reepayHandlePeriamma}</td>
                 <td>{sponsor.foreningLetID}</td>
-                <td>{sponsor.active ? "✔️" : "❌"}</td>
+                <td style={sponsor.active ? {'color': 'green'} : {'color': 'red'}}>{sponsor.active ? "✓" : "✕"}</td>
             </tr>;
         return sponsorHTML;
     }
