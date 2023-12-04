@@ -2,8 +2,8 @@ import React from "react";
 import "../../styling/AddPayment.css";
 
 const AddPayment = (onSubmit) => {
-  const handleFormSubmit = (type, data) => {
-    onSubmit(type, data);
+  const handleFormSubmit = (data) => {
+    onSubmit(data);
   };
   const AddPaymentForm = (
     <form className="addPaymentForm" onSubmit={handleFormSubmit}>
