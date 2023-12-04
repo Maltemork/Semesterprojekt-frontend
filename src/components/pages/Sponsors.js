@@ -5,8 +5,19 @@ const Sponsors = () => {
     email: 'sponsor@email',
 
   };
-  console.log("Sponsors Page");
-  return <h1>Sponsors</h1>;
+
+  return (
+    <div>
+      <h1>Sponsors</h1>
+
+    <div>
+    <h2>Sponsor Details</h2>
+    <p>Name: {sponsorDetails.name}</p>
+    <p>Email: {sponsorDetails.email}</p>
+      </div>
+      </div>
+  )
+ 
 };
 export default Sponsors;
 
