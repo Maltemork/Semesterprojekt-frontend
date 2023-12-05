@@ -20,12 +20,14 @@
 /* Add more styles and weights as needed */
 
 .routeContent {
-  z-index: -1;
   position: absolute;
   width: 100%;
-  height: fit-content;
   text-align: center;
   top: 10em;
+  z-index: 0;
+  margin-left: 100px;
+  width: calc(100vw - 150px);
+  margin-right: 50px;
 }
 
 .App {
@@ -38,4 +40,25 @@ body {
   font-family: "roboto";
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#table-title {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: left;
+  text-align: left;
+  margin-top: -100px;
+  margin-left: 50px;  
+}
+
+#table-title :first-child {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
+  height: 100%;
+  width: 50px;
+  color: red;
 }
