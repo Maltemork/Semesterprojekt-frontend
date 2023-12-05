@@ -5,7 +5,7 @@ import { getData } from "../crud/getData";
 import { PaymentRenderer } from "../Renderers/paymentRenderer.js";
 import * as payment from "../Renderers/paymentObject";
 // Styling & CSS
-import PublicIcon from "@mui/icons-material/Public";
+import PaymentIcon from "@mui/icons-material/Payment";
 import Caret from "../icons/Caret.jsx"
 import "../../styling/Table.css"
 
@@ -59,11 +59,16 @@ const PaymentsPage =
       },
       {
         id: 7,
+        KEY: "customerEmail",
+        LABEL: "Customer E-mail"
+      },
+      {
+        id: 8,
         KEY: "subscription",
         LABEL: "Subscription"
       },
       {
-        id: 8,
+        id: 9,
         KEY: "created",
         LABEL: "Date"
       }
@@ -91,11 +96,7 @@ const PaymentsPage =
   
     const searchInput = (item) => {
       return search.toLowerCase() === "" ? item : 
-      item.childNo.toLowerCase().includes(search.toLowerCase()) ||
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.school.toLowerCase().includes(search.toLowerCase()) ||
-      item.type.toLowerCase().includes(search.toLowerCase()) ||
-      item.subitems.toLowerCase().includes(search.toLowerCase())
+      item.id.toLowerCase().includes(search.toLowerCase());
     };
 
     const handleSearch = (e) => {
@@ -106,8 +107,8 @@ const PaymentsPage =
     return (
             <>
               <div id="table-title">
-                <PublicIcon />
-                <h1> Children</h1>
+                <PaymentIcon />
+                <h1> Payments</h1>
               </div>
               <div id="table-container">
                 <div id="functions-container">

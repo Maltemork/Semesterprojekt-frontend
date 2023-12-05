@@ -12,10 +12,10 @@ export const ChildRenderer = {
                 <td>{child.sponsor}</td>
                 <td>{child.gender}</td>
                 <td>{child.getAge()}</td>
-                <td>{child.birthdate}</td>
+                <td>{new Date(child.birthdate).toLocaleDateString("en-DE")}</td>
                 <td>{child.type}</td>
                 <td>{child.school}</td>
-                <td>{child.schoolStart}</td>
+                <td>{new Date(child.schoolStart).toLocaleDateString("en-DE")}</td>
                 <td>{child.class}</td>
             </tr>;
     

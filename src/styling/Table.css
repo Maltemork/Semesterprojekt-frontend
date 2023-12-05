@@ -4,7 +4,7 @@
     display: block;
     border: 2px solid rgb(156, 156, 156);
     border-radius: 7px;
-    overflow: auto;
+    overflow: scroll;
     background-color: rgb(236, 236, 236);
     max-height: calc(100vh - 160px);
 }
@@ -23,6 +23,7 @@
     user-select: none;
     height: 40px;
     z-index: 9999;
+    max-width: calc(100% - 40px);
 }
 
 #table-head tr {
@@ -31,7 +32,7 @@
 
 #table-head * {
     padding-left: 5px;
-    margin-right: 100px;
+    margin-right: 50px;
     
 }
 
@@ -48,11 +49,8 @@
     text-align: left;
     margin-left: 20px;
     margin-right: 20px;
-    z-index: -10;
-    overflow: auto;
-    max-height: calc(100vh - 280px);
-    overflow: auto;
     width: calc(100% - 40px);
+    z-index: -10;
 }
 
 #table-body td, tr {
@@ -127,7 +125,7 @@ input {
     background-color: rgb(236, 236, 236);
     padding: 10px 0 5px 10px;
     z-index: 10;
-    min-width: 1789px;
+    min-width: 1332px;
 }
 
 
