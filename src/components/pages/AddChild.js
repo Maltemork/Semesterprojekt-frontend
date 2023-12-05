@@ -1,29 +1,53 @@
+import { useState } from "react";
 import "../../styling/AddChild.css";
+import HandleChildFormData from "../crud/AddChildSubmit";
 
-const AddChild = (onSubmit) => {
-  const handleFormSubmit = (type, data) => {
-    onSubmit(type, data);
+const AddChild = () => {
+  const [childFormData, setChildFormData] = useState({
+    childFullName: "",
+    gender: "",
+    birthdate: "",
+    school: "",
+    schoolStart: "",
+    schoolClass: "",
+  });
+
+  const handleChildFormChange = (event) => {
+    const { name, value } = event.target;
+    setChildFormData((previousData) => ({
+      ...previousData,
+      [name]: value,
+    }));
+  };
+
+  const handleChildFormSubmit = (event) => {
+    event.preventDefault();
+    HandleChildFormData(childFormData);
   };
 
   const AddChildForm = (
-    <form className="AddChildForm" onSubmit={handleFormSubmit}>
+    <form className="AddChildForm" onSubmit={handleChildFormSubmit}>
       <label htmlFor="childFullName">Full Name</label>
-      <input type="text" name="childFullName" />
+      <input
+        type="text"
+        name="childFullName"
+        onChange={handleChildFormChange}
+      />
 
       <label htmlFor="gender">Gender</label>
-      <input type="text" name="gender" />
+      <input type="text" name="gender" onChange={handleChildFormChange} />
 
       <label htmlFor="birthdate">Birthdate</label>
-      <input type="text" name="birthdate" />
+      <input type="text" name="birthdate" onChange={handleChildFormChange} />
 
       <label htmlFor="school">School</label>
-      <input type="text" name="school" />
+      <input type="text" name="school" onChange={handleChildFormChange} />
 
       <label htmlFor="schoolStart">School Start</label>
-      <input type="text" name="schoolStart" />
+      <input type="text" name="schoolStart" onChange={handleChildFormChange} />
 
       <label htmlFor="schoolClass">Class</label>
-      <input type="text" name="schoolClass" />
+      <input type="text" name="schoolClass" onChange={handleChildFormChange} />
 
       <button>Add child</button>
     </form>

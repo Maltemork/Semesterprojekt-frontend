@@ -1,57 +1,110 @@
+import { useState } from "react";
 import "../../styling/AddSponsor.css";
+import HandleSponsorFormData from "../crud/AddSponsorSubmit";
 
 const AddSponsor = () => {
-  const handleFormsSubmit = (data) => {
-    console.log(data);
+  const [sponsorFormData, setSponsorFormData] = useState({
+    sponsorEmail: "",
+    reepayHandlePeriamma: "",
+    reepayHandleDonations: "",
+    foreningLetId: "",
+    sponsorName: "",
+    privatErhverv: "",
+    cprCvr: "",
+    paymentPlatform: "",
+    sponsorPhone: "",
+    notes: "",
+    active: false,
+  });
+
+  const handleSponsorFormChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    setSponsorFormData((previousData) => ({
+      ...previousData,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    HandleSponsorFormData(sponsorFormData);
   };
 
   const AddSponsorForm = (
-    <form className="addSponsorForm" onSubmit={handleFormsSubmit}>
+    <form className="addSponsorForm" onSubmit={handleFormSubmit}>
       <label htmlFor="fullName">Fulde Navn</label>
-      <input type="text" name="sponsorFullName" />
+      <input
+        type="text"
+        name="sponsorFullName"
+        onChange={handleSponsorFormChange}
+      />
 
       <label htmlFor="email">E-mail</label>
-      <input type="text" name="email" />
+      <input type="text" name="email" onChange={handleSponsorFormChange} />
 
       <label htmlFor="businessPrivate">Privat / Erhverv</label>
-      <input type="text" name="businessPrivate" />
+      <input
+        type="text"
+        name="businessPrivate"
+        onChange={handleSponsorFormChange}
+      />
 
       <label htmlFor="cprCvr"> CPR / CVR</label>
-      <input type="text" name="cprCvr" />
+      <input type="text" name="cprCvr" onChange={handleSponsorFormChange} />
 
       <label htmlFor="sponsorPhone">Sponsor Telefon</label>
-      <input type="text" name="sponsorPhone" />
+      <input
+        type="text"
+        name="sponsorPhone"
+        onChange={handleSponsorFormChange}
+      />
 
       <label htmlFor="notes">Noter</label>
-      <input type="text" name="notes" />
+      <input type="text" name="notes" onChange={handleSponsorFormChange} />
 
       <label htmlFor="reepayHandlePeriamma">Reepay Handle - Periamma</label>
-      <input type="text" name="reepayHandlePeriamma" />
+      <input
+        type="text"
+        name="reepayHandlePeriamma"
+        onChange={handleSponsorFormChange}
+      />
 
       <label htmlFor="foreningLetId">ForeningLetId</label>
-      <input type="text" name="foreningLetId" />
+      <input
+        type="text"
+        name="foreningLetId"
+        onChange={handleSponsorFormChange}
+      />
 
       <label htmlFor="reepayHandleDonations">Reepay Handle - Donations</label>
-      <input type="text" name="reepayHandleDonations" />
+      <input
+        type="text"
+        name="reepayHandleDonations"
+        onChange={handleSponsorFormChange}
+      />
 
       <label htmlFor="paymentPlatform">Payment Platform (Optional)</label>
-      <input type="text" name="paymentPlatform" />
+      <input
+        type="text"
+        name="paymentPlatform"
+        onChange={handleSponsorFormChange}
+      />
 
       <label htmlFor="active">Active</label>
-      <input type="checkbox" name="active" />
+      <input type="checkbox" name="active" onChange={handleSponsorFormChange} />
 
       <button>Add Sponsor</button>
     </form>
   );
 
-  const AddSponsorPayment = (
+  const AddSponsorContainer = (
     <div className="addSponsorContainer">
       <h1>Add Sponsor</h1>
-      <div className="addSponsorPayment">{AddSponsorForm}</div>
+      {AddSponsorForm}
     </div>
   );
 
-  return AddSponsorPayment;
+  return AddSponsorContainer;
 };
 
 export default AddSponsor;
