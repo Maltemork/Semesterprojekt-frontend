@@ -19,6 +19,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-decoration: none;
+  height: 51px;
 }
 
 .SidebarList .row {
@@ -38,8 +39,6 @@
 }
 
 .SidebarList .row-title {
-  margin-top: auto;
-  margin-bottom: auto;
   font-weight: bold;
   color: black;
 }
