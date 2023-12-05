@@ -5,7 +5,7 @@ import "../styling/Header.css";
 
 function Header() {
     return (
-        <div className="Header" key="header" onClick={() => window.location.href = "./sponsors"}>
+        <div className="Header" key="header" onClick={() => window.location.href = "../sponsors"}>
            <img src={logo} alt="logo-200px" key="HeaderLogo"/>
         </div>
     )
