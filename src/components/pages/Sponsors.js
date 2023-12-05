@@ -30,10 +30,23 @@ const Sponsors = () => {
             <th>Active</th>
           </tr>
         </thead>
+        <tbody>
+          {Sponsors.map((sponsor) =>
+            <tr key={sponsor.id}>
+              <td>{sponsor.Sub}</td>
+              <td>{sponsor.id}</td>
+              <td>{sponsor.name}</td>
+              <td>{sponsor.Email}</td>
+              <td>{sponsor.Periamma}</td>
+              <td>{sponsor.Donations}</td>
+              <td>{sponsor.Active}</td>
+            </tr>
+          )}
+        </tbody>
       </table>
     
-      </div>
-  )
+    </div>
+  );
  
 };
 export default Sponsors;
