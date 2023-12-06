@@ -44,12 +44,12 @@ const AddPayment = () => {
       <label htmlFor="currency">Currency</label>
       <input type="text" name="currency" onChange={handlePaymentFormChange} />
 
-      <label htmlFor="invoiceHandle">Invoice Handle</label>
+      {/* <label htmlFor="invoiceHandle">Invoice Handle</label>
       <input
         type="text"
         name="invoiceHandle"
         onChange={handlePaymentFormChange}
-      />
+      /> */}
 
       <label htmlFor="customerHandle">Customer Handle</label>
       <input
