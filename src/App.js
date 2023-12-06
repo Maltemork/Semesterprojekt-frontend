@@ -5,6 +5,9 @@ import { getData } from "./crud/getData.js";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppRoutes from "./components/Routes";
+import sponsorDetails from "./components/pages/sponsorDetails.js";
+
+
 
 // Import of page compononents
 import Sidebar from "./components/Sidebar";
@@ -19,7 +22,11 @@ async function initFunction() {
   sponsorsArray = await getData("sponsors");
   console.log(sponsorsArray);
 }
-
+<Route
+  path=":id"
+  element={<sponsorDetails />}
+  
+  />
 // Main app function
 function App() {
   return (
