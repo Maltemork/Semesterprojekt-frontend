@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../../styling/AddChild.css";
-import HandleChildFormData from "../crud/AddChildSubmit";
+import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddChild = () => {
   const [childFormData, setChildFormData] = useState({
@@ -22,7 +22,7 @@ const AddChild = () => {
 
   const handleChildFormSubmit = (event) => {
     event.preventDefault();
-    HandleChildFormData(childFormData);
+    HandleAddSubmit(childFormData, "children");
   };
 
   const AddChildForm = (

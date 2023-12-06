@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../styling/AddPayment.css";
-import HandlePaymentFormData from "../crud/AddPaymentSubmit";
+import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddPayment = () => {
   const [paymentFormData, setPaymentFormData] = useState({
@@ -22,7 +22,7 @@ const AddPayment = () => {
 
   const handlePaymentFormSubmit = (event) => {
     event.preventDefault();
-    HandlePaymentFormData(paymentFormData);
+    HandleAddSubmit(paymentFormData, "payments");
   };
 
   const AddPaymentForm = (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../../styling/AddSponsor.css";
-import HandleSponsorFormData from "../crud/AddSponsorSubmit";
+import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddSponsor = () => {
   const [sponsorFormData, setSponsorFormData] = useState({
@@ -27,7 +27,7 @@ const AddSponsor = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    HandleSponsorFormData(sponsorFormData);
+    HandleAddSubmit(sponsorFormData, "sponsors");
   };
 
   const AddSponsorForm = (
