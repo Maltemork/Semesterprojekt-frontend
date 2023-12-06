@@ -54,7 +54,7 @@ const ChildrensPage =
       },
       {
         id: 6,
-        KEY: "age",
+        KEY: "birthdate",
         LABEL: "Age"
       },
       {
