@@ -38,13 +38,13 @@ const AddChild = () => {
       <input type="text" name="gender" onChange={handleChildFormChange} />
 
       <label htmlFor="birthdate">Birthdate</label>
-      <input type="text" name="birthdate" onChange={handleChildFormChange} />
+      <input type="date" name="birthdate" onChange={handleChildFormChange} />
 
       <label htmlFor="school">School</label>
       <input type="text" name="school" onChange={handleChildFormChange} />
 
       <label htmlFor="schoolStart">School Start</label>
-      <input type="text" name="schoolStart" onChange={handleChildFormChange} />
+      <input type="date" name="schoolStart" onChange={handleChildFormChange} />
 
       <label htmlFor="schoolClass">Class</label>
       <input type="text" name="schoolClass" onChange={handleChildFormChange} />

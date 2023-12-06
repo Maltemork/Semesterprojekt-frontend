@@ -36,7 +36,7 @@ const AddPayment = () => {
 
       <label htmlFor="invoiceCreated">Invoice Created</label>
       <input
-        type="text"
+        type="date"
         name="invoiceCreated"
         onChange={handlePaymentFormChange}
       />
