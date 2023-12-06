@@ -149,7 +149,9 @@ const SponsorsPage =
                       </tr>
                     </thead>
                     <tbody id="table-body">
-                      { getSortedArray(sponsorsArray).filter(searchInput).map(SponsorRenderer.render) }
+                      { getSortedArray(sponsorsArray).filter(searchInput).map(sponsor => (
+                      <SponsorRenderer key={sponsor.id} sponsor={sponsor}/>
+                    )) }
                     </tbody>
                   </table>
                 </div>

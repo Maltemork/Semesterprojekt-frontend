@@ -2,7 +2,7 @@
 import React from 'react';
 import { getData } from "../crud/getData";
 // Specific
-import { ChildRenderer } from "../Renderers/childRenderer.js";
+import ChildRenderer from "../Renderers/childRenderer.js";
 import * as child from "../Renderers/childObject";
 // Styling & CSS
 import PublicIcon from "@mui/icons-material/Public";
@@ -148,7 +148,9 @@ const ChildrensPage =
                     </tr>
                   </thead>
                   <tbody id="table-body">
-                    { getSortedArray(childrensArray).filter(searchInput).map(ChildRenderer.render) }
+                    { getSortedArray(childrensArray).filter(searchInput).map(child => (
+                      <ChildRenderer key={child.childNo} child={child}/>
+                    )) }
                   </tbody>
                 </table>
               </div>

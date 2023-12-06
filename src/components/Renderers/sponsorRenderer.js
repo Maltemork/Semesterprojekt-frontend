@@ -1,11 +1,14 @@
-export const SponsorRenderer = {
-    HandleItemClick(location) {
-        window.location.href = `./sponsors/${location}`;
-      },
+import { useNavigate } from "react-router-dom";
 
-    render(sponsor) {
-        const sponsorHTML =
-            <tr key={sponsor.id} className="table-item" onClick={() => window.location.href = `./sponsors/${sponsor.customerId}`}>
+export const SponsorRenderer = ( {sponsor} ) => {
+    const navigate = useNavigate();
+
+    const handleRowClick = () => {
+        navigate(`./${sponsor.customerId}`);
+    };
+
+    return (
+            <tr key={sponsor.id} className="table-item" onClick={handleRowClick}>
                 <td>{sponsor.customerId}</td>
                 <td>{sponsor.subitems}</td>
                 <td>{sponsor.name}</td>
@@ -15,8 +18,7 @@ export const SponsorRenderer = {
                 <td>{sponsor.reepayHandleDonations}</td>
                 <td>{sponsor.reepayHandlePeriamma}</td>
                 <td>{sponsor.foreningLetID}</td>
-                <td style={sponsor.active ? {'color': 'green'} : {'color': 'red'}}>{sponsor.active ? "✓" : "✕"}</td>
-            </tr>;
-        return sponsorHTML;
+                <td style={sponsor.active ? { 'color': 'green' } : { 'color': 'red' }}>{sponsor.active ? "✓" : "✕"}</td>
+            </tr>
+       )
     }
-}

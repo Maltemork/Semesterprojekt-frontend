@@ -2,7 +2,7 @@
 import React from 'react';
 import { getData } from "../crud/getData";
 // Specific
-import { PaymentRenderer } from "../Renderers/paymentRenderer.js";
+import PaymentRenderer from "../Renderers/paymentRenderer.js";
 import * as payment from "../Renderers/paymentObject";
 // Styling & CSS
 import PaymentIcon from "@mui/icons-material/Payment";
@@ -134,7 +134,9 @@ const PaymentsPage =
                     </tr>
                   </thead>
                   <tbody id="table-body">
-                    { getSortedArray(paymentsArray).filter(searchInput).map(PaymentRenderer.render) }
+                    { getSortedArray(paymentsArray).filter(searchInput).map(payment => (
+                      <PaymentRenderer key={payment.id} payment={payment}/>
+                    )) }
                   </tbody>
                 </table>
               </div>
