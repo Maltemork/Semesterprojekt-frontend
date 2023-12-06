@@ -23,7 +23,7 @@ export function ConstructPaymentObject(paymentdata) {
         periodTo: paymentdata.invoicePeriodTo,
         refundedAmount: paymentdata.invoiceRefundedAmount,
         state: paymentdata.invoiceState,
-        customerEmail: paymentdata.SponsorssponsorEmail,
+        customerEmail: paymentdata.SponsorssponsorEmail
     }
 
     Object.defineProperty(SponsorObject, "id", {
