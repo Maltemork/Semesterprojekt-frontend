@@ -3,12 +3,17 @@
     max-width: 100%;
 }
 
+.detail-card h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .detail-view-title {
     text-align: left;
     margin-left: 20px;
 }
 
-.sponsor-card {
+.detail-card {
     background-color: rgb(206, 206, 206);
     border-radius: 10px;
     border: 1px solid rgb(228, 228, 228);
@@ -16,15 +21,16 @@
     padding: 20px;
 }
 
-.sponsor-card :first-child {
+.detail-card :first-child {
     color: #d14063;
     height: 200px;
     width: 200px;
     position: absolute;
 }
 
-.sponsor-card :nth-child(2), .sponsor-card :nth-child(3), .sponsor-card :nth-child(4), .sponsor-card :nth-child(5) {
-    padding-left: 300px;
+.detail-card :nth-child(2), .detail-card :nth-child(3), .detail-card :nth-child(4), .detail-card :nth-child(5), .detail-card :nth-child(6) {
+    margin-left: 300px;
+    padding-left: 5px;
 }
 
 .detail-buttons {

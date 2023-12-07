@@ -11,8 +11,8 @@ const ChildRenderer = ({ child }) => {
     return (
         <tr key={child.childNo} className="table-item" onClick={handleRowClick}>
             <td>{child.childNo}</td>
-            <td>{child.subitems}</td>
             <td>{child.name}</td>
+            <td>{child.subitems}</td>
             <td>{child.sponsor}</td>
             <td>{child.gender}</td>
             <td>{child.getAge()}</td>
