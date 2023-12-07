@@ -8,35 +8,54 @@ import Search from "../components/pages/Search";
 import AddSponsor from "./pages/AddSponsor";
 import AddChild from "./pages/AddChild";
 import AddPayment from "./pages/AddPayment";
+import SponsorDetails from "./pages/SponsorDetails";
+import ChildDetails from "./pages/ChildDetails";
+import PaymentDetails from "./pages/PaymentDetails";
 
 const AppRoutes = [
+  // Primary pages.
   {
     path: "/sponsors",
     Element: Sponsors,
   },
   {
     path: "/children",
-    Element: Children,
+    Element: Children
   },
   {
     path: "/payments",
-    Element: Payments,
+    Element: Payments
   },
   {
     path: "/add",
-    Element: Add,
+    Element: Add
   },
+
+  // Misc
   {
     path: "/saved",
-    Element: Saved,
+    Element: Saved
   },
   {
     path: "/search",
-    Element: Search,
+    Element: Search
   },
   {
     path: "/",
-    Element: Redirect,
+    Element: Redirect
+  },
+  // Detail routes
+  {
+    path: "/sponsors/:id",
+    Element: SponsorDetails
+  },
+  {
+    path: "/children/:id",
+    Element: ChildDetails
+  },
+  {
+    path: "/payments/:id",
+    Element: PaymentDetails
   },
 ];
 

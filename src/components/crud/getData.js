@@ -11,13 +11,13 @@ async function getData(type) {
     return dataArray;
 }
 
-async function getSponsor(sponsorID) {
-    const response = await fetch(`${endpoint}/sponsors/${sponsorID}`);
+async function getObject(table, objectId) {
+    const response = await fetch(`${endpoint}/${table}/${objectId}`);
     const data = await response.json();
     return data;
 }
 
 export {
     getData,
-    getSponsor
+    getObject
 };
