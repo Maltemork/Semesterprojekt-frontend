@@ -5,6 +5,9 @@ import Payments from "../components/pages/Payments";
 import Add from "../components/pages/Add";
 import Saved from "../components/pages/Saved";
 import Search from "../components/pages/Search";
+import AddSponsor from "./pages/AddSponsor";
+import AddChild from "./pages/AddChild";
+import AddPayment from "./pages/AddPayment";
 
 const AppRoutes = [
   {
@@ -33,8 +36,23 @@ const AppRoutes = [
   },
   {
     path: "/",
-    Element: Redirect
+    Element: Redirect,
   },
 ];
 
-export default AppRoutes;
+const AddSectionRoutes = [
+  {
+    path: "/add/sponsor",
+    Element: AddSponsor,
+  },
+  {
+    path: "/add/child",
+    Element: AddChild,
+  },
+  {
+    path: "/add/payment",
+    Element: AddPayment,
+  },
+];
+
+export { AppRoutes, AddSectionRoutes };
