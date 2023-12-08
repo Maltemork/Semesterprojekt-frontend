@@ -25,13 +25,13 @@ const AddSponsor = () => {
     }));
   };
 
-  const handleFormSubmit = (event) => {
+  const handleSponsorAddFormSubmit = (event) => {
     event.preventDefault();
     HandleAddSubmit(sponsorFormData, "sponsors");
   };
 
   const AddSponsorForm = (
-    <form className="addSponsorForm" onSubmit={handleFormSubmit}>
+    <form className="addSponsorForm" onSubmit={handleSponsorAddFormSubmit}>
       <label htmlFor="fullName">Fulde Navn</label>
       <input
         type="text"

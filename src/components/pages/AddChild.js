@@ -20,13 +20,13 @@ const AddChild = () => {
     }));
   };
 
-  const handleChildFormSubmit = (event) => {
+  const handleChildAddFormSubmit = (event) => {
     event.preventDefault();
     HandleAddSubmit(childFormData, "children");
   };
 
   const AddChildForm = (
-    <form className="AddChildForm" onSubmit={handleChildFormSubmit}>
+    <form className="AddChildForm" onSubmit={handleChildAddFormSubmit}>
       <label htmlFor="childFullName">Full Name</label>
       <input
         type="text"
