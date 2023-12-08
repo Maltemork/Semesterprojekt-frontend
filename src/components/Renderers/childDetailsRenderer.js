@@ -51,7 +51,6 @@ const ChildDetailsRenderer = ({ childObject }) => {
 
                     <label htmlFor="birthdate">Birthdate: </label>
                     <p>{new Date(childObject.birthdate).toLocaleDateString("en-DE")}</p>
-
                     
                     <label htmlFor="school">School:</label>
                     <p>{ childObject.school }</p>
