@@ -21,26 +21,66 @@ const ChildDetailsRenderer = ({ childObject }) => {
 
     return (
         <div className="detail-view-sponsor">
-            <h1 className="detail-view-title">Child no.: { childObject.childNo }</h1>
             <div className="detail-card">
-                <PublicIcon />
-                <h2>Full name: { childObject.name }</h2>
-                <h2>School: { childObject.school }</h2>
-                <h2>Age: { childObject && childObject.getAge ? childObject.getAge() : "Unable to compute" }</h2>
-                <h2>Gender: { childObject.gender === "F" ? "Female" : "Male" }</h2>
-                <h2>Country: { childObject.subitems}</h2>
-                <p>Birthdate: {new Date(childObject.birthdate).toLocaleDateString("en-DE")}</p>
-                <p>Type: { childObject.type }</p>
-                <p>School start: { new Date(childObject.schoolStart).toLocaleDateString("en-DE") }</p>
-                <p>Sponsor: { childObject.sponsor ? childObject.sponsor : "None"}</p>
-                <p>Notes: { childObject.notes }</p>
+                <PublicIcon id="icon"/>
+                <div className="detail-text-container">
+                    <h2 className="detail-view-title">{ childObject.name } | No. {childObject.childNo}</h2>
+
+                    <label htmlFor="name">Full name:</label>
+                    <p name="name">{ childObject.name }</p>
+
+                    <label htmlFor="sponsor">Sponsor:</label>
+                    <p name="sponsor">{ childObject.sponsor ? childObject.sponsor : "None"}</p>
+
+                    <label htmlFor="sponsor1">Previous sponsor:</label>
+                    <p name="sponsor">{ childObject.previousSponsor ? childObject.previousSponsor : "None"}</p>
+
+                    <label htmlFor="sponsor2">Additional sponsors:</label>
+                    <p name="sponsor">{ childObject.additionalSponsor ? childObject.additionalSponsor : "None"}</p>
+
+                    <hr></hr>
+
+                    <label htmlFor="gender">Gender</label>
+                    <p>{ childObject.gender === "F" ? "Female" : "Male" }</p>
+
+                    <label htmlFor="country">Country:</label>
+                    <p name="country">{ childObject.subitems}</p>
+
+                    <label htmlFor="age">Age:</label>
+                    <p>{ childObject && childObject.getAge ? childObject.getAge() : "Unable to compute" }</p>
+
+                    <label htmlFor="birthdate">Birthdate: </label>
+                    <p>{new Date(childObject.birthdate).toLocaleDateString("en-DE")}</p>
+
+                    
+                    <label htmlFor="school">School:</label>
+                    <p>{ childObject.school }</p>
+                    
+                    <label htmlFor="schooltype">School type: </label>
+                    <p name="schooltype">{ childObject.type }</p>
+
+                    <label htmlFor="schoolstart">School start: </label>
+                    <p name="schoolstart">{ new Date(childObject.schoolStart).toLocaleDateString("en-DE") }</p>  
+
+                    <label htmlFor="class">Class:</label>
+                    <p name="class">{childObject.class}</p>               
+
+
+                    <hr></hr>
+                    <label htmlFor="notes">Notes:</label>
+                    <p></p>
+                    <p name="notes" className="detail-notes"> {childObject.notes ? childObject.notes : "No notes yet."}</p>
+                    </div>
+                <div>
+                </div>
+                <Stack direction="row" spacing={2} className="detail-buttons">
+                    <Button variant="contained" onClick={handleEditButton}>Edit</Button>
+                    <Button variant="contained" onClick={handleDeleteButton}>
+                        Delete
+                    </Button>
+                </Stack>  
             </div>
-            <Stack direction="row" spacing={2} className="detail-buttons">
-                <Button variant="contained" onClick={handleEditButton}>Edit</Button>
-                <Button variant="contained" onClick={handleDeleteButton}>
-                    Delete
-                </Button>
-            </Stack>
+            
         </div>
     );
 };

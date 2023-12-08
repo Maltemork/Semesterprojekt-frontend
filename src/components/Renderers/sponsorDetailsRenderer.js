@@ -21,28 +21,68 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
 
     return (
         <div className="detail-view-sponsor">
-            <h1 className="detail-view-title">Customer ID: { sponsorObject.customerId }</h1>
             <div className="detail-card">
-                <GroupIcon />
-                <h2>Name: { sponsorObject.name }</h2>
-                <h2>Sub item: { sponsorObject.subitems }</h2>
-                <h2>E-mail: { sponsorObject.email }</h2>
-                <h2>Phone: { sponsorObject.phone }</h2>
-                <h2 style={sponsorObject.active ? {'color': "green"} : {'color': "red"}}>{ sponsorObject.active ? "Active" : "Inactive"}</h2>
-                <p>Payment platform: { sponsorObject.paymentPlatform ? sponsorObject.paymentPlatform : "None"}</p>
-                <p>Reepay handle (donations): { sponsorObject.reepayHandleDonations }</p>
-                <p>Reepay handle (periamma): { sponsorObject.reepayHandlePeriamma }</p>
-                <p>ForeningLetID: { sponsorObject.foreningLetId ? sponsorObject.foreningLetId : "None"}</p>
-                <p>Type: { sponsorObject.type }</p>
-                <p>CPR / CVR: { sponsorObject.cprCvr }</p>
-                <p>Notes: { sponsorObject.notes }</p>
+                <GroupIcon id="icon"/>
+                <div className="detail-text-container">
+                    <h2 className="detail-view-title">{ sponsorObject.name } | {sponsorObject.customerId}</h2>
+
+                    <label htmlFor="customer">Customer: </label>
+                    <p name="customer">{ sponsorObject.name }</p>
+
+                    <label htmlFor="subitems">Subscription:</label>
+                    <p name="subitems"> { sponsorObject.subitems }</p>
+
+                    <label htmlFor="email">E-mail address:</label>
+                    <p name="email">{ sponsorObject.email }</p>
+
+                    <label htmlFor="phone">Phone nr.:</label>
+                    <p name="phone">{ sponsorObject.phone ? sponsorObject.phone : "None" }</p>
+
+                    <label htmlFor="active"></label>
+                    <p name="active" style={sponsorObject.active ? {'color': "green"} : {'color': "red"}}>{ sponsorObject.active ? "Active" : "Inactive"}</p>
+
+                    <hr />
+                    
+                    <label htmlFor="payment-platform">Payment platform: </label>
+                    <p name="payment-platform">{ sponsorObject.paymentPlatform ? sponsorObject.paymentPlatform : "None"}</p>
+
+                    <label htmlFor="donations-handle">Reepay handle (donations):</label>
+                    <p name="donations-handle"> { sponsorObject.reepayHandleDonations ?  sponsorObject.reepayHandleDonations : "None"}</p>
+
+                    <label htmlFor="periamma-handle">Reepay handle (periamma): </label>
+                    <p name="periamma-handle">{ sponsorObject.reepayHandlePeriamma ? sponsorObject.reepayHandlePeriamma : "None"}</p>
+
+                    <label htmlFor="foreningLetId">ForeningLetID: </label>
+                    <p name="foreningLetId">{ sponsorObject.foreningLetId ? sponsorObject.foreningLetId : "None"}</p>
+
+                    
+
+                    <label htmlFor="type">Type:</label>
+                    <p name="type">{ sponsorObject.type }</p>
+
+                    <label htmlFor="cpr">CPR / CVR: </label>
+                    <p name="cpr">{ sponsorObject.cprCvr }</p>
+
+                    <hr />
+                    <label htmlFor="notes">Notes:</label>
+                    <p></p>
+                    <p name="notes" className="detail-notes">{ sponsorObject.notes ? sponsorObject.notes : "No notes"}</p>
+                    <hr />
+
+
+                    <label htmlFor="payments">Payments:</label>
+                    <p name="payments">{sponsorObject.payments}</p>
+                </div>
+                <div>
+                </div>
+                <Stack direction="row" spacing={2} className="detail-buttons">
+                    <Button variant="contained" onClick={handleEditButton}>Edit</Button>
+                    <Button variant="contained" onClick={handleDeleteButton}>
+                        Delete
+                    </Button>
+                </Stack>
             </div>
-            <Stack direction="row" spacing={2} className="detail-buttons">
-                <Button variant="contained" onClick={handleEditButton}>Edit</Button>
-                <Button variant="contained" onClick={handleDeleteButton}>
-                    Delete
-                </Button>
-            </Stack>
+            
         </div>
     );
 };

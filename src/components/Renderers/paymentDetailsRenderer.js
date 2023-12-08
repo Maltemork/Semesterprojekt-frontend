@@ -22,11 +22,14 @@ const SponsorDetailsRenderer = ({ sponsorObject: paymentObject }) => {
             <h1 className="detail-view-title">Invoice ID: { paymentObject.id }</h1>
             <div className="detail-card">
                 <GroupIcon />
-                <h2>Customer: { paymentObject.customer }</h2>
+                <label for="customer">Customer:</label>
+                <h2 name="customer">Customer: { paymentObject.customer }</h2>
                 <h2>Subscription: { paymentObject.subscription }</h2>
                 <h2>Amount: { paymentObject.amount }</h2>
                 <h2>Plan: { paymentObject.planHandle }</h2>
                 <h2>Created: { new Date(paymentObject.created).toString() }</h2>
+            </div>
+            <div>
             </div>
             <Stack direction="row" spacing={2} className="detail-buttons">
                 <Button variant="contained" onClick={handleEditButton}>Edit</Button>

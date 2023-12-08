@@ -4,6 +4,8 @@ export function ConstructChildObject(childdata) {
         childNo: childdata.childNo,
         subitems: childdata.subitems,
         sponsor: childdata.sponsor,
+        perviousSponsor: childdata.sponsoredBy,
+        additionalSponsor: childdata.secondSponsor,
         name: childdata.fullname,
         gender: childdata.gender,
         birthdate: childdata.birthdate,
