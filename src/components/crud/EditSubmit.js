@@ -1,4 +1,4 @@
-const HandleEditSubmit = (data, table, id) => {
+const HandleEditSubmit = async (data, table, id) => {
   console.log(`${table} Form Input Data:`, data);
 
   fetch(

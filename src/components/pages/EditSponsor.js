@@ -1,8 +1,7 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import HandleEditSubmit from "../crud/EditSubmit";
 import { useEffect, useState } from "react";
 import { getObject } from "../crud/getData";
-import { ConstructSponsorObject } from "../Renderers/sponsorObject";
 import "../../styling/EditSponsor.css";
 
 const EditSponsor = () => {
@@ -10,16 +9,14 @@ const EditSponsor = () => {
   console.log("Editing: " + id);
 
   const [sponsorFormData, setSponsorFormData] = useState({});
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSponsor = async () => {
       try {
-        const res = await getObject("sponsors", id);
-        const sponsorData = ConstructSponsorObject(res[0]);
-
-        setSponsorFormData(sponsorData);
-        console.log(sponsorData);
+        const sponsorData = await getObject("sponsors", id);
+        setSponsorFormData(sponsorData[0]);
+        console.log("Sponsor Data: ", sponsorData[0]);
       } catch (error) {
         console.error("Couldn't fetch sponsor data for: " + id, error);
       }
@@ -38,81 +35,90 @@ const EditSponsor = () => {
 
   const handleSponsorEditFormSubmit = (event) => {
     event.preventDefault();
-    setSponsorFormData(sponsorFormData);
-    HandleEditSubmit(sponsorFormData, "sponsors");
-    navigate("/sponsors");
+    HandleEditSubmit(sponsorFormData, "sponsors", id);
+    // navigate("/sponsors");
   };
 
   const EditSponsorForm = (
     <form className="editSponsorForm" onSubmit={handleSponsorEditFormSubmit}>
-      <label htmlFor="fullName">Fulde Navn</label>
+      <label htmlFor="sponsorName">Fulde Navn</label>
       <input
         type="text"
-        name="sponsorFullName"
-        defaultValue={sponsorFormData.name || ""}
+        name="sponsorName"
+        value={sponsorFormData.sponsorName || ""}
+        onChange={handleSponsorFormChange}
       />
 
-      <label htmlFor="email">E-mail</label>
+      <label htmlFor="sponsorEmail">E-mail</label>
       <input
         type="text"
-        name="email"
-        defaultValue={sponsorFormData.email || ""}
+        name="sponsorEmail"
+        value={sponsorFormData.sponsorEmail || ""}
+        onChange={handleSponsorFormChange}
       />
 
-      <label htmlFor="businessPrivate">Privat / Erhverv</label>
+      <label htmlFor="privatErhverv">Privat / Erhverv</label>
       <input
         type="text"
-        name="businessPrivate"
-        defaultValue={sponsorFormData.type || ""}
+        name="privatErhverv"
+        value={sponsorFormData.privatErhverv || ""}
+        onChange={handleSponsorFormChange}
       />
 
       <label htmlFor="cprCvr"> CPR / CVR</label>
       <input
         type="text"
         name="cprCvr"
-        defaultValue={sponsorFormData.cprCvr || ""}
+        value={sponsorFormData.cprCvr || ""}
+        onChange={handleSponsorFormChange}
       />
 
       <label htmlFor="sponsorPhone">Sponsor Telefon</label>
       <input
         type="text"
         name="sponsorPhone"
-        defaultValue={sponsorFormData.phone || ""}
+        value={sponsorFormData.sponsorPhone || ""}
+        onChange={handleSponsorFormChange}
       />
 
       <label htmlFor="notes">Noter</label>
       <input
         type="text"
         name="notes"
-        defaultValue={sponsorFormData.notes || ""}
+        value={sponsorFormData.notes || ""}
+        onChange={handleSponsorFormChange}
       />
 
       <label htmlFor="reepayHandlePeriamma">Reepay Handle - Periamma</label>
       <input
         type="text"
         name="reepayHandlePeriamma"
-        defaultValue={sponsorFormData.reepayHandlePeriamma || ""}
+        value={sponsorFormData.reepayHandlePeriamma || ""}
+        onChange={handleSponsorFormChange}
       />
 
       <label htmlFor="foreningLetId">ForeningLetId</label>
       <input
         type="text"
         name="foreningLetId"
-        defaultValue={sponsorFormData.foreningLetId || ""}
+        value={sponsorFormData.foreningLetId || ""}
+        onChange={handleSponsorFormChange}
       />
 
       <label htmlFor="reepayHandleDonations">Reepay Handle - Donations</label>
       <input
         type="text"
         name="reepayHandleDonations"
-        defaultValue={sponsorFormData.reepayHandleDonations || ""}
+        value={sponsorFormData.reepayHandleDonations || ""}
+        onChange={handleSponsorFormChange}
       />
 
       <label htmlFor="paymentPlatform">Payment Platform (Optional)</label>
       <input
         type="text"
         name="paymentPlatform"
-        defaultValue={sponsorFormData.paymentPlatform || ""}
+        value={sponsorFormData.paymentPlatform || ""}
+        onChange={handleSponsorFormChange}
       />
 
       <label htmlFor="active">Active</label>
@@ -120,7 +126,7 @@ const EditSponsor = () => {
         type="checkbox"
         name="active"
         checked={sponsorFormData.active || false}
-        onChange={handleSponsorFormChange} //Tilføj dette til alle inputs (dog reloader siden for hvert indtastet karakter)
+        onChange={handleSponsorFormChange}
       />
 
       <button>Submit Changes</button>
