@@ -23,7 +23,23 @@ export default function SponsorDetails() {
 export const careerDetailsLoader = async ({ params }) => {
     const { id } = params
 
-    const res = await fetch("http://localhost:3000/sponsors" + id);
+    try {
+        const res = await fetch("http://localhost:3000/sponsors" + id);
 
-    return res.json()
+        if (!res.ok) {
+            throw new Error('failed to fetch detiails');
+        }
+
+        const sponsorData = await res.json();
+        return sponsorData;
+    } catch (error) {
+        console.error(error);
+    }
+    return {
+        title: 'sponsor Not found',
+        name: 'try again',
+        email: 'try again',
+        state: 'try again',
+        active: 'try again',
+    }
 }
