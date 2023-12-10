@@ -1,0 +1,47 @@
+.addButtons {
+    display: flex;
+    justify-content: center;
+    margin: 0px auto 0px auto;
+    padding: 10px;
+    gap: 50px;
+}
+
+.add-button:hover {
+    cursor: pointer;
+    background-color: #d14063;
+    color: white;
+    border-color: white;
+    border: 0px solid rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 50px rgba(255, 0, 0, 0.336)
+}
+
+.add-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    width: 250px;
+    height: 120px;
+    padding: 10px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.add-title {
+    font-style: normal;
+    text-decoration-line: none;
+}
+
+.add-button * {
+    margin: auto;
+}
+
+.add-title {
+    font-size: 20px;
+}
+
+#add-button-icon {
+    scale: 4;
+    font-size: 20px;
+}

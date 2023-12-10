@@ -26,30 +26,43 @@ const AddChild = () => {
   };
 
   const AddChildForm = (
-    <form className="AddChildForm" onSubmit={handleChildFormSubmit}>
+    <form className="addChildForm" onSubmit={handleChildFormSubmit}>
       <label htmlFor="childFullName">Full Name</label>
       <input
         type="text"
         name="childFullName"
         onChange={handleChildFormChange}
+        placeholder="Full name"
+        required
       />
 
       <label htmlFor="gender">Gender</label>
-      <input type="text" name="gender" onChange={handleChildFormChange} />
+      <select name="gender" onChange={handleChildFormChange} placeholder="Gender" required>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
 
       <label htmlFor="birthdate">Birthdate</label>
-      <input type="date" name="birthdate" onChange={handleChildFormChange} />
+      <input type="date" name="birthdate" onChange={handleChildFormChange} required />
 
       <label htmlFor="school">School</label>
-      <input type="text" name="school" onChange={handleChildFormChange} />
+      <input type="text" name="school" onChange={handleChildFormChange} placeholder="School name" required/>
 
       <label htmlFor="schoolStart">School Start</label>
-      <input type="date" name="schoolStart" onChange={handleChildFormChange} />
+      <input type="date" name="schoolStart" onChange={handleChildFormChange} required/>
 
       <label htmlFor="schoolClass">Class</label>
-      <input type="text" name="schoolClass" onChange={handleChildFormChange} />
+      <select name="schoolClass" onChange={handleChildFormChange} placeholder="Class" required>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+      </select>
 
-      <button>Add child</button>
+      <button className="add-child-button">Add child</button>
     </form>
   );
 
