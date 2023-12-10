@@ -84,7 +84,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                 </div>
                 <Stack direction="row" spacing={2} className="detail-buttons">
                     <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
-                    <Button variant="contained" onClick={handleDeleteButton} style={{'background-color': 'red'}}><DeleteForeverIcon /></Button>
+                    <Button variant="contained" onClick={handleDeleteButton} style={{'backgroundColor': 'red'}}><DeleteForeverIcon /></Button>
                 </Stack>
             </div>
             
