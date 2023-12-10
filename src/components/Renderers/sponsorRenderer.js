@@ -10,10 +10,10 @@ export const SponsorRenderer = ( {sponsor} ) => {
     return (
             <tr key={sponsor.id} className="table-item" onClick={handleRowClick}>
                 <td>{sponsor.customerId}</td>
-                <td>{sponsor.subitems}</td>
                 <td>{sponsor.name}</td>
+                <td>{sponsor.subitems}</td>
                 <td>{sponsor.email}</td>
-                <td>+{sponsor.phone}</td>
+                <td>{sponsor.phone}</td>
                 <td>{sponsor.type}</td>
                 <td>{sponsor.reepayHandleDonations}</td>
                 <td>{sponsor.reepayHandlePeriamma}</td>

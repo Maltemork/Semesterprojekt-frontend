@@ -24,7 +24,7 @@ async function buildPaymentsList() {
 const PaymentsPage = 
   () => {
     const [search, setSearch] = React.useState('');
-    const [sort, setSort] = React.useState({ keyToSort: "ID", direction: "asc"});
+    const [sort, setSort] = React.useState({ keyToSort: "created", direction: "desc"});
 
     const headers = [
       {
@@ -45,7 +45,7 @@ const PaymentsPage =
       {
         id: 4,
         KEY: "currency",
-        LABEL: "Sponsor"
+        LABEL: "Currency"
       },
       {
         id: 5,
@@ -70,7 +70,7 @@ const PaymentsPage =
       {
         id: 9,
         KEY: "created",
-        LABEL: "Date"
+        LABEL: "Time"
       }
     ];
 

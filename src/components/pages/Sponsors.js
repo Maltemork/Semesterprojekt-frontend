@@ -34,15 +34,16 @@ const SponsorsPage =
         KEY: "customerId",
         LABEL: "ID"
       },
+      
       {
         id: 2,
-        KEY: "subitems",
-        LABEL: "Subitems"
+        KEY: "name",
+        LABEL: "Name"
       },
       {
         id: 3,
-        KEY: "name",
-        LABEL: "Name"
+        KEY: "subitems",
+        LABEL: "Subitems"
       },
       {
         id: 4,
