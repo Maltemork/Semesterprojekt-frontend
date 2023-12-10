@@ -54,8 +54,8 @@ function Sidebar() {
   });
 
   return (
-    <div className="Sidebar" style={{ width: isOpen ? "200px" : "75px" }}>
-      <div className="MenuIcon" onClick={toggle}>
+    <div className="Sidebar" style={{ width: isOpen ? "200px" : "75px" } } onMouseEnter={toggle} onMouseLeave={toggle}>
+      <div className="MenuIcon">
         <MenuIcon />
       </div>
       <ul className="SidebarList">{sidebarList}</ul>

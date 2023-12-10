@@ -32,68 +32,83 @@ const AddSponsor = () => {
 
   const AddSponsorForm = (
     <form className="addSponsorForm" onSubmit={handleFormSubmit}>
-      <label htmlFor="fullName">Fulde Navn</label>
-      <input
-        type="text"
-        name="sponsorFullName"
-        onChange={handleSponsorFormChange}
-      />
+      <div className="form-holder">
+        <label htmlFor="fullName">Full Name</label>
+        <input
+          type="text"
+          name="sponsorFullName"
+          onChange={handleSponsorFormChange}
+          placeholder="Full name"
+          required
+        />
 
-      <label htmlFor="email">E-mail</label>
-      <input type="text" name="email" onChange={handleSponsorFormChange} />
+        <label htmlFor="email">E-mail</label>
+        <input type="text" name="email" onChange={handleSponsorFormChange} placeholder="E-mail" required/>
 
-      <label htmlFor="businessPrivate">Privat / Erhverv</label>
-      <input
-        type="text"
-        name="businessPrivate"
-        onChange={handleSponsorFormChange}
-      />
+        <label htmlFor="businessPrivate">Privat / Erhverv</label>
+        <input
+          type="text"
+          name="businessPrivate"
+          onChange={handleSponsorFormChange}
+          placeholder="Privat/Erhverv"
+        />
 
-      <label htmlFor="cprCvr"> CPR / CVR</label>
-      <input type="text" name="cprCvr" onChange={handleSponsorFormChange} />
+        <label htmlFor="cprCvr"> CPR / CVR</label>
+        <input type="text" name="cprCvr" onChange={handleSponsorFormChange} placeholder="CPR / CVR" required/>
 
-      <label htmlFor="sponsorPhone">Sponsor Telefon</label>
-      <input
-        type="text"
-        name="sponsorPhone"
-        onChange={handleSponsorFormChange}
-      />
+        <label htmlFor="sponsorPhone">Phone nr.</label>
+        <input
+          type="text"
+          name="sponsorPhone"
+          onChange={handleSponsorFormChange}
+          placeholder="Sponsor Phone"
+        />
 
-      <label htmlFor="notes">Noter</label>
-      <input type="text" name="notes" onChange={handleSponsorFormChange} />
+        <label htmlFor="notes">Optional notes</label>
+        <textarea type="text" name="notes" onChange={handleSponsorFormChange} placeholder="Optional notes" id="notes"/>
+      </div>
 
-      <label htmlFor="reepayHandlePeriamma">Reepay Handle - Periamma</label>
-      <input
-        type="text"
-        name="reepayHandlePeriamma"
-        onChange={handleSponsorFormChange}
-      />
+      <div className="form-holder">
+        <label htmlFor="reepayHandlePeriamma">Reepay Handle - Periamma</label>
+        <input
+          type="text"
+          name="reepayHandlePeriamma"
+          onChange={handleSponsorFormChange}
+          placeholder="Reepay Handle - Periamma"
+        />
 
-      <label htmlFor="foreningLetId">ForeningLetId</label>
-      <input
-        type="text"
-        name="foreningLetId"
-        onChange={handleSponsorFormChange}
-      />
 
-      <label htmlFor="reepayHandleDonations">Reepay Handle - Donations</label>
-      <input
-        type="text"
-        name="reepayHandleDonations"
-        onChange={handleSponsorFormChange}
-      />
+        <label htmlFor="reepayHandleDonations">Reepay Handle - Donations</label>
+        <input
+          type="text"
+          name="reepayHandleDonations"
+          onChange={handleSponsorFormChange}
+          placeholder="Reepay Handle - Donations"
+        />
 
-      <label htmlFor="paymentPlatform">Payment Platform (Optional)</label>
-      <input
-        type="text"
-        name="paymentPlatform"
-        onChange={handleSponsorFormChange}
-      />
+        <label htmlFor="foreningLetId">ForeningLetId</label>
+        <input
+          type="text"
+          name="foreningLetID"
+          onChange={handleSponsorFormChange}
+          placeholder="ForeningLetID"
+        />
 
-      <label htmlFor="active">Active</label>
-      <input type="checkbox" name="active" onChange={handleSponsorFormChange} />
+        <label htmlFor="paymentPlatform">Payment Platform (Optional)</label>
+        <input
+          type="text"
+          name="paymentPlatform"
+          onChange={handleSponsorFormChange}
+          placeholder="Main payment platform"
+        />
 
-      <button>Add Sponsor</button>
+        <div className="double-holder">
+          <label htmlFor="active">Active</label>
+          <input type="checkbox" name="active" onChange={handleSponsorFormChange} />
+        </div>
+      </div>
+
+      <button className="add-sponsor-button">Add Sponsor</button>
     </form>
   );
 
