@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../App.css";
 import "../styling/Sidebar.css";
@@ -15,9 +15,6 @@ function Sidebar() {
   });
 
   // useEffect to update local storage whenever isOpen changes
-  useEffect(() => {
-    localStorage.setItem("isOpenState", isOpen);
-  }, [isOpen]);
 
   const toggle = () => {
     // Update the state based on the current value
@@ -54,7 +51,7 @@ function Sidebar() {
   });
 
   return (
-    <div className="Sidebar" style={{ width: isOpen ? "200px" : "75px" } } onMouseEnter={toggle} onMouseLeave={toggle}>
+    <div className="Sidebar" style={{ width: isOpen ? "200px" : "75px" } } onMouseEnter={setIsOpen} onMouseLeave={toggle}>
       <div className="MenuIcon">
         <MenuIcon />
       </div>
