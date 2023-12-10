@@ -20,7 +20,8 @@ const ChildDetailsRenderer = ({ childObject }) => {
     }
 
     return (
-        <div className="detail-view-sponsor">
+        <div className="detail-view">
+            <h1>Child:</h1>
             <div className="detail-card">
                 <PublicIcon id="icon"/>
                 <div className="detail-text-container">

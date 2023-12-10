@@ -20,7 +20,8 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
     }
 
     return (
-        <div className="detail-view-sponsor">
+        <div className="detail-view">
+            <h1>Sponsor:</h1>
             <div className="detail-card">
                 <GroupIcon id="icon"/>
                 <div className="detail-text-container">
@@ -39,7 +40,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                     <p name="phone">{ sponsorObject.phone ? sponsorObject.phone : "None" }</p>
 
                     <label htmlFor="active"></label>
-                    <p name="active" style={sponsorObject.active ? {'color': "green"} : {'color': "red"}}>{ sponsorObject.active ? "Active" : "Inactive"}</p>
+                    <p name="active" style={sponsorObject.active ? {'color': "green", "fontWeight": "bold" } : {'color': "red", "fontWeight": "bold" }}>{ sponsorObject.active ? "Active" : "Inactive"}</p>
 
                     <hr />
                     
@@ -64,14 +65,15 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                     <p name="cpr">{ sponsorObject.cprCvr }</p>
 
                     <hr />
-                    <label htmlFor="notes">Notes:</label>
-                    <p></p>
-                    <p name="notes" className="detail-notes">{ sponsorObject.notes ? sponsorObject.notes : "No notes"}</p>
-                    <hr />
-
 
                     <label htmlFor="payments">Payments:</label>
                     <p name="payments">{sponsorObject.payments}</p>
+                    
+                    <hr />
+
+                    <label htmlFor="notes">Notes:</label><p></p>
+                    <p name="notes" className="detail-notes">{ sponsorObject.notes ? sponsorObject.notes : "No notes"}</p>
+
                 </div>
                 <div>
                 </div>

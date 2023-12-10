@@ -3,11 +3,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Styling
-import GroupIcon from "@mui/icons-material/Group";
+import PaymentIcon from "@mui/icons-material/Payment";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
-const PaymentDetailsRenderer = ({ sponsorObject: paymentObject }) => {
+const PaymentDetailsRenderer = ({ paymentObject }) => {
     const navigate = useNavigate();
 
     function handleEditButton() {
@@ -18,58 +18,91 @@ const PaymentDetailsRenderer = ({ sponsorObject: paymentObject }) => {
     }
 
     return (
-        <div className="detail-view-sponsor">
+        <div className="detail-view">
+            <h1>Payment:</h1>
             <div className="detail-card">
-                <GroupIcon id="icon"/>
+                <PaymentIcon id="icon"/>
                 <div className="detail-text-container">
-                    <h2 className="detail-view-title">{ paymentObject.name } | {paymentObject.customerId}</h2>
+                    <h2 className="detail-view-title">{ paymentObject.id } | {paymentObject.customer ? paymentObject.customer : "No customer registered."}</h2>
 
                     <label htmlFor="customer">Customer: </label>
-                    <p name="customer">{ paymentObject.name }</p>
+                    <p name="customer">{ paymentObject.customer ? paymentObject.customer : "No customer registered." }</p>
 
-                    <label htmlFor="subitems">Subscription:</label>
-                    <p name="subitems"> { paymentObject.subitems }</p>
+                    <label htmlFor="subscription">Subscription:</label>
+                    <p name="subscription"> { paymentObject.subscription ? paymentObject.subscription : "No subscription registered."}</p>
 
-                    <label htmlFor="email">E-mail address:</label>
-                    <p name="email">{ paymentObject.email }</p>
+                    <label htmlFor="plan">Plan:</label>
+                    <p name="plan" > { paymentObject.plan ? paymentObject.plan : "No plan registered."}</p>
 
-                    <label htmlFor="phone">Phone nr.:</label>
-                    <p name="phone">{ paymentObject.phone ? paymentObject.phone : "None" }</p>
+                    <label htmlFor="authorized">Authorized:</label>
+                    <p name="authorized" style={paymentObject.authorized ? {'color': "green"} : {'color': "red"}}> { paymentObject.authorized ? "✓" : "✕"}</p>
 
-                    <label htmlFor="active"></label>
-                    <p name="active" style={paymentObject.active ? {'color': "green"} : {'color': "red"}}>{ paymentObject.active ? "Active" : "Inactive"}</p>
+                    <label htmlFor="authorizedAmount">Authorized amount:</label>
+                    <p name="authorizedAmount"> { paymentObject.authorizedAmount ? paymentObject.authorizedAmount : "None." }</p>
 
-                    <hr />
-                    
-                    <label htmlFor="payment-platform">Payment platform: </label>
-                    <p name="payment-platform">{ paymentObject.paymentPlatform ? paymentObject.paymentPlatform : "None"}</p>
-
-                    <label htmlFor="donations-handle">Reepay handle (donations):</label>
-                    <p name="donations-handle"> { paymentObject.reepayHandleDonations ?  paymentObject.reepayHandleDonations : "None"}</p>
-
-                    <label htmlFor="periamma-handle">Reepay handle (periamma): </label>
-                    <p name="periamma-handle">{ paymentObject.reepayHandlePeriamma ? paymentObject.reepayHandlePeriamma : "None"}</p>
-
-                    <label htmlFor="foreningLetId">ForeningLetID: </label>
-                    <p name="foreningLetId">{ paymentObject.foreningLetId ? paymentObject.foreningLetId : "None"}</p>
-
-                    
-
-                    <label htmlFor="type">Type:</label>
-                    <p name="type">{ paymentObject.type }</p>
-
-                    <label htmlFor="cpr">CPR / CVR: </label>
-                    <p name="cpr">{ paymentObject.cprCvr }</p>
+                    <label htmlFor="credited">Credited:</label>
+                    <p name="credited"> { paymentObject.creditedAmount ? paymentObject.creditedAmount : "None." }</p>
 
                     <hr />
-                    <label htmlFor="notes">Notes:</label>
-                    <p></p>
-                    <p name="notes" className="detail-notes">{ paymentObject.notes ? paymentObject.notes : "No notes"}</p>
+
+                    <label htmlFor="amount">Amount:</label>
+                    <p name="amount"> { Number(paymentObject.amount / 100).toFixed(2) + " " + paymentObject.currency}</p>
+
+                    <label htmlFor="created">Created:</label>
+                    <p name="created"> {new Date(paymentObject.created).toString("en-DK", { timeZone: "UTC" })}</p>
+                                        
+                    <label htmlFor="currency">Currency:</label>
+                    <p name="currency"> { paymentObject.currency }</p>
+
+
+                    <label htmlFor="cancelled">Cancelled:</label>
+                    <p name="cancelled" style={paymentObject.cancelled ? {'color': 'red'} : {'color': 'green'}}> { paymentObject.cancelled ? "Cancelled." : "Not cancelled." }</p>
+
+                    <label htmlFor="state">State:</label>
+                    <p name="state" style={paymentObject.state === "SETTLED" ? {'color': 'green'} : {'color': 'red'}}> { paymentObject.state }</p>
+
+                    <label htmlFor="due">Due:</label>
+                    <p name="due"> { paymentObject.due }</p>
+
                     <hr />
 
+                    <label htmlFor="dunningStart">Dunning Start:</label>
+                    <p name="dunningStart"> { paymentObject.dunningStart ? paymentObject.dunningStart : "None." }</p>
 
-                    <label htmlFor="payments">Payments:</label>
-                    <p name="payments">{paymentObject.payments}</p>
+                    <label htmlFor="dunningSuccess">Dunning Success:</label>
+                    <p name="dunningStart"> { paymentObject.dunningSuccess ? "Success" : "Failed." }</p>
+
+                    <label htmlFor="failed">Failed:</label>
+                    <p name="failed"> { paymentObject.dunningFailed ? "Failed." : "No." }</p>
+
+                    <hr />
+
+                    <label htmlFor="invoiceNumber">Invoice Number:</label>
+                    <p name="invoiceNumber"> { paymentObject.invoiceNumber }</p>
+
+                    <label htmlFor="refunded">Refunded:</label>
+                    <p name="refunded"> { paymentObject.invoiceRefundedAmount }</p>
+
+                    <label htmlFor="settled">Settled:</label>
+                    <p name="settled" style={paymentObject.settled ? {'color': 'green'} : {'color': 'red'}}> { paymentObject.settled ? "Yes." : "No." }</p>
+
+                    <label htmlFor="settledAmount">Settled Amount:</label>
+                    <p name="settledAmount">{ paymentObject.settledAmount }</p>
+
+                    <hr />
+
+                    <label htmlFor="orgAmount">Org Amount:</label>
+                    <p name="orgAmount">{ paymentObject.orgAmount }</p>
+
+                    <label htmlFor="orgSubscription">Org subscription:</label>
+                    <p name="orgSubscription">{ paymentObject.orgSubscription}</p>
+
+                    <label htmlFor="periodFrom">Period From:</label>
+                    <p name="periodFrom">{paymentObject.periodFrom}</p>
+
+                    <label htmlFor="periodTo">Period To:</label>
+                    <p name="periodTo">{ paymentObject.periodTo }</p>
+
                 </div>
                 <div>
                 </div>

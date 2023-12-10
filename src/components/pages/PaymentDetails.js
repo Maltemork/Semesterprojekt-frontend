@@ -9,7 +9,7 @@ import PaymentDetailsRenderer from "../Renderers/paymentDetailsRenderer";
 import "../../styling/DetailView.css";
 
 export default function PaymentDetails() {
-    const [sponsorObject, setPaymentObject] = useState([]);
+    const [paymentObject, setPaymentObject] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
     const { id } = useParams();
 
@@ -26,13 +26,13 @@ export default function PaymentDetails() {
             fetchData();
             }
         },
-    [dataLoaded, id, setPaymentObject, sponsorObject]);
+    [dataLoaded, id, setPaymentObject, paymentObject]);
 
     useEffect(() => {
-        console.log(sponsorObject);
-      }, [sponsorObject]);
+        console.log(paymentObject);
+      }, [paymentObject]);
 
       return (
-        <PaymentDetailsRenderer key={sponsorObject.customerId} sponsorObject={sponsorObject}/>
+        <PaymentDetailsRenderer key={paymentObject.id} paymentObject={paymentObject}/>
     ) 
 }
