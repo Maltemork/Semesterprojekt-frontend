@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 // Styling
 import PublicIcon from "@mui/icons-material/Public";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
@@ -25,10 +27,13 @@ const ChildDetailsRenderer = ({ childObject }) => {
             <div className="detail-card">
                 <PublicIcon id="icon"/>
                 <div className="detail-text-container">
-                    <h2 className="detail-view-title">{ childObject.name } | No. {childObject.childNo}</h2>
+                    <h2 className="detail-view-title">{ childObject.name }</h2>
 
                     <label htmlFor="name">Full name:</label>
                     <p name="name">{ childObject.name }</p>
+
+                    <label htmlFor="childNo">Child Number:</label>
+                    <p name="childNo">{ childObject.childNo }</p>
 
                     <label htmlFor="sponsor">Sponsor:</label>
                     <p name="sponsor">{ childObject.sponsor ? childObject.sponsor : "None"}</p>
@@ -74,11 +79,9 @@ const ChildDetailsRenderer = ({ childObject }) => {
                 <div>
                 </div>
                 <Stack direction="row" spacing={2} className="detail-buttons">
-                    <Button variant="contained" onClick={handleEditButton}>Edit</Button>
-                    <Button variant="contained" onClick={handleDeleteButton}>
-                        Delete
-                    </Button>
-                </Stack>  
+                    <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
+                    <Button variant="contained" onClick={handleDeleteButton} style={{'background-color': 'red'}}><DeleteForeverIcon /></Button>
+                </Stack>
             </div>
             
         </div>

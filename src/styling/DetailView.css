@@ -1,6 +1,8 @@
 .detail-view {
-    margin: -60px 20px 20px 0px;
+    margin: -100px 20px 20px 0px;
     max-width: 100%;
+    max-height: calc(100vh - 60px);
+    overflow: scroll;
 }
 
 .detail-text-container {
@@ -14,6 +16,7 @@
     flex: 50%;
     margin-top: auto;
     margin-bottom: auto;
+    
 }
 
 .detail-card p, label {
@@ -65,5 +68,5 @@
 
 .detail-buttons {
     max-width: 300px;
-    margin: 20px auto 20px 10px;
+    margin: 20px auto 20px 20px;
 }

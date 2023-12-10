@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 // Styling
 import GroupIcon from "@mui/icons-material/Group";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
@@ -25,10 +27,13 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
             <div className="detail-card">
                 <GroupIcon id="icon"/>
                 <div className="detail-text-container">
-                    <h2 className="detail-view-title">{ sponsorObject.name } | {sponsorObject.customerId}</h2>
+                    <h2 className="detail-view-title">{ sponsorObject.name }</h2>
 
-                    <label htmlFor="customer">Customer: </label>
-                    <p name="customer">{ sponsorObject.name }</p>
+                    <label htmlFor="sponsor">Sponsor: </label>
+                    <p name="sponsor">{ sponsorObject.name }</p>
+
+                    <label htmlFor="sponsorId">Sponsor id:</label>
+                    <p name="sponsorId">{sponsorObject.customerId}</p>
 
                     <label htmlFor="subitems">Subscription:</label>
                     <p name="subitems"> { sponsorObject.subitems }</p>
@@ -78,10 +83,8 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                 <div>
                 </div>
                 <Stack direction="row" spacing={2} className="detail-buttons">
-                    <Button variant="contained" onClick={handleEditButton}>Edit</Button>
-                    <Button variant="contained" onClick={handleDeleteButton}>
-                        Delete
-                    </Button>
+                    <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
+                    <Button variant="contained" onClick={handleDeleteButton} style={{'background-color': 'red'}}><DeleteForeverIcon /></Button>
                 </Stack>
             </div>
             

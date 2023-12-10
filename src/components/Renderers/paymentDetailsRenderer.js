@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 // Styling
 import PaymentIcon from "@mui/icons-material/Payment";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
@@ -23,10 +25,10 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
             <div className="detail-card">
                 <PaymentIcon id="icon"/>
                 <div className="detail-text-container">
-                    <h2 className="detail-view-title">{ paymentObject.id } | {paymentObject.customer ? paymentObject.customer : "No customer registered."}</h2>
+                    <h2 className="detail-view-title">Invoice: { paymentObject.id }</h2>
 
-                    <label htmlFor="customer">Customer: </label>
-                    <p name="customer">{ paymentObject.customer ? paymentObject.customer : "No customer registered." }</p>
+                    <label htmlFor="sponsor">Sponsor: </label>
+                    <p name="sponsor">{ paymentObject.customer ? paymentObject.customer : "No sponsor registered." }</p>
 
                     <label htmlFor="subscription">Subscription:</label>
                     <p name="subscription"> { paymentObject.subscription ? paymentObject.subscription : "No subscription registered."}</p>
@@ -92,7 +94,7 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
                     <hr />
 
                     <label htmlFor="orgAmount">Org Amount:</label>
-                    <p name="orgAmount">{ paymentObject.orgAmount }</p>
+                    <p name="orgAmount">{  Number(paymentObject.orgAmount / 100).toFixed(2) + " " + paymentObject.currency }</p>
 
                     <label htmlFor="orgSubscription">Org subscription:</label>
                     <p name="orgSubscription">{ paymentObject.orgSubscription}</p>
@@ -107,10 +109,8 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
                 <div>
                 </div>
                 <Stack direction="row" spacing={2} className="detail-buttons">
-                    <Button variant="contained" onClick={handleEditButton}>Edit</Button>
-                    <Button variant="contained" onClick={handleDeleteButton}>
-                        Delete
-                    </Button>
+                    <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
+                    <Button variant="contained" onClick={handleDeleteButton} style={{'background-color': 'red'}}><DeleteForeverIcon /></Button>
                 </Stack>
             </div>
             
