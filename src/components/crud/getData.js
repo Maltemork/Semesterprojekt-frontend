@@ -17,7 +17,18 @@ async function getObject(table, objectId) {
     return data;
 }
 
+async function deleteObject(table, objectId) {
+    const response = await fetch(`${endpoint}/${table}/${objectId}/delete`, {
+        method: "DELETE",
+    });
+
+    if (response.ok) {
+        console.log(`Object ${objectId} has been deleted.`);
+    }
+}
+
 export {
     getData,
-    getObject
+    getObject,
+    deleteObject
 };

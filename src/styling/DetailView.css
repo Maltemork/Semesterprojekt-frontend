@@ -63,6 +63,25 @@
 }
 
 
+.dialog {
+    text-align: center;
+}
+
+.dialog button {
+    margin: 10px auto 10px auto;
+}
+
+#disagree {
+    background-color: #1565C0;
+    color: white;
+    min-width: 100px;
+}
+
+#agree {
+    background-color: red;
+    color: white;
+    min-width: 100px;
+}
 
 #icon {
     color: #d14063;
