@@ -23,8 +23,6 @@ async function buildSponsorsList() {
 // Sponsors object
 const SponsorsPage = 
   () => {
-    
-
     const [search, setSearch] = React.useState('');
     const [sort, setSort] = React.useState({ keyToSort: "ID", direction: "asc"});
 

@@ -5,7 +5,7 @@ import { getData } from "../crud/getData";
 import ChildRenderer from "../Renderers/childRenderer.js";
 import * as child from "../Renderers/childObject";
 // Styling & CSS
-import PublicIcon from "@mui/icons-material/Public";
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import Caret from "../icons/Caret.jsx"
 import "../../styling/Table.css"
 
@@ -106,13 +106,12 @@ const ChildrensPage =
     }
   
     const searchInput = (item) => {
-      return search.toLowerCase() === "" ? item : 
+      return search.toLowerCase() === "" ? item :
       item.childNo.toLowerCase().includes(search.toLowerCase()) ||
       item.name.toLowerCase().includes(search.toLowerCase()) ||
       item.school.toLowerCase().includes(search.toLowerCase()) ||
-      item.type.toLowerCase().includes(search.toLowerCase()) ||
       item.subitems.toLowerCase().includes(search.toLowerCase())
-    };
+      };
 
     const handleSearch = (e) => {
       setSearch(e.target.value);
@@ -122,7 +121,7 @@ const ChildrensPage =
     return (
             <>
               <div id="table-title">
-                <PublicIcon />
+                <BedroomBabyIcon />
                 <h1> Children</h1>
               </div>
               <div id="table-container">
@@ -150,7 +149,7 @@ const ChildrensPage =
                   </thead>
                   <tbody id="table-body">
                     { getSortedArray(childrensArray).filter(searchInput).map(child => (
-                      <ChildRenderer key={child.childNo} child={child}/>
+                      <ChildRenderer key={child.id} child={child}/>
                     )) }
                   </tbody>
                 </table>

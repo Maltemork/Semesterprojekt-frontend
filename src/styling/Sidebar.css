@@ -18,7 +18,9 @@
 
 .SidebarList a {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  margin-top: auto;
+  margin-bottom: auto;
+  grid-template-columns: 1fr 2fr;
   text-decoration: none;
   height: 51px;
 }

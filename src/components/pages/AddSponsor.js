@@ -48,13 +48,16 @@ const AddSponsor = () => {
         <label htmlFor="email">E-mail</label>
         <input type="text" name="email" onChange={handleSponsorFormChange} placeholder="E-mail" required/>
 
-        <label htmlFor="businessPrivate">Privat / Erhverv</label>
-        <input
+        <label htmlFor="businessPrivate">Private / Business</label>
+        <select
           type="text"
           name="businessPrivate"
           onChange={handleSponsorFormChange}
           placeholder="Privat/Erhverv"
-        />
+        >
+          <option value="Privat" default>Private</option>
+          <option value="Erhverv">Business</option>
+        </select>
 
         <label htmlFor="cprCvr"> CPR / CVR</label>
         <input type="text" name="cprCvr" onChange={handleSponsorFormChange} placeholder="CPR / CVR" required/>

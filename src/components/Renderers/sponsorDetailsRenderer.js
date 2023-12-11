@@ -32,7 +32,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                 <div className="detail-text-container">
                     <h2 className="detail-view-title">{ sponsorObject.name }</h2>
 
-                    <label htmlFor="sponsor">Sponsor: </label>
+                    <label htmlFor="sponsor">Sponsor name: </label>
                     <p name="sponsor">{ sponsorObject.name }</p>
 
                     <label htmlFor="sponsorId">Sponsor id:</label>

@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 // Styling
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import PublicIcon from "@mui/icons-material/Public";
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
@@ -30,7 +30,7 @@ const ChildDetailsRenderer = ({ childObject }) => {
             </Link>
             <div className="detail-card">
                 
-                <PublicIcon id="icon"/>
+                <BedroomBabyIcon id="icon"/>
                 <div className="detail-text-container">
                     <h2 className="detail-view-title">{ childObject.name }</h2>
 

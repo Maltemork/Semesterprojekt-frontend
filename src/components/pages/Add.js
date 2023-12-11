@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { AddSectionRoutes } from "../Routes";
 import "../../styling/Add.css"
-import PersonIcon from "@mui/icons-material/Person";
-import PublicIcon from "@mui/icons-material/Public";
+import GroupIcon from "@mui/icons-material/Group";
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import PaymentIcon from "@mui/icons-material/Payment";
 
-const icons = [PersonIcon, PublicIcon, PaymentIcon];
+const icons = [GroupIcon, BedroomBabyIcon, PaymentIcon];
 const buttonTitles = ["Sponsor", "Child", "Payment"];
 
 const Add = () => {

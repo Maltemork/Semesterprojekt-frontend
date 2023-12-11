@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { getObject } from "../crud/getData";
 import { ConstructChildObject } from "../Renderers/childObject";
 import ChildDetailsRenderer from "../Renderers/childDetailsRenderer.js";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 // Styling
 import "../../styling/DetailView.css";
@@ -12,8 +14,14 @@ export default function ChildDetails() {
     const [childObject, setChildObject] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
     const { id } = useParams();
-    
 
+    const ShowLoader = () => {
+        if ( dataLoaded === false ) {
+            return  <CircularProgress id="loader"/>;
+        } else {
+            return <ChildDetailsRenderer key={childObject.childNo} childObject={childObject}/>
+        }
+    }
    
     useEffect(() => {
 
@@ -35,6 +43,6 @@ export default function ChildDetails() {
       }, [childObject]);
 
     return (
-        <ChildDetailsRenderer key={childObject.childNo} childObject={childObject}/>
+        <ShowLoader />
     ) 
 }
