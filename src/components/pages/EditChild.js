@@ -48,7 +48,7 @@ const EditChild = () => {
   };
 
   const EditChildForm = (
-    <form className="AddChildForm" onSubmit={handleChildEditFormSubmit}>
+    <form className="editChildForm" onSubmit={handleChildEditFormSubmit}>
       <label htmlFor="fullname">Full Name</label>
       <input
         type="text"
@@ -73,7 +73,13 @@ const EditChild = () => {
         onChange={handleChildFormChange}
       />
 
-      {/* country */}
+      <label htmlFor="subitems">Country</label>
+      <input
+        type="text"
+        name="subitems"
+        value={childFormData.subitems || ""}
+        onChange={handleChildFormChange}
+      />
 
       <label htmlFor="birthdate">Birthdate</label>
       <input
@@ -83,7 +89,13 @@ const EditChild = () => {
         onChange={handleChildFormChange}
       />
 
-      {/* Type */}
+      <label htmlFor="type">Type</label>
+      <input
+        type="text"
+        name="type"
+        value={childFormData.type || ""}
+        onChange={handleChildFormChange}
+      />
 
       <label htmlFor="schoolStart">School Start</label>
       <input
@@ -93,7 +105,13 @@ const EditChild = () => {
         onChange={handleChildFormChange}
       />
 
-      {/* Sponsor */}
+      <label htmlFor="sponsoredBy">Sponsored By</label>
+      <input
+        type="text"
+        name="sponsoredBy"
+        value={childFormData.sponsoredBy || ""}
+        onChange={handleChildFormChange}
+      />
 
       <label htmlFor="class">Class</label>
       <input
@@ -103,7 +121,13 @@ const EditChild = () => {
         onChange={handleChildFormChange}
       />
 
-      {/* Notes */}
+      <label htmlFor="notes">Notes</label>
+      <input
+        type="text"
+        name="notes"
+        value={childFormData.notes || ""}
+        onChange={handleChildFormChange}
+      />
 
       <button>Submit Changes</button>
     </form>
