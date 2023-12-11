@@ -11,21 +11,21 @@ const EditChild = () => {
   useEffect(() => {
     const fetchChild = async () => {
       try {
-        const ChildData = await getObject("children", id);
+        const childData = await getObject("children", id);
 
-        const formattedBirthdate = new Date(ChildData[0].birthdate)
+        const formattedBirthdate = new Date(childData[0].birthdate)
           .toISOString()
           .split("T")[0];
-        const formattedSchoolStart = new Date(ChildData[0].schoolStart)
+        const formattedSchoolStart = new Date(childData[0].schoolStart)
           .toISOString()
           .split("T")[0];
 
         setChildFormData({
-          ...ChildData[0],
+          ...childData[0],
           birthdate: formattedBirthdate,
           schoolStart: formattedSchoolStart,
         });
-        console.log("Child Data: ", ChildData[0]);
+        console.log("Child Data: ", childData[0]);
       } catch (error) {
         console.error("Couldn't fetch child data for: " + id, error);
       }
