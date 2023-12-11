@@ -8,7 +8,7 @@
 .detail-card {
     margin-top: 60px;
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 5fr;
     text-align: left;
     padding: 20px 20px 20px 0px;
     background-color: rgb(241, 241, 241);
@@ -16,9 +16,9 @@
 }
 
 .detail-text-container {
-    padding-left: 10px;
+    padding-left: 40px;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 3fr;
     border-left: 2px solid rgb(168, 168, 168);
     margin-bottom: 40px;
 }

@@ -31,3 +31,6 @@ body {
   color: #d14063; 
 }
 
+.hidden {
+  display: none;
+}
