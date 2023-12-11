@@ -70,7 +70,7 @@ const PaymentsPage =
       {
         id: 9,
         KEY: "created",
-        LABEL: "Time"
+        LABEL: "Created"
       }
     ];
 

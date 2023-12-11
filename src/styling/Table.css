@@ -125,4 +125,20 @@ input {
     min-width: 1332px;
 }
 
-
+#table-title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    text-align: left;
+    margin-top: -100px;
+    margin-left: 50px;  
+  }
+  
+#table-title :first-child {
+margin-top: auto;
+margin-bottom: auto;
+margin-right: 20px;
+height: 100%;
+width: 50px;
+color: #d14063;
+}

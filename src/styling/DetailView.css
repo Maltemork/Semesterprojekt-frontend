@@ -5,6 +5,16 @@
     overflow: scroll;
 }
 
+.detail-card {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    text-align: left;
+    padding: 20px 20px 20px 0px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+}
+
 .detail-text-container {
     padding-left: 10px;
     display: grid;
@@ -49,14 +59,7 @@
     font-weight: 700;
 }
 
-.detail-card {
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    text-align: left;
-    padding: 20px 20px 20px 0px;
-    background-color: rgb(223, 223, 223);
-    border-radius: 10px;
-}
+
 
 #icon {
     color: #d14063;
@@ -69,4 +72,17 @@
 .detail-buttons {
     max-width: 300px;
     margin: 20px auto 20px 20px;
+}
+
+#back-arrow-details {
+    position: absolute;
+    left: 20px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    color: black;
+    font-size: 2.3rem;
+}
+
+#back-arrow-details:hover {
+cursor: pointer;
 }

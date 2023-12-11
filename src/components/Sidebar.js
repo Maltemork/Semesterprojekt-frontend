@@ -7,22 +7,20 @@ import { AppRoutes } from "./Routes";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Sidebar() {
-  // These functions remember the state of the sidebar across pages. This way the sidebar won't change when the page changes.
+  const location = useLocation();
 
+  //Close sidebar on load
   const [isOpen, setIsOpen] = useState(() => {
-    // Retrieve the stored value from local storage or default to false
-    return localStorage.getItem("isOpenState") === "true";
+    return false;
   });
 
-  // useEffect to update local storage whenever isOpen changes
-
+  // Swap open state based on previous value.
   const toggle = () => {
-    // Update the state based on the current value
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
-  const location = useLocation();
-
+  
+  // Sidebar routes based on sidebar data.
   const sidebarDataAndRoutes = SidebarData.map((item, key) => {
     const correspondingRoute = AppRoutes[key].path;
     return {
@@ -31,15 +29,16 @@ function Sidebar() {
     };
   });
 
+  // Sidebar list and HTML.
   const sidebarList = sidebarDataAndRoutes.map((item, key) => {
     return (
       <li
         key={key}
-        className={location.pathname.slice(0, location.pathname.lastIndexOf("/")) === item.route || location.pathname === item.route ? "row active" : "row"}
+        className={location.pathname.includes(item.route) ? "row active" : "row"}
       >
         <Link to={item.route}>
           <div className="row-icon"> {item.icon} </div>
-          <div
+          <div 
             className="row-title"
             style={{ display: isOpen ? "block" : "none" }}
           >
@@ -50,6 +49,7 @@ function Sidebar() {
     );
   });
 
+  // Render HTML.
   return (
     <div className="Sidebar" style={{ width: isOpen ? "200px" : "75px" } } onMouseEnter={setIsOpen} onMouseLeave={toggle}>
       <div className="MenuIcon">

@@ -1,9 +1,10 @@
 // Essential
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Styling
 import GroupIcon from "@mui/icons-material/Group";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
@@ -23,7 +24,9 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
 
     return (
         <div className="detail-view">
-            <h1>Sponsor:</h1>
+            <Link to="../sponsors">
+                <ArrowBackIcon id="back-arrow-details"/>
+            </Link>
             <div className="detail-card">
                 <GroupIcon id="icon"/>
                 <div className="detail-text-container">

@@ -41,7 +41,7 @@ const ChildrensPage =
       {
         id: 3,
         KEY: "subitems",
-        LABEL: "Subitems"
+        LABEL: "Country"
       },
       {
         id: 4,

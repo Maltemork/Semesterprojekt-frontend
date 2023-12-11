@@ -1,8 +1,9 @@
 // Essential
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Styling
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PublicIcon from "@mui/icons-material/Public";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
@@ -22,9 +23,13 @@ const ChildDetailsRenderer = ({ childObject }) => {
     }
 
     return (
+        
         <div className="detail-view">
-            <h1>Child:</h1>
+            <Link to="../children">
+                <ArrowBackIcon id="back-arrow-details"/>
+            </Link>
             <div className="detail-card">
+                
                 <PublicIcon id="icon"/>
                 <div className="detail-text-container">
                     <h2 className="detail-view-title">{ childObject.name }</h2>

@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../../styling/AddSponsor.css";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddSponsor = () => {
@@ -31,6 +33,7 @@ const AddSponsor = () => {
   };
 
   const AddSponsorForm = (
+    
     <form className="addSponsorForm" onSubmit={handleFormSubmit}>
       <div className="form-holder">
         <label htmlFor="fullName">Full Name</label>
@@ -114,6 +117,9 @@ const AddSponsor = () => {
 
   const AddSponsorContainer = (
     <div className="addSponsorContainer">
+      <Link to="../add">
+        <ArrowBackIcon id="back-arrow"/>
+      </Link>
       <h1>Add Sponsor</h1>
       {AddSponsorForm}
     </div>

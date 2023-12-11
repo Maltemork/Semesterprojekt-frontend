@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../../styling/AddChild.css";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddChild = () => {
@@ -68,6 +70,9 @@ const AddChild = () => {
 
   const AddChildContainer = (
     <div className="addChildContainer">
+      <Link to="../add">
+        <ArrowBackIcon id="back-arrow-child"/>
+      </Link>
       <h1>Add Child</h1>
       {AddChildForm}
     </div>
