@@ -15,6 +15,7 @@ export function ConstructPaymentObject(paymentdata) {
         due: paymentdata.invoiceDue,
         dunningStart: paymentdata.invoiceDunningStart,
         dunningSuccess: paymentdata.invoiceDunningSuccess,
+        dunningFailed: paymentdata.invoiceDunningFailed,
         invoice: paymentdata.invoice,
         invoiceNumber: paymentdata.invoiceNumber,
         orgAmount: paymentdata.invoiceOrgAmount,

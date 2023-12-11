@@ -17,13 +17,13 @@ const PaymentRenderer = ({ payment }) => {
                 <td>
                     {payment.customer}
                 </td>
-                <td>{payment.amount}</td>
+                <td>{Number(payment.amount / 100).toFixed(2)}</td>
                 <td>{payment.currency}</td>
                 <td>{payment.state}</td>
                 <td>{payment.invoiceNumber}</td>
                 <td>{payment.customerEmail}</td>
                 <td>{payment.subscription}</td>
-                <td>{new Date(payment.created).toLocaleDateString("en-DE")}</td>
+                <td>{new Date(payment.created).toLocaleString("en-DE")}</td>
             </tr>
     );
 }

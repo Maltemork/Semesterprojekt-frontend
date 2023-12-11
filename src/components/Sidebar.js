@@ -38,7 +38,7 @@ function Sidebar() {
     return (
       <li
         key={key}
-        className={location.pathname === item.route ? "row active" : "row"}
+        className={location.pathname.slice(0, location.pathname.lastIndexOf("/")) === item.route || location.pathname === item.route ? "row active" : "row"}
       >
         <Link to={item.route}>
           <div className="row-icon"> {item.icon} </div>

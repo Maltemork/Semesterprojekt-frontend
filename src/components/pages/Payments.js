@@ -45,7 +45,7 @@ const PaymentsPage =
       {
         id: 4,
         KEY: "currency",
-        LABEL: "Sponsor"
+        LABEL: "Currency"
       },
       {
         id: 5,
@@ -70,7 +70,7 @@ const PaymentsPage =
       {
         id: 9,
         KEY: "created",
-        LABEL: "Date"
+        LABEL: "Time"
       }
     ];
 
