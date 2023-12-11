@@ -39,8 +39,12 @@ const AddSponsor = () => {
         onChange={handleSponsorFormChange}
       />
 
-      <label htmlFor="email">E-mail</label>
-      <input type="text" name="email" onChange={handleSponsorFormChange} />
+      <label htmlFor="SponsorEmail">E-mail</label>
+      <input
+        type="text"
+        name="SponsorEmail"
+        onChange={handleSponsorFormChange}
+      />
 
       <label htmlFor="businessPrivate">Privat / Erhverv</label>
       <input
