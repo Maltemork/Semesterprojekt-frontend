@@ -1,6 +1,6 @@
 const endpoint = "https://periamma-projekt-app.azurewebsites.net";
 
-// Get data based on 'type' (could be "artists", "albums" or "tracks").
+// Get data based on 'type' (could be "sponsors", "children" or "payments").
 async function getData(type) {
     // Get data from endpoint.
     const response = await fetch(`${endpoint}/${type}`);
@@ -11,20 +11,18 @@ async function getData(type) {
     return dataArray;
 }
 
+// Get a specific object
 async function getObject(table, objectId) {
     const response = await fetch(`${endpoint}/${table}/${objectId}`);
     const data = await response.json();
     return data;
 }
 
+// Delete a specific object
 async function deleteObject(table, objectId) {
-    const response = await fetch(`${endpoint}/${table}/${objectId}/delete`, {
+    await fetch(`${endpoint}/${table}/${objectId}/delete`, {
         method: "DELETE",
     });
-
-    if (response.ok) {
-        console.log(`Object ${objectId} has been deleted.`);
-    }
 }
 
 export {

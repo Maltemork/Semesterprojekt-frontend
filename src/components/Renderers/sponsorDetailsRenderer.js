@@ -40,7 +40,9 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
     function handleDelete() {
         deleteObject("sponsors", sponsorObject.customerId)
         setOpen(false);
-        navigate("../sponsors");
+        setTimeout(() => {
+            navigate("../sponsors");
+        }, "1000");
     }
 
     const navigate = useNavigate();
@@ -130,10 +132,10 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                     </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                    <Button onClick={handleClose} id="disagree" autoFocus>Cancel</Button>
-                    <Button onClick={handleDelete} id="agree">
-                        Delete { sponsorObject.name }
-                    </Button>
+                        <Button onClick={handleClose} id="disagree" autoFocus>Cancel</Button>
+                        <Button onClick={handleDelete} id="agree">
+                            Delete { sponsorObject.name }
+                        </Button>
                     </DialogActions>
                 </Dialog>
             </div>
