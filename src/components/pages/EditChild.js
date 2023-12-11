@@ -112,6 +112,13 @@ const EditChild = () => {
         value={childFormData.sponsoredBy || ""}
         onChange={handleChildFormChange}
       />
+      <label htmlFor="secondSponsor">Second Sponsor</label>
+      <input
+        type="text"
+        name="secondSponsor"
+        value={childFormData.secondSponsor || ""}
+        onChange={handleChildFormChange}
+      />
 
       <label htmlFor="class">Class</label>
       <input
