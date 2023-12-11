@@ -20,6 +20,7 @@
     display: grid;
     grid-template-columns: 1fr 4fr;
     border-left: 2px solid rgb(168, 168, 168);
+    margin-bottom: 40px;
 }
 
 .detail-card * {
@@ -39,9 +40,11 @@
     margin: 10px auto 10px 100px;
 }
 
-.detail-view h1 {
+.detail-view h2 {
     text-align: left;
     margin-left: 20px;
+    margin-bottom: 30px;
+    letter-spacing: -2px;
 }
 
 .detail-notes {
