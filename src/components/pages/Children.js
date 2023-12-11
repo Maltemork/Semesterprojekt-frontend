@@ -1,28 +1,44 @@
 // Essential
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getData } from "../crud/getData";
 // Specific
 import ChildRenderer from "../Renderers/childRenderer.js";
-import * as child from "../Renderers/childObject";
+import { ConstructChildObject } from "../Renderers/childObject";
 // Styling & CSS
 import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import Caret from "../icons/Caret.jsx"
 import "../../styling/Table.css"
 
 // Array
-let childrensArray = [];
-await buildChildrensList();
+// let childrensArray = [];
+// await buildChildrensList();
 
-// Build array
-async function buildChildrensList() {
-  const data = await getData("children");
-  childrensArray = data.map(child.ConstructChildObject);
-  console.log(childrensArray);
-}
+// // Build array
+// async function buildChildrensList() {
+//   const data = await getData("children");
+//   childrensArray = data.map(child.ConstructChildObject);
+//   console.log(childrensArray);
+// }
 
 // Childrens object
 const ChildrensPage = 
   () => {
+    const [childrensArray, setChildrensArray] = React.useState([]);
+
+    useEffect(() => {
+      const buildChildrensList = async () => {
+        try {
+          const data = await getData("children");
+          const constructedChildren = data.map(child => ConstructChildObject(child));
+          setChildrensArray(constructedChildren);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+
+      buildChildrensList();
+    }, []);
+
     const [search, setSearch] = React.useState('');
     const [sort, setSort] = React.useState({ keyToSort: "ID", direction: "asc"});
 
