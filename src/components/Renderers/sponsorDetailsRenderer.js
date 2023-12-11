@@ -62,7 +62,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                     <p name="periamma-handle">{ sponsorObject.reepayHandlePeriamma ? sponsorObject.reepayHandlePeriamma : "None"}</p>
 
                     <label htmlFor="foreningLetId">ForeningLetID: </label>
-                    <p name="foreningLetId">{ sponsorObject.foreningLetId ? sponsorObject.foreningLetId : "None"}</p>
+                    <p name="foreningLetId">{ sponsorObject.foreningLetID ? sponsorObject.foreningLetID : "None"}</p>
 
                     
 

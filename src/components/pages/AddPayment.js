@@ -47,13 +47,6 @@ const AddPayment = () => {
       <label htmlFor="currency">Currency</label>
       <input type="text" name="currency" onChange={handlePaymentFormChange} />
 
-      {/* <label htmlFor="invoiceHandle">Invoice Handle</label>
-      <input
-        type="text"
-        name="invoiceHandle"
-        onChange={handlePaymentFormChange}
-      /> */}
-
       <label htmlFor="customerHandle">Customer Handle</label>
       <input
         type="text"
@@ -68,7 +61,7 @@ const AddPayment = () => {
         onChange={handlePaymentFormChange}
       />
 
-      <button>Add Payment</button>
+      <button className="add-payment-button">Add Payment</button>
     </form>
   );
 

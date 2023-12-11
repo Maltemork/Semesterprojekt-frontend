@@ -10,7 +10,7 @@ export function ConstructSponsorObject(sponsordata) {
         paymentPlatform: sponsordata.paymentPlatform,
         reepayHandleDonations: sponsordata.reepayHandleDonations,
         reepayHandlePeriamma: sponsordata.reepayHandlePeriamma,
-        foreningLetId: sponsordata.foreningLetId,
+        foreningLetID: sponsordata.foreningLetId,
         type: sponsordata.privatErhverv,
         cprCvr: sponsordata.cprCvr,
         notes: sponsordata.notes

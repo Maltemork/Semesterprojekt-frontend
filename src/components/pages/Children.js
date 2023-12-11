@@ -9,17 +9,6 @@ import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import Caret from "../icons/Caret.jsx"
 import "../../styling/Table.css"
 
-// Array
-// let childrensArray = [];
-// await buildChildrensList();
-
-// // Build array
-// async function buildChildrensList() {
-//   const data = await getData("children");
-//   childrensArray = data.map(child.ConstructChildObject);
-//   console.log(childrensArray);
-// }
-
 // Childrens object
 const ChildrensPage = 
   () => {
