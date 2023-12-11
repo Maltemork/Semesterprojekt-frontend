@@ -1,7 +1,9 @@
 .Header {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid rgb(177, 177, 177);
+    background: rgb(2,0,36);
+    background: white;
 }
 
 .Header img {

@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AddSectionRoutes } from "../Routes";
-import PersonIcon from "@mui/icons-material/Person";
-import PublicIcon from "@mui/icons-material/Public";
+import "../../styling/Add.css"
+import GroupIcon from "@mui/icons-material/Group";
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import PaymentIcon from "@mui/icons-material/Payment";
 
-const icons = [PersonIcon, PublicIcon, PaymentIcon];
+const icons = [GroupIcon, BedroomBabyIcon, PaymentIcon];
 const buttonTitles = ["Sponsor", "Child", "Payment"];
 
 const Add = () => {
@@ -15,23 +16,27 @@ const Add = () => {
     const Icon = icons[key];
     const buttonTitle = buttonTitles[key];
     return (
-      <Link to={item.path} key={key}>
-        <button>
-          <Icon />
-          {buttonTitle}
-        </button>
-      </Link>
+      
+        <div>
+          <Link to={item.path} key={key}>
+          <button className="add-button">
+            <Icon id={"add-button-icon"}/>
+          </button>
+          </Link>
+          <p className="add-title">{buttonTitle}</p>
+        </div>
+      
     );
   });
 
   return (
-    <>
+    <div className="add-section">
       <h1>Add a new entry</h1>
       <br />
       <p>What would you like to add?</p>
       <br />
       <div className="addButtons">{AddButtons}</div>
-    </>
+    </div>
   );
 };
 export default Add;

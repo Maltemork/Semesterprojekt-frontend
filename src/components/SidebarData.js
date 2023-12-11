@@ -1,6 +1,6 @@
 import React from "react";
 import GroupIcon from "@mui/icons-material/Group";
-import PublicIcon from "@mui/icons-material/Public";
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import PaymentIcon from "@mui/icons-material/Payment";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import SearchIcon from "@mui/icons-material/Search";
@@ -13,7 +13,7 @@ export const SidebarData = [
   },
   {
     title: "Children",
-    icon: <PublicIcon />,
+    icon: <BedroomBabyIcon />,
   },
   {
     title: "Payments",

@@ -1,9 +1,10 @@
 // Essential
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Styling
-import PublicIcon from "@mui/icons-material/Public";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
@@ -22,10 +23,14 @@ const ChildDetailsRenderer = ({ childObject }) => {
     }
 
     return (
+        
         <div className="detail-view">
-            <h1>Child:</h1>
+            <Link to="../children">
+                <ArrowBackIcon id="back-arrow-details"/>
+            </Link>
             <div className="detail-card">
-                <PublicIcon id="icon"/>
+                
+                <BedroomBabyIcon id="icon"/>
                 <div className="detail-text-container">
                     <h2 className="detail-view-title">{ childObject.name }</h2>
 
@@ -80,7 +85,7 @@ const ChildDetailsRenderer = ({ childObject }) => {
                 </div>
                 <Stack direction="row" spacing={2} className="detail-buttons">
                     <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
-                    <Button variant="contained" onClick={handleDeleteButton} style={{'background-color': 'red'}}><DeleteForeverIcon /></Button>
+                    <Button variant="contained" onClick={handleDeleteButton} style={{'backgroundColor': 'red'}}><DeleteForeverIcon /></Button>
                 </Stack>
             </div>
             

@@ -2,7 +2,7 @@
 
 #table-container {
     display: block;
-    border: 2px solid rgb(156, 156, 156);
+    border: 2px solid rgb(177, 177, 177);
     border-radius: 7px;
     overflow: scroll;
     background-color: rgb(236, 236, 236);
@@ -64,7 +64,7 @@
 
 #table tr:nth-child(even):hover {
     background-color: rgb(218, 218, 218);
-    scale: 1.005;
+    scale: 1.00;
 }
 
 
@@ -74,7 +74,7 @@
 .table-item:hover {
     background-color: rgb(218, 218, 218);
     cursor: pointer;
-    scale: 1.005;
+    scale: 1.00;
 }
 
 .table-item * {
@@ -125,4 +125,20 @@ input {
     min-width: 1332px;
 }
 
-
+#table-title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    text-align: left;
+    margin-top: -100px;
+    margin-left: 50px;  
+  }
+  
+#table-title :first-child {
+margin-top: auto;
+margin-bottom: auto;
+margin-right: 20px;
+height: 100%;
+width: 50px;
+color: #d14063;
+}

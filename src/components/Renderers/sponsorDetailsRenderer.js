@@ -1,9 +1,10 @@
 // Essential
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Styling
 import GroupIcon from "@mui/icons-material/Group";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
@@ -23,13 +24,15 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
 
     return (
         <div className="detail-view">
-            <h1>Sponsor:</h1>
+            <Link to="../sponsors">
+                <ArrowBackIcon id="back-arrow-details"/>
+            </Link>
             <div className="detail-card">
                 <GroupIcon id="icon"/>
                 <div className="detail-text-container">
                     <h2 className="detail-view-title">{ sponsorObject.name }</h2>
 
-                    <label htmlFor="sponsor">Sponsor: </label>
+                    <label htmlFor="sponsor">Sponsor name: </label>
                     <p name="sponsor">{ sponsorObject.name }</p>
 
                     <label htmlFor="sponsorId">Sponsor id:</label>
@@ -42,7 +45,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                     <p name="email">{ sponsorObject.email }</p>
 
                     <label htmlFor="phone">Phone nr.:</label>
-                    <p name="phone">{ sponsorObject.phone ? sponsorObject.phone : "None" }</p>
+                    <p name="phone">+{ sponsorObject.phone ? sponsorObject.phone : "None" }</p>
 
                     <label htmlFor="active"></label>
                     <p name="active" style={sponsorObject.active ? {'color': "green", "fontWeight": "bold" } : {'color': "red", "fontWeight": "bold" }}>{ sponsorObject.active ? "Active" : "Inactive"}</p>
@@ -59,7 +62,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                     <p name="periamma-handle">{ sponsorObject.reepayHandlePeriamma ? sponsorObject.reepayHandlePeriamma : "None"}</p>
 
                     <label htmlFor="foreningLetId">ForeningLetID: </label>
-                    <p name="foreningLetId">{ sponsorObject.foreningLetId ? sponsorObject.foreningLetId : "None"}</p>
+                    <p name="foreningLetId">{ sponsorObject.foreningLetID ? sponsorObject.foreningLetID : "None"}</p>
 
                     
 
@@ -84,7 +87,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                 </div>
                 <Stack direction="row" spacing={2} className="detail-buttons">
                     <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
-                    <Button variant="contained" onClick={handleDeleteButton} style={{'background-color': 'red'}}><DeleteForeverIcon /></Button>
+                    <Button variant="contained" onClick={handleDeleteButton} style={{'backgroundColor': 'red'}}><DeleteForeverIcon /></Button>
                 </Stack>
             </div>
             

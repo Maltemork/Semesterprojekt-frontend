@@ -1,28 +1,37 @@
 // Essential
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getData } from "../crud/getData";
 // Specific
 import PaymentRenderer from "../Renderers/paymentRenderer.js";
-import * as payment from "../Renderers/paymentObject";
+import { ConstructPaymentObject } from "../Renderers/paymentObject";
 // Styling & CSS
 import PaymentIcon from "@mui/icons-material/Payment";
 import Caret from "../icons/Caret.jsx"
 import "../../styling/Table.css"
 
 // Array
-let paymentsArray = [];
-await buildPaymentsList();
-
-// Build array
-async function buildPaymentsList() {
-  const data = await getData("payments");
-  paymentsArray = data.map(payment.ConstructPaymentObject);
-  console.log(paymentsArray);
-}
+// let paymentsArray = [];
+// await buildPaymentsList();
 
 // Childrens object
 const PaymentsPage = 
   () => {
+    const [paymentsArray, setPaymentsArray] = React.useState([]);
+
+    useEffect(() => {
+      const buildPaymentsList = async () => {
+        try {
+          const data = await getData("payments");
+          const constructedPayments = data.map(payment => ConstructPaymentObject(payment));
+          setPaymentsArray(constructedPayments);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+
+      buildPaymentsList();
+    }, []);
+
     const [search, setSearch] = React.useState('');
     const [sort, setSort] = React.useState({ keyToSort: "created", direction: "desc"});
 
@@ -70,7 +79,7 @@ const PaymentsPage =
       {
         id: 9,
         KEY: "created",
-        LABEL: "Time"
+        LABEL: "Created"
       }
     ];
 

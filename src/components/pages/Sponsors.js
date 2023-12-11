@@ -1,30 +1,35 @@
 // Essential
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getData } from "../crud/getData";
 // Specific
 import { SponsorRenderer } from "../Renderers/sponsorRenderer.js";
-import * as sponsor from "../Renderers/sponsorObject";
+import { ConstructSponsorObject } from "../Renderers/sponsorObject";
 // Styling & CSS
 import GroupIcon from "@mui/icons-material/Group";
 import Caret from "../icons/Caret.jsx"
 import "../../styling/Table.css"
 
-// Array
-let sponsorsArray = [];
-await buildSponsorsList();
 
-// Build array
-async function buildSponsorsList() {
-  const data = await getData("sponsors");
-  sponsorsArray = data.map(sponsor.ConstructSponsorObject);
-  console.log(sponsorsArray);
-}
 
 // Sponsors object
 const SponsorsPage = 
   () => {
-    
+    const [sponsorsArray, setSponsorsArray] = React.useState([]);
 
+    useEffect(() => {
+      const buildSponsorsList = async () => {
+        try {
+          const data = await getData("sponsors");
+          const constructedSponsors = data.map(sponsor => ConstructSponsorObject(sponsor));
+          setSponsorsArray(constructedSponsors);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+
+      buildSponsorsList();
+    }, []);
+    
     const [search, setSearch] = React.useState('');
     const [sort, setSort] = React.useState({ keyToSort: "ID", direction: "asc"});
 

@@ -1,8 +1,9 @@
 // Essential
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Styling
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PaymentIcon from "@mui/icons-material/Payment";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
@@ -21,7 +22,9 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
 
     return (
         <div className="detail-view">
-            <h1>Payment:</h1>
+            <Link to="../payments">
+                <ArrowBackIcon id="back-arrow-details"/>
+            </Link>
             <div className="detail-card">
                 <PaymentIcon id="icon"/>
                 <div className="detail-text-container">
@@ -110,7 +113,7 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
                 </div>
                 <Stack direction="row" spacing={2} className="detail-buttons">
                     <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
-                    <Button variant="contained" onClick={handleDeleteButton} style={{'background-color': 'red'}}><DeleteForeverIcon /></Button>
+                    <Button variant="contained" onClick={handleDeleteButton} style={{'backgroundColor': 'red'}}><DeleteForeverIcon /></Button>
                 </Stack>
             </div>
             

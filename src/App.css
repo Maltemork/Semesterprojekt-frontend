@@ -1,24 +1,4 @@
-/* fonts.css */
-
-/* Roboto Regular */
-@font-face {
-  font-family: "Roboto";
-  src: local("Roboto-Regular"),
-    url("./fonts/Roboto-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Roboto Bold */
-@font-face {
-  font-family: "Roboto";
-  src: local("Roboto-Bold"), url("./fonts/Roboto-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* Add more styles and weights as needed */
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 .routeContent {
   position: absolute;
   width: 100%;
@@ -28,6 +8,7 @@
   margin-left: 100px;
   width: calc(100vw - 150px);
   margin-right: 50px;
+  
 }
 
 .App {
@@ -37,7 +18,7 @@
 }
 
 body {
-  font-family: "roboto";
+  font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -45,20 +26,12 @@ body {
   overflow: hidden;
 }
 
-#table-title {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: left;
-  text-align: left;
-  margin-top: -100px;
-  margin-left: 50px;  
+#loader {
+  margin: 30vh auto auto auto;
+  scale: 1;
+  color: #d14063; 
 }
 
-#table-title :first-child {
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 20px;
-  height: 100%;
-  width: 50px;
-  color: red;
+.hidden {
+  display: none;
 }

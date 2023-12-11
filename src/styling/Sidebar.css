@@ -1,9 +1,10 @@
 .Sidebar {
+  color: rgb(0, 0, 0);
   z-index: 1;
   height: 100%;
   width: 250px;
   background-color: white;
-  border-right: 1px solid gray;
+  border-right: 2px solid rgb(177, 177, 177);
   position: sticky;
   top: 0;
 }
@@ -17,7 +18,9 @@
 
 .SidebarList a {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  margin-top: auto;
+  margin-bottom: auto;
+  grid-template-columns: 1fr 2fr;
   text-decoration: none;
   height: 51px;
 }
@@ -31,16 +34,17 @@
   align-items: center;
 }
 
+
 .SidebarList .row-icon {
   margin-top: auto;
   margin-bottom: auto;
   padding-left: 25px;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .SidebarList .row-title {
   font-weight: bold;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .Sidebar .row:hover {

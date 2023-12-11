@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getObject } from "../crud/getData";
 import { ConstructPaymentObject } from "../Renderers/paymentObject";
 import PaymentDetailsRenderer from "../Renderers/paymentDetailsRenderer";
+import CircularProgress from '@mui/material/CircularProgress';
 
 // Styling
 import "../../styling/DetailView.css";
@@ -12,6 +13,14 @@ export default function PaymentDetails() {
     const [paymentObject, setPaymentObject] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
     const { id } = useParams();
+
+    const ShowLoader = () => {
+        if ( dataLoaded === false ) {
+            return  <CircularProgress id="loader"/>;
+        } else {
+            return <PaymentDetailsRenderer key={paymentObject.id} paymentObject={paymentObject}/>
+        }
+    }
 
     useEffect(() => {
 
@@ -33,6 +42,6 @@ export default function PaymentDetails() {
       }, [paymentObject]);
 
       return (
-        <PaymentDetailsRenderer key={paymentObject.id} paymentObject={paymentObject}/>
+        <ShowLoader />
     ) 
 }

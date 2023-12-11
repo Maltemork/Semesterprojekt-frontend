@@ -1,28 +1,33 @@
 // Essential
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getData } from "../crud/getData";
 // Specific
 import ChildRenderer from "../Renderers/childRenderer.js";
-import * as child from "../Renderers/childObject";
+import { ConstructChildObject } from "../Renderers/childObject";
 // Styling & CSS
-import PublicIcon from "@mui/icons-material/Public";
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import Caret from "../icons/Caret.jsx"
 import "../../styling/Table.css"
-
-// Array
-let childrensArray = [];
-await buildChildrensList();
-
-// Build array
-async function buildChildrensList() {
-  const data = await getData("children");
-  childrensArray = data.map(child.ConstructChildObject);
-  console.log(childrensArray);
-}
 
 // Childrens object
 const ChildrensPage = 
   () => {
+    const [childrensArray, setChildrensArray] = React.useState([]);
+
+    useEffect(() => {
+      const buildChildrensList = async () => {
+        try {
+          const data = await getData("children");
+          const constructedChildren = data.map(child => ConstructChildObject(child));
+          setChildrensArray(constructedChildren);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+
+      buildChildrensList();
+    }, []);
+
     const [search, setSearch] = React.useState('');
     const [sort, setSort] = React.useState({ keyToSort: "ID", direction: "asc"});
 
@@ -41,7 +46,7 @@ const ChildrensPage =
       {
         id: 3,
         KEY: "subitems",
-        LABEL: "Subitems"
+        LABEL: "Country"
       },
       {
         id: 4,
@@ -106,13 +111,12 @@ const ChildrensPage =
     }
   
     const searchInput = (item) => {
-      return search.toLowerCase() === "" ? item : 
+      return search.toLowerCase() === "" ? item :
       item.childNo.toLowerCase().includes(search.toLowerCase()) ||
       item.name.toLowerCase().includes(search.toLowerCase()) ||
       item.school.toLowerCase().includes(search.toLowerCase()) ||
-      item.type.toLowerCase().includes(search.toLowerCase()) ||
       item.subitems.toLowerCase().includes(search.toLowerCase())
-    };
+      };
 
     const handleSearch = (e) => {
       setSearch(e.target.value);
@@ -122,7 +126,7 @@ const ChildrensPage =
     return (
             <>
               <div id="table-title">
-                <PublicIcon />
+                <BedroomBabyIcon />
                 <h1> Children</h1>
               </div>
               <div id="table-container">
@@ -150,7 +154,7 @@ const ChildrensPage =
                   </thead>
                   <tbody id="table-body">
                     { getSortedArray(childrensArray).filter(searchInput).map(child => (
-                      <ChildRenderer key={child.childNo} child={child}/>
+                      <ChildRenderer key={child.id} child={child}/>
                     )) }
                   </tbody>
                 </table>
