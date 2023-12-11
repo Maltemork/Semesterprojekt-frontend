@@ -13,7 +13,7 @@ export const SponsorRenderer = ( {sponsor} ) => {
                 <td>{sponsor.name}</td>
                 <td>{sponsor.subitems}</td>
                 <td>{sponsor.email}</td>
-                <td>{sponsor.phone}</td>
+                <td>+{sponsor.phone}</td>
                 <td>{sponsor.type}</td>
                 <td>{sponsor.reepayHandleDonations}</td>
                 <td>{sponsor.reepayHandlePeriamma}</td>

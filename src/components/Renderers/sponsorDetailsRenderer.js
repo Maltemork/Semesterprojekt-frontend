@@ -45,7 +45,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                     <p name="email">{ sponsorObject.email }</p>
 
                     <label htmlFor="phone">Phone nr.:</label>
-                    <p name="phone">{ sponsorObject.phone ? sponsorObject.phone : "None" }</p>
+                    <p name="phone">+{ sponsorObject.phone ? sponsorObject.phone : "None" }</p>
 
                     <label htmlFor="active"></label>
                     <p name="active" style={sponsorObject.active ? {'color': "green", "fontWeight": "bold" } : {'color': "red", "fontWeight": "bold" }}>{ sponsorObject.active ? "Active" : "Inactive"}</p>
