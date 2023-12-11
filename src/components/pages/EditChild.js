@@ -57,6 +57,14 @@ const EditChild = () => {
         onChange={handleChildFormChange}
       />
 
+      <label htmlFor="school">School</label>
+      <input
+        type="text"
+        name="school"
+        value={childFormData.school || ""}
+        onChange={handleChildFormChange}
+      />
+
       <label htmlFor="gender">Gender</label>
       <input
         type="text"
@@ -64,6 +72,8 @@ const EditChild = () => {
         value={childFormData.gender || ""}
         onChange={handleChildFormChange}
       />
+
+      {/* country */}
 
       <label htmlFor="birthdate">Birthdate</label>
       <input
@@ -73,13 +83,7 @@ const EditChild = () => {
         onChange={handleChildFormChange}
       />
 
-      <label htmlFor="school">School</label>
-      <input
-        type="text"
-        name="school"
-        value={childFormData.school || ""}
-        onChange={handleChildFormChange}
-      />
+      {/* Type */}
 
       <label htmlFor="schoolStart">School Start</label>
       <input
@@ -89,6 +93,8 @@ const EditChild = () => {
         onChange={handleChildFormChange}
       />
 
+      {/* Sponsor */}
+
       <label htmlFor="class">Class</label>
       <input
         type="text"
@@ -96,6 +102,8 @@ const EditChild = () => {
         value={childFormData.class || ""}
         onChange={handleChildFormChange}
       />
+
+      {/* Notes */}
 
       <button>Submit Changes</button>
     </form>
