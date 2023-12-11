@@ -1,5 +1,5 @@
 .addChildContainer {
-  margin-top: 0px;
+  margin-top: -50px;
   max-height: calc(100vh - 62px);
   overflow: scroll;
   z-index: 999;

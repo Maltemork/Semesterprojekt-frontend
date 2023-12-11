@@ -10,8 +10,9 @@ const AddChild = () => {
     gender: "",
     birthdate: "",
     school: "",
+    schoolType: "",
     schoolStart: "",
-    schoolClass: "",
+    schoolClass: ""
   });
 
   const handleChildFormChange = (event) => {
@@ -49,6 +50,9 @@ const AddChild = () => {
 
       <label htmlFor="school">School</label>
       <input type="text" name="school" onChange={handleChildFormChange} placeholder="School name" required/>
+
+      <label htmlFor="schoolType">School type</label>
+      <input type="text" name="schoolType" onChange={handleChildFormChange} placeholder="School type" required/>
 
       <label htmlFor="schoolStart">School Start</label>
       <input type="date" name="schoolStart" onChange={handleChildFormChange} required/>

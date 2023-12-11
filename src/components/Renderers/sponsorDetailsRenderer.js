@@ -1,6 +1,7 @@
 // Essential
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { deleteObject } from "../crud/getData";
 
 // Styling
 import GroupIcon from "@mui/icons-material/Group";
@@ -9,18 +10,42 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const SponsorDetailsRenderer = ({ sponsorObject }) => {
-    const navigate = useNavigate();
+
+    // DIALOG SECTION
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+      };
+
+    // BUTTONS SECTION
 
     function handleEditButton() {
         
         console.log(`edit for ${sponsorObject.name} clicked`);
         navigate("./edit");
     }
+
     function handleDeleteButton() {
-        console.log(`delete for ${sponsorObject.name} clicked`)
+        setOpen(true);
     }
+
+    function handleDelete() {
+        deleteObject("sponsors", sponsorObject.customerId)
+        setOpen(false);
+        setTimeout(() => {
+            navigate("../sponsors");
+        }, "1000");
+    }
+
+    const navigate = useNavigate();
 
     return (
         <div className="detail-view">
@@ -89,6 +114,30 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
                     <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
                     <Button variant="contained" onClick={handleDeleteButton} style={{'backgroundColor': 'red'}}><DeleteForeverIcon /></Button>
                 </Stack>
+                {/* DIALOG SECTION */}
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                    className="dialog"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                    Delete { sponsorObject.name } from the database?
+                    </DialogTitle>
+                    <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        You are about to delete { sponsorObject.name }. This deletion is irreversible and will completely remove all relations to this person in the database. <br/>
+                        Are you sure you want to delete { sponsorObject.name }?
+                    </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} id="disagree" autoFocus>Cancel</Button>
+                        <Button onClick={handleDelete} id="agree">
+                            Delete { sponsorObject.name }
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
             
         </div>

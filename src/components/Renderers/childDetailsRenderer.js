@@ -1,6 +1,7 @@
 // Essential
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { deleteObject } from "../crud/getData";
 
 // Styling
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -9,18 +10,43 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const ChildDetailsRenderer = ({ childObject }) => {
     const navigate = useNavigate();
 
+    // DIALOG SECTION
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+      };
+
+    // BUTTONS SECTION
+
     function handleEditButton() {
         
-        console.log(`edit for ${childObject.name} clicked`);
+        console.log(`edit for ${ childObject.id } clicked`);
         navigate("./edit");
     }
+
     function handleDeleteButton() {
-        console.log(`delete for ${childObject.name} clicked`)
+        setOpen(true);
     }
+
+    function handleDelete() {
+        deleteObject("children", childObject.childNo)
+        setOpen(false);
+        setTimeout(() => {
+            navigate("../children");
+        }, "1000")
+       
+    }
+
 
     return (
         
@@ -87,6 +113,30 @@ const ChildDetailsRenderer = ({ childObject }) => {
                     <Button variant="contained" onClick={handleEditButton}><EditIcon /></Button>
                     <Button variant="contained" onClick={handleDeleteButton} style={{'backgroundColor': 'red'}}><DeleteForeverIcon /></Button>
                 </Stack>
+                {/* DIALOG SECTION */}
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                    className="dialog"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                    Delete { childObject.name } from the database?
+                    </DialogTitle>
+                    <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        You are about to delete { childObject.name }. This deletion is irreversible and will completely remove all relations to this person in the database. <br/>
+                        Are you sure you want to delete { childObject.name }?
+                    </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} id="disagree" autoFocus>Cancel</Button>
+                        <Button onClick={handleDelete} id="agree">
+                            Delete { childObject.name }
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
             
         </div>
