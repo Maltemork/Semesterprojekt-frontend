@@ -60,6 +60,7 @@ const AddSponsor = () => {
           onChange={handleSponsorFormChange}
           placeholder="Privat/Erhverv"
         >
+          <option default>Choose type</option>
           <option value="Privat" default>
             Private
           </option>
