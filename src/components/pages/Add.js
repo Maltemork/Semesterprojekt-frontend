@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AddSectionRoutes } from "../Routes";
-import "../../styling/Add.css"
+import "../../styling/Add.css";
 import GroupIcon from "@mui/icons-material/Group";
-import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
+import BedroomBabyIcon from "@mui/icons-material/BedroomBaby";
 import PaymentIcon from "@mui/icons-material/Payment";
 
 const icons = [GroupIcon, BedroomBabyIcon, PaymentIcon];
@@ -16,16 +16,14 @@ const Add = () => {
     const Icon = icons[key];
     const buttonTitle = buttonTitles[key];
     return (
-      
-        <div>
-          <Link to={item.path} key={key}>
+      <div key={key}>
+        <Link to={item.path}>
           <button className="add-button">
-            <Icon id={"add-button-icon"}/>
+            <Icon id={"add-button-icon"} />
           </button>
-          </Link>
-          <p className="add-title">{buttonTitle}</p>
-        </div>
-      
+        </Link>
+        <p className="add-title">{buttonTitle}</p>
+      </div>
     );
   });
 
