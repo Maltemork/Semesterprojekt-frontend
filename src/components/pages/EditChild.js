@@ -12,18 +12,22 @@ const EditChild = () => {
     const fetchChild = async () => {
       try {
         const childData = await getObject("children", id);
-
-        const formattedBirthdate = new Date(childData[0].birthdate)
-          .toISOString()
-          .split("T")[0];
-        const formattedSchoolStart = new Date(childData[0].schoolStart)
-          .toISOString()
-          .split("T")[0];
+        let updatedChildData = { ...childData[0] };
+        for (const key in updatedChildData) {
+          if (
+            typeof updatedChildData[key] === "string" &&
+            /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/.test(
+              updatedChildData[key]
+            )
+          ) {
+            updatedChildData[key] = new Date(updatedChildData[key])
+              .toISOString()
+              .split("T")[0];
+          }
+        }
 
         setChildFormData({
-          ...childData[0],
-          birthdate: formattedBirthdate,
-          schoolStart: formattedSchoolStart,
+          ...updatedChildData,
         });
         console.log("Child Data: ", childData[0]);
       } catch (error) {
