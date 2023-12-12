@@ -36,22 +36,22 @@ const AddSponsor = () => {
     
     <form className="addSponsorForm" onSubmit={handleFormSubmit}>
       <div className="form-holder">
-        <label htmlFor="fullName">Full Name</label>
+        <label htmlFor="sponsorName">Full Name</label>
         <input
           type="text"
-          name="sponsorFullName"
+          name="sponsorName"
           onChange={handleSponsorFormChange}
           placeholder="Full name"
           required
         />
 
-        <label htmlFor="email">E-mail</label>
-        <input type="text" name="email" onChange={handleSponsorFormChange} placeholder="E-mail" required/>
+        <label htmlFor="sponsorEmail">E-mail</label>
+        <input type="text" name="sponsorEmail" onChange={handleSponsorFormChange} placeholder="E-mail" required/>
 
-        <label htmlFor="businessPrivate">Private / Business</label>
+        <label htmlFor="privatErhverv">Private / Business</label>
         <select
           type="text"
-          name="businessPrivate"
+          name="privatErhverv"
           onChange={handleSponsorFormChange}
           placeholder="Privat/Erhverv"
         >
@@ -60,13 +60,16 @@ const AddSponsor = () => {
         </select>
 
         <label htmlFor="cprCvr"> CPR / CVR</label>
-        <input type="text" name="cprCvr" onChange={handleSponsorFormChange} placeholder="CPR / CVR" required/>
+        <input type="number" name="cprCvr" onChange={handleSponsorFormChange} placeholder="CPR / CVR" min="0"
+          max="9999999999" required/>
 
         <label htmlFor="sponsorPhone">Phone nr.</label>
         <input
-          type="text"
+          type="number"
           name="sponsorPhone"
           onChange={handleSponsorFormChange}
+          min="0"
+          max="9999999999"
           placeholder="Sponsor Phone"
         />
 
