@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styling/AddChild.css";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddChild = () => {
@@ -23,13 +23,13 @@ const AddChild = () => {
     }));
   };
 
-  const handleChildFormSubmit = (event) => {
+  const handleChildAddFormSubmit = (event) => {
     event.preventDefault();
     HandleAddSubmit(childFormData, "children");
   };
 
   const AddChildForm = (
-    <form className="addChildForm" onSubmit={handleChildFormSubmit}>
+    <form className="addChildForm" onSubmit={handleChildAddFormSubmit}>
       <label htmlFor="childFullName">Full Name</label>
       <input
         type="text"
@@ -40,25 +40,51 @@ const AddChild = () => {
       />
 
       <label htmlFor="gender">Gender</label>
-      <select name="gender" onChange={handleChildFormChange} placeholder="Gender" required>
+      <select
+        name="gender"
+        onChange={handleChildFormChange}
+        placeholder="Gender"
+        required
+      >
         <option>Male</option>
         <option>Female</option>
       </select>
 
       <label htmlFor="birthdate">Birthdate</label>
-      <input type="date" name="birthdate" onChange={handleChildFormChange} required />
+      <input
+        type="date"
+        name="birthdate"
+        onChange={handleChildFormChange}
+        required
+      />
 
       <label htmlFor="school">School</label>
-      <input type="text" name="school" onChange={handleChildFormChange} placeholder="School name" required/>
+      <input
+        type="text"
+        name="school"
+        onChange={handleChildFormChange}
+        placeholder="School name"
+        required
+      />
 
       <label htmlFor="schoolType">School type</label>
       <input type="text" name="schoolType" onChange={handleChildFormChange} placeholder="School type" required/>
 
       <label htmlFor="schoolStart">School Start</label>
-      <input type="date" name="schoolStart" onChange={handleChildFormChange} required/>
+      <input
+        type="date"
+        name="schoolStart"
+        onChange={handleChildFormChange}
+        required
+      />
 
       <label htmlFor="schoolClass">Class</label>
-      <select name="schoolClass" onChange={handleChildFormChange} placeholder="Class" required>
+      <select
+        name="schoolClass"
+        onChange={handleChildFormChange}
+        placeholder="Class"
+        required
+      >
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -75,7 +101,7 @@ const AddChild = () => {
   const AddChildContainer = (
     <div className="addChildContainer">
       <Link to="../add">
-        <ArrowBackIcon id="back-arrow-child"/>
+        <ArrowBackIcon id="back-arrow-child" />
       </Link>
       <h1>Add Child</h1>
       {AddChildForm}

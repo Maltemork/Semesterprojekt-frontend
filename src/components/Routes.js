@@ -11,6 +11,9 @@ import AddPayment from "./pages/AddPayment";
 import SponsorDetails from "./pages/SponsorDetails";
 import ChildDetails from "./pages/ChildDetails";
 import PaymentDetails from "./pages/PaymentDetails";
+import EditSponsor from "./pages/EditSponsor";
+import EditChild from "./pages/EditChild";
+import EditPayment from "./pages/EditPayment";
 
 const AppRoutes = [
   // Primary pages.
@@ -20,42 +23,57 @@ const AppRoutes = [
   },
   {
     path: "/children",
-    Element: Children
+    Element: Children,
   },
   {
     path: "/payments",
-    Element: Payments
+    Element: Payments,
   },
   {
     path: "/add",
-    Element: Add
+    Element: Add,
   },
 
   // Misc
   {
     path: "/saved",
-    Element: Saved
+    Element: Saved,
   },
   {
     path: "/search",
-    Element: Search
+    Element: Search,
   },
   {
     path: "/",
-    Element: Redirect
+    Element: Redirect,
   },
   // Detail routes
   {
     path: "/sponsors/:id",
-    Element: SponsorDetails
+    Element: SponsorDetails,
   },
   {
     path: "/children/:id",
-    Element: ChildDetails
+    Element: ChildDetails,
   },
   {
     path: "/payments/:id",
-    Element: PaymentDetails
+    Element: PaymentDetails,
+  },
+];
+
+const EditRoutes = [
+  {
+    path: "/sponsors/:id/edit",
+    Element: EditSponsor,
+  },
+  {
+    path: "/children/:id/edit",
+    Element: EditChild,
+  },
+  {
+    path: "/payments/:id/edit",
+    Element: EditPayment,
   },
 ];
 
@@ -74,4 +92,4 @@ const AddSectionRoutes = [
   },
 ];
 
-export { AppRoutes, AddSectionRoutes };
+export { AppRoutes, AddSectionRoutes, EditRoutes };

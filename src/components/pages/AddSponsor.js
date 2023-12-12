@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styling/AddSponsor.css";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddSponsor = () => {
@@ -27,14 +27,13 @@ const AddSponsor = () => {
     }));
   };
 
-  const handleFormSubmit = (event) => {
+  const handleSponsorAddFormSubmit = (event) => {
     event.preventDefault();
     HandleAddSubmit(sponsorFormData, "sponsors");
   };
 
   const AddSponsorForm = (
-    
-    <form className="addSponsorForm" onSubmit={handleFormSubmit}>
+    <form className="addSponsorForm" onSubmit={handleSponsorAddFormSubmit}>
       <div className="form-holder">
         <label htmlFor="fullName">Full Name</label>
         <input
@@ -46,7 +45,7 @@ const AddSponsor = () => {
         />
 
         <label htmlFor="email">E-mail</label>
-        <input type="text" name="email" onChange={handleSponsorFormChange} placeholder="E-mail" required/>
+        <input type="text" name="email" onChange={handleSponsorFormChange} />
 
         <label htmlFor="businessPrivate">Private / Business</label>
         <select
@@ -55,12 +54,20 @@ const AddSponsor = () => {
           onChange={handleSponsorFormChange}
           placeholder="Privat/Erhverv"
         >
-          <option value="Privat" default>Private</option>
+          <option value="Privat" default>
+            Private
+          </option>
           <option value="Erhverv">Business</option>
         </select>
 
         <label htmlFor="cprCvr"> CPR / CVR</label>
-        <input type="text" name="cprCvr" onChange={handleSponsorFormChange} placeholder="CPR / CVR" required/>
+        <input
+          type="text"
+          name="cprCvr"
+          onChange={handleSponsorFormChange}
+          placeholder="CPR / CVR"
+          required
+        />
 
         <label htmlFor="sponsorPhone">Phone nr.</label>
         <input
@@ -71,7 +78,13 @@ const AddSponsor = () => {
         />
 
         <label htmlFor="notes">Optional notes</label>
-        <textarea type="text" name="notes" onChange={handleSponsorFormChange} placeholder="Optional notes" id="notes"/>
+        <textarea
+          type="text"
+          name="notes"
+          onChange={handleSponsorFormChange}
+          placeholder="Optional notes"
+          id="notes"
+        />
       </div>
 
       <div className="form-holder">
@@ -82,7 +95,6 @@ const AddSponsor = () => {
           onChange={handleSponsorFormChange}
           placeholder="Reepay Handle - Periamma"
         />
-
 
         <label htmlFor="reepayHandleDonations">Reepay Handle - Donations</label>
         <input
@@ -110,7 +122,11 @@ const AddSponsor = () => {
 
         <div className="double-holder">
           <label htmlFor="active">Active</label>
-          <input type="checkbox" name="active" onChange={handleSponsorFormChange} />
+          <input
+            type="checkbox"
+            name="active"
+            onChange={handleSponsorFormChange}
+          />
         </div>
       </div>
 
@@ -121,7 +137,7 @@ const AddSponsor = () => {
   const AddSponsorContainer = (
     <div className="addSponsorContainer">
       <Link to="../add">
-        <ArrowBackIcon id="back-arrow"/>
+        <ArrowBackIcon id="back-arrow" />
       </Link>
       <h1>Add Sponsor</h1>
       {AddSponsorForm}

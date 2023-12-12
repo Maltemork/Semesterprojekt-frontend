@@ -3,13 +3,13 @@ import "./App.css";
 // import { Route, IndexRoute } from 'react-router';
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AppRoutes, AddSectionRoutes } from "./components/Routes";
+import { AppRoutes, AddSectionRoutes, EditRoutes } from "./components/Routes";
 
 // Import of page compononents
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 
-const allRoutes = [...AppRoutes, ...AddSectionRoutes];
+const allRoutes = [...AppRoutes, ...AddSectionRoutes, ...EditRoutes];
 
 // Main app function
 function App() {

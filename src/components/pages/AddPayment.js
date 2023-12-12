@@ -23,13 +23,13 @@ const AddPayment = () => {
     }));
   };
 
-  const handlePaymentFormSubmit = (event) => {
+  const handlePaymentAddFormSubmit = (event) => {
     event.preventDefault();
     HandleAddSubmit(paymentFormData, "payments");
   };
 
   const AddPaymentForm = (
-    <form className="addPaymentForm" onSubmit={handlePaymentFormSubmit}>
+    <form className="addPaymentForm" onSubmit={handlePaymentAddFormSubmit}>
       <label htmlFor="invoiceAmount">Invoice Amount</label>
       <input
         type="text"
