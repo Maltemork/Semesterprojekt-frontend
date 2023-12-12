@@ -117,7 +117,7 @@ const AddSponsor = () => {
         <label htmlFor="foreningLetId">ForeningLetId</label>
         <input
           type="text"
-          name="foreningLetID"
+          name="foreningLetId"
           onChange={handleSponsorFormChange}
           placeholder="ForeningLetID"
         />
