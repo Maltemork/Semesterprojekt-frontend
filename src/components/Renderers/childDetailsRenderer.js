@@ -126,7 +126,7 @@ const ChildDetailsRenderer = ({ childObject }) => {
                     </DialogTitle>
                     <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        You are about to delete { childObject.name }. This deletion is irreversible and will completely remove all relations to this person in the database. <br/>
+                        You are about to delete { childObject.name }. This deletion is irreversible and will completely remove all relations to this child in the database. <br/>
                         Are you sure you want to delete { childObject.name }?
                     </DialogContentText>
                     </DialogContent>

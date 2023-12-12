@@ -156,7 +156,7 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
                     </DialogTitle>
                     <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        You are about to delete { paymentObject.id }. This deletion is irreversible and will completely remove all relations to this person in the database. <br/>
+                        You are about to delete { paymentObject.id }. This deletion is irreversible and will completely remove all relations to this payment in the database. <br/>
                         Are you sure you want to delete { paymentObject.id }?
                     </DialogContentText>
                     </DialogContent>
