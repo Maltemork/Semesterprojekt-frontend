@@ -119,11 +119,7 @@ const SponsorsPage =
     const handleSearch = (e) => {
       setSearch(e.target.value);
     };
-
     
-
-    
-
     return (
             <>
               <div id="table-title">
@@ -166,4 +162,4 @@ const SponsorsPage =
           );
         };
 
-export default SponsorsPage;
+  export default SponsorsPage;
