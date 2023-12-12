@@ -2,3 +2,59 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+
+.editSponsorContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: left;
+  margin: -80px auto auto auto;
+  max-width: 400px;
+}
+
+.editSponsorContainer h1 {
+  text-align: center;
+}
+
+.editSponsorContainer input, select {
+  background: none;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.editSponsorContainer button {
+  grid-column: 1 / -1;
+  padding: 10px;
+  width: 200px;
+  height: 50px;
+  margin: 20px auto 20px auto;
+  color: white;
+  background-color: #5E5BFF;
+  border: 0px solid gray;
+  border-radius: 7px;
+}
+
+.editSponsorContainer button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.425);
+  border: 1px solid gray;
+}
+
+.double-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.double-holder * {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.double-holder :nth-child(2) {
+  margin-left: 350px;
+}

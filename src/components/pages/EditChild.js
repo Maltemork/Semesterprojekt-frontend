@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import "../../styling/EditChild.css";
 import HandleEditSubmit from "../crud/EditSubmit";
 import { getObject } from "../crud/getData";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const EditChild = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [childFormData, setChildFormData] = useState({});
 
@@ -49,6 +51,9 @@ const EditChild = () => {
   const handleChildEditFormSubmit = (event) => {
     event.preventDefault();
     HandleEditSubmit(childFormData, "children", id);
+    setTimeout(() => {
+      navigate("/children/" + childFormData.childNo);
+    }, "500");
   };
 
   const EditChildForm = (

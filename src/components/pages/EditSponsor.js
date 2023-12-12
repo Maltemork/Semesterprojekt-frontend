@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import HandleEditSubmit from "../crud/EditSubmit";
 import { useEffect, useState } from "react";
 import { getObject } from "../crud/getData";
 import "../../styling/EditSponsor.css";
 
 const EditSponsor = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   console.log("Editing: " + id);
 
@@ -36,7 +38,10 @@ const EditSponsor = () => {
   const handleSponsorEditFormSubmit = (event) => {
     event.preventDefault();
     HandleEditSubmit(sponsorFormData, "sponsors", id);
-    // navigate("/sponsors");
+    setTimeout(() => {
+      navigate("/sponsors/" + sponsorFormData.sponsorId);
+    }, "500");
+    
   };
 
   const EditSponsorForm = (
@@ -121,13 +126,14 @@ const EditSponsor = () => {
         onChange={handleSponsorFormChange}
       />
 
-      <label htmlFor="active">Active</label>
-      <input
-        type="checkbox"
-        name="active"
-        checked={sponsorFormData.active || false}
-        onChange={handleSponsorFormChange}
-      />
+      <div className="double-holder">
+          <label htmlFor="active">Active</label>
+          <input
+            type="checkbox"
+            name="active"
+            onChange={handleSponsorFormChange}
+          />
+      </div>
 
       <button>Submit Changes</button>
     </form>
