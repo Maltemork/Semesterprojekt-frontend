@@ -1,5 +1,5 @@
 // Essential
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { deleteObject, getSponsorPayments } from "../crud/getData";
 import { DeleteDialog } from "../crud/deleteDialog";
@@ -14,6 +14,29 @@ import Stack from "@mui/material/Stack";
 
 const SponsorDetailsRenderer = ({ sponsorObject }) => {
   const navigate = useNavigate();
+
+  const [sponsorPayments, setSponsorPayments] = useState([]);
+
+  useEffect(() => {
+    const fetchSponsorPaymentsData = async () => {
+      try {
+        const sponsorPaymentsData = await getSponsorPayments(
+          sponsorObject.customerId
+        );
+        setSponsorPayments(sponsorPaymentsData);
+      } catch (error) {
+        console.error(
+          "Couldn't fetch payments data for sponsor: " +
+            sponsorObject.customerId,
+          error
+        );
+      }
+    };
+
+    fetchSponsorPaymentsData();
+  }, [sponsorObject.customerId]);
+
+  console.log("Sponsor Payments: ", sponsorPayments);
 
   // DIALOG SECTION
   const [open, setOpen] = React.useState(false);
