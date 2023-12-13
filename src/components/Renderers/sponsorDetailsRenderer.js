@@ -1,7 +1,7 @@
 // Essential
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { deleteObject } from "../crud/getData";
+import { deleteObject, getSponsorPayments } from "../crud/getData";
 import { DeleteDialog } from "../crud/deleteDialog";
 
 // Styling
@@ -15,7 +15,15 @@ import Stack from "@mui/material/Stack";
 const SponsorDetailsRenderer = ({ sponsorObject }) => {
   const navigate = useNavigate();
 
-  let sponsorPayments = [];
+  getSponsorPayments(sponsorObject.customerId)
+    .then((sponsorPaymentList) => {
+      const sponsorPayments = sponsorPaymentList;
+      console.log("Sponsor ID:", sponsorObject.customerId);
+      console.log("Sponsor Payments List Fetched:", sponsorPayments);
+    })
+    .catch((error) => {
+      console.error("Error when fetching sponsor payments", error);
+    });
 
   // DIALOG SECTION
   const [open, setOpen] = React.useState(false);
@@ -140,6 +148,10 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
       </div>
     );
   }
+
+  // async function sponsorPaymentsList() {
+  //   return await getSponsorPayments(sponsorObject.customerId);
+  // }
 
   return (
     <div className="detail-view">
