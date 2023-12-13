@@ -15,7 +15,7 @@ const PaymentRenderer = ({ payment }) => {
                     {payment.id}
                 </td>
                 <td>
-                    {payment.customer}
+                        {payment.customer}
                 </td>
                 <td>{Number(payment.amount / 100).toFixed(2)}</td>
                 <td>{payment.currency}</td>

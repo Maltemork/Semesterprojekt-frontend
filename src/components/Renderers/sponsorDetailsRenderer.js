@@ -112,9 +112,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
     return (
         <div className="detail-view">
             {/* BACK BUTTON */}
-            <Link to="../sponsors">
-                <ArrowBackIcon id="back-arrow-details"/>
-            </Link>
+            <ArrowBackIcon id="back-arrow-details" onClick={() => navigate(-1)}/>
             <div className="detail-card">
                 {/* SPONSOR ICON */}
                 <GroupIcon id="icon"/>

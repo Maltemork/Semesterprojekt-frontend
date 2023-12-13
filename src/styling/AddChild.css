@@ -14,19 +14,15 @@
   max-width: 400px;
 }
 
-.addChildForm input, select {
+.addChildForm input, .form-holder select, .form-holder textarea {
   background: none;
   height: 40px;
   border-radius: 4px;
+  resize: none;
   border: 1px solid gray;
   padding-left: 10px;
   margin-bottom: 15px;
   margin-top: 5px;
-}
-
-
-.double-holder :nth-child(2) {
-  margin: auto auto auto 50px;
 }
 
 .add-child-button {

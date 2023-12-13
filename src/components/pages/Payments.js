@@ -69,7 +69,7 @@ const PaymentsPage =
       {
         id: 7,
         KEY: "customerEmail",
-        LABEL: "Customer E-mail"
+        LABEL: "Customer Email"
       },
       {
         id: 8,

@@ -34,7 +34,7 @@ const AddSponsor = () => {
 
   const AddSponsorForm = (
     <form className="addSponsorForm" onSubmit={handleSponsorAddFormSubmit}>
-      <div className="form-holder">
+      <div className="form-holder right-border">
         <label htmlFor="sponsorName">Full Name</label>
         <input
           type="text"
@@ -53,18 +53,19 @@ const AddSponsor = () => {
           required
         />
 
-        <label htmlFor="privatErhverv">Private / Business</label>
-        <select
-          type="text"
-          name="privatErhverv"
-          onChange={handleSponsorFormChange}
-          placeholder="Privat/Erhverv"
-        >
-          <option value="Privat" default>
-            Private
-          </option>
-          <option value="Erhverv">Business</option>
-        </select>
+        
+          <label htmlFor="privatErhverv">Private / Business</label>
+          <select
+            type="text"
+            name="privatErhverv"
+            onChange={handleSponsorFormChange}
+            placeholder="Privat/Erhverv"
+          >
+            <option value="Privat" default>
+              Private
+            </option>
+            <option value="Erhverv">Business</option>
+          </select>
 
         <label htmlFor="cprCvr"> CPR / CVR</label>
         <input
@@ -130,13 +131,13 @@ const AddSponsor = () => {
           placeholder="Main payment platform"
         />
 
-        <div className="double-holder">
-          <label htmlFor="active">Active</label>
-          <input
-            type="checkbox"
-            name="active"
-            onChange={handleSponsorFormChange}
-          />
+          <div className="double-holder">
+            <label htmlFor="active">Active</label>
+            <input
+              type="checkbox"
+              name="active"
+              onChange={handleSponsorFormChange}
+            />
         </div>
       </div>
 

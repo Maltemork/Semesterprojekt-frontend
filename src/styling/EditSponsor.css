@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.editSponsorContainer input, select {
+.editSponsorContainer input select {
   background: none;
   height: 40px;
   border-radius: 4px;
@@ -53,8 +53,4 @@
 .double-holder * {
   margin-top: auto;
   margin-bottom: auto;
-}
-
-.double-holder :nth-child(2) {
-  margin-left: 350px;
 }

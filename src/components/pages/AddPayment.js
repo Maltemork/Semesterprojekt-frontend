@@ -9,7 +9,7 @@ const AddPayment = () => {
   const [paymentFormData, setPaymentFormData] = useState({
     invoiceAmount: "",
     invoiceCreated: "",
-    currency: "",
+    invoiceCurrency: "",
     invoiceHandle: "",
     customerHandle: "",
     subscriptionHandle: "",
@@ -45,7 +45,7 @@ const AddPayment = () => {
       />
 
       <label htmlFor="currency">Currency</label>
-      <input type="text" name="currency" onChange={handlePaymentFormChange} />
+      <input type="text" name="invoiceCurrency" onChange={handlePaymentFormChange} />
 
       <label htmlFor="customerHandle">Customer Handle</label>
       <input

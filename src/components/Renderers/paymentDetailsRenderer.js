@@ -47,9 +47,12 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
     function DetailsText({paymentObject}) {
         return (<div className="detail-text-container">
                       <h2 className="detail-view-title">Invoice: {paymentObject.id}</h2>
-  
-                      <label htmlFor="sponsor">Sponsor: </label>
-                      <p name="sponsor">{paymentObject.customer ? paymentObject.customer : "No sponsor registered."}</p>
+
+                    
+                        <label htmlFor="sponsor">Sponsor: </label>
+                        <Link to={"/sponsors/" + paymentObject.customer}>
+                            <p name="sponsor">{paymentObject.customer ? paymentObject.customer : "No sponsor registered."}</p>
+                        </Link>
   
                       <label htmlFor="subscription">Subscription:</label>
                       <p name="subscription"> {paymentObject.subscription ? paymentObject.subscription : "No subscription registered."}</p>
@@ -151,8 +154,8 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
 
     return (
         <div className="detail-view">
-            <Link to="../payments">
-                <ArrowBackIcon id="back-arrow-details"/>
+            <Link to={"/children/"}>
+                <ArrowBackIcon id="back-arrow-details" />
             </Link>
             <div className="detail-card">
                 {/* MAIN DETAILS */}

@@ -18,15 +18,11 @@
   background: none;
   height: 40px;
   border-radius: 4px;
+
   border: 1px solid gray;
   padding-left: 10px;
   margin-bottom: 15px;
   margin-top: 5px;
-}
-
-
-.double-holder :nth-child(2) {
-  margin: auto auto auto 50px;
 }
 
 .add-payment-button {
