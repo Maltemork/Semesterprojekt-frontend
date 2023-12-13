@@ -15,6 +15,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  font-size: 18px;
 }
 
 body {
@@ -34,4 +35,28 @@ body {
 
 .hidden {
   display: none;
+}
+
+.double-holder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.double-holder :nth-child(2) {
+  margin-left: auto;
+  margin-top: 15px;
+}
+
+#back-arrow-child {
+  position: auto;
+  margin-left: -200px;
+  margin-top: 25px;
+  color: black;
+  font-size: 2rem;
+  position: fixed;
+}
+
+#back-arrow-child:hover {
+ cursor: pointer;
 }

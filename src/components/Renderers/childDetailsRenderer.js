@@ -58,8 +58,8 @@ const ChildDetailsRenderer = ({ childObject }) => {
                     <p name="childNo">{childObject.childNo}</p>
     
                     <label htmlFor="sponsor">Sponsor:</label>
-                    <Link to={childObject.sponsor && `../sponsors/` + childObject.sponsor } name="sponsor">
-                        {childObject.sponsor ? childObject.sponsor : ""}
+                    <Link to={childObject.sponsoredBy && `../sponsors/` + childObject.sponsoredBy } name="sponsor">
+                        {childObject.sponsoredBy ? childObject.sponsoredBy : ""}
                     </Link>
     
                     <label htmlFor="sponsor1">Previous sponsor:</label>
@@ -108,11 +108,10 @@ const ChildDetailsRenderer = ({ childObject }) => {
 
 
     return (
-        
         <div className="detail-view">
-            {/* BACK BUTTON */}
-            <Link to="../children">
-                <ArrowBackIcon id="back-arrow-details"/>
+            {/* BACK BUTTON */} 
+            <Link to={"/children/"}>
+                <ArrowBackIcon id="back-arrow-details" />
             </Link>
             <div className="detail-card">
                 {/* DETAIL ICON */}

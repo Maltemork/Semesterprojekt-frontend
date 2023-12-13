@@ -170,7 +170,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
     <div className="detail-view">
       {/* BACK BUTTON */}
       <Link to="../sponsors">
-        <ArrowBackIcon id="back-arrow-details" />
+        <ArrowBackIcon id="back-arrow-details" onClick={() => navigate(-1)} />
       </Link>
       <div className="detail-card">
         {/* SPONSOR ICON */}

@@ -31,7 +31,7 @@
     
 }
 
-.detail-card p, label {
+.detail-card p label {
     font-size: 18px;
 }
 
@@ -125,8 +125,8 @@
 
 
 #back-arrow-details {
-    position: absolute;
-    left: 20px;
+    position: fixed;
+    left: 120px;
     margin-top: 13px;
     margin-bottom: 13px;
     color: black;

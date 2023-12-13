@@ -50,41 +50,36 @@ const ChildrensPage =
       },
       {
         id: 4,
-        KEY: "sponsor",
-        LABEL: "Sponsor"
-      },
-      {
-        id: 5,
         KEY: "gender",
         LABEL: "Gender"
       },
       {
-        id: 6,
+        id: 5,
         KEY: "birthdate",
         LABEL: "Age"
       },
       {
-        id: 7,
+        id: 6,
         KEY: "birthdate",
         LABEL: "Birthdate"
       },
       {
-        id: 8,
+        id: 7,
         KEY: "type",
         LABEL: "Type"
       },
       {
-        id: 9,
+        id: 8,
         KEY: "school",
         LABEL: "School"
       },
       {
-        id: 10,
+        id: 9,
         KEY: "schoolStart",
         LABEL: "School Start"
       },
       {
-        id: 11,
+        id: 10,
         KEY: "class",
         LABEL: "Class"
       }
@@ -111,11 +106,11 @@ const ChildrensPage =
     }
   
     const searchInput = (item) => {
-      return search.toLowerCase() === "" ? item :
-      item.childNo.toLowerCase().includes(search.toLowerCase()) ||
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.school.toLowerCase().includes(search.toLowerCase()) ||
-      item.subitems.toLowerCase().includes(search.toLowerCase())
+        return search.toLowerCase() === "" ? item :
+        item.childNo.toLowerCase().includes(search.toLowerCase()) ||
+        item.name.toLowerCase().includes(search.toLowerCase()) ||
+        item.school.toLowerCase().includes(search.toLowerCase()) ||
+        item.subitems.toLowerCase().includes(search.toLowerCase()) 
       };
 
     const handleSearch = (e) => {

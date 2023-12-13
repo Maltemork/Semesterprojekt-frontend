@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "../../styling/EditChild.css";
 import HandleEditSubmit from "../crud/EditSubmit";
 import { getObject } from "../crud/getData";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const EditChild = () => {
   const navigate = useNavigate();
@@ -152,6 +153,9 @@ const EditChild = () => {
 
   const EditChildContainer = (
     <div className="editChildContainer">
+      <Link to={"/children/" + childFormData.childNo}>
+        <ArrowBackIcon id="back-arrow" />
+      </Link>
       <h1>Edit {id}</h1>
       {EditChildForm}
     </div>
