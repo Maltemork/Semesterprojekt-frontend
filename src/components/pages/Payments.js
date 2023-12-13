@@ -115,12 +115,13 @@ const PaymentsPage =
 
     return (
             <>
-              <div id="table-title">
-                <PaymentIcon />
-                <h1> Payments</h1>
-              </div>
+              
               <div id="table-container">
                 <div id="functions-container">
+                  <div id="table-title">
+                    <PaymentIcon />
+                    <h1> Payments</h1>
+                  </div>
                   <div className="search-sort-container">
                     <input placeholder="Search" id="search" type="text" onChange={handleSearch}></input>
                   </div>

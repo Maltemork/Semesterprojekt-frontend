@@ -120,12 +120,13 @@ const ChildrensPage =
 
     return (
             <>
-              <div id="table-title">
-                <BedroomBabyIcon />
-                <h1> Children</h1>
-              </div>
+              
               <div id="table-container">
                 <div id="functions-container">
+                  <div id="table-title">
+                    <BedroomBabyIcon />
+                    <h1> Children</h1>
+                  </div>
                   <div className="search-sort-container">
                     <input placeholder="Search" id="search" type="text" onChange={handleSearch}></input>
                   </div>
