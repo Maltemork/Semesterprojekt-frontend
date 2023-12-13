@@ -6,13 +6,13 @@ import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddChild = () => {
   const [childFormData, setChildFormData] = useState({
-    childFullName: "",
+    fullname: "",
     gender: "",
     birthdate: "",
     school: "",
-    schoolType: "",
+    type: "",
     schoolStart: "",
-    schoolClass: ""
+    class: 0,
   });
 
   const handleChildFormChange = (event) => {
@@ -30,10 +30,10 @@ const AddChild = () => {
 
   const AddChildForm = (
     <form className="addChildForm" onSubmit={handleChildAddFormSubmit}>
-      <label htmlFor="childFullName">Full Name</label>
+      <label htmlFor="fullname">Full Name</label>
       <input
         type="text"
-        name="childFullName"
+        name="fullname"
         onChange={handleChildFormChange}
         placeholder="Full name"
         required
@@ -44,10 +44,12 @@ const AddChild = () => {
         name="gender"
         onChange={handleChildFormChange}
         placeholder="Gender"
-        required
       >
-        <option>Male</option>
-        <option>Female</option>
+        <option value="" default>
+          Choose Gender
+        </option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
       </select>
 
       <label htmlFor="birthdate">Birthdate</label>
@@ -67,8 +69,14 @@ const AddChild = () => {
         required
       />
 
-      <label htmlFor="schoolType">School type</label>
-      <input type="text" name="schoolType" onChange={handleChildFormChange} placeholder="School type" required/>
+      <label htmlFor="type">School type</label>
+      <input
+        type="text"
+        name="type"
+        onChange={handleChildFormChange}
+        placeholder="School type"
+        required
+      />
 
       <label htmlFor="schoolStart">School Start</label>
       <input
@@ -78,20 +86,23 @@ const AddChild = () => {
         required
       />
 
-      <label htmlFor="schoolClass">Class</label>
+      <label htmlFor="class">Class</label>
       <select
-        name="schoolClass"
+        name="class"
         onChange={handleChildFormChange}
         placeholder="Class"
         required
       >
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
+        <option value={0} default>
+          Choose Class
+        </option>
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+        <option value={4}>4</option>
+        <option value={5}>5</option>
+        <option value={6}>6</option>
+        <option value={7}>7</option>
       </select>
 
       <button className="add-child-button">Add child</button>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "../../styling/AddPayment.css";
 
 import HandleAddSubmit from "../crud/AddSubmit";
@@ -44,8 +44,12 @@ const AddPayment = () => {
         onChange={handlePaymentFormChange}
       />
 
-      <label htmlFor="currency">Currency</label>
-      <input type="text" name="invoiceCurrency" onChange={handlePaymentFormChange} />
+      <label htmlFor="invoiceCurrency">Currency</label>
+      <input
+        type="text"
+        name="invoiceCurrency"
+        onChange={handlePaymentFormChange}
+      />
 
       <label htmlFor="customerHandle">Customer Handle</label>
       <input
@@ -68,7 +72,7 @@ const AddPayment = () => {
   const AddPaymentContainer = (
     <div className="addPaymentContainer">
       <Link to="../add">
-        <ArrowBackIcon id="back-arrow-payments"/>
+        <ArrowBackIcon id="back-arrow-payments" />
       </Link>
       <h1>Add Payment</h1>
       {AddPaymentForm}

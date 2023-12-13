@@ -52,8 +52,6 @@ const AddSponsor = () => {
           placeholder="E-mail"
           required
         />
-
-        
           <label htmlFor="privatErhverv">Private / Business</label>
           <select
             type="text"
@@ -118,7 +116,7 @@ const AddSponsor = () => {
         <label htmlFor="foreningLetId">ForeningLetId</label>
         <input
           type="text"
-          name="foreningLetID"
+          name="foreningLetId"
           onChange={handleSponsorFormChange}
           placeholder="ForeningLetID"
         />
