@@ -15,16 +15,6 @@ import Stack from "@mui/material/Stack";
 const SponsorDetailsRenderer = ({ sponsorObject }) => {
   const navigate = useNavigate();
 
-  getSponsorPayments(sponsorObject.customerId)
-    .then((sponsorPaymentList) => {
-      const sponsorPayments = sponsorPaymentList;
-      console.log("Sponsor ID:", sponsorObject.customerId);
-      console.log("Sponsor Payments List Fetched:", sponsorPayments);
-    })
-    .catch((error) => {
-      console.error("Error when fetching sponsor payments", error);
-    });
-
   // DIALOG SECTION
   const [open, setOpen] = React.useState(false);
 
