@@ -154,7 +154,7 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
 
     return (
         <div className="detail-view">
-            <Link to={"/children/"}>
+            <Link to={"/payments/"}>
                 <ArrowBackIcon id="back-arrow-details" />
             </Link>
             <div className="detail-card">
