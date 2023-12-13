@@ -13,6 +13,28 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 const SponsorDetailsRenderer = ({ sponsorObject }) => {
+
+  const PaymentRenderer = ({ payment }) => {
+
+    const handleRowClick = () => {
+        navigate(`/payments/${payment.invoiceHandle}`);
+    };
+
+    return (
+        
+            <tr key={payment.id} className="table-item" onClick={handleRowClick}>
+                <td>
+                    {payment.invoiceHandle}
+                </td>
+                <td>{Number(payment.invoiceAmount / 100).toFixed(2)}</td>
+                <td>{payment.invoiceCurrency}</td>
+                <td>{payment.invoiceState}</td>
+                <td>{payment.invoiceNumber}</td>
+                <td>{new Date(payment.invoiceCreated).toLocaleString("en-DE")}</td>
+            </tr>
+    );
+}
+
   const navigate = useNavigate();
 
   const [sponsorPayments, setSponsorPayments] = useState([]);
@@ -183,19 +205,17 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
             <thead>
               <tr>
                 <th>Invoice</th>
-                <th>Customer</th>
                 <th>Amount</th>
                 <th>Currency</th>
                 <th>State</th>
-                <th>Invoice Number</th>
-                <th>Customer E-mail</th>
-                <th>Subscription</th>
+                <th>#</th>
+                <th>Created</th>
               </tr>
             </thead>
             <tbody>
-              {/* { getSortedArray(paymentsArray).filter(searchInput).map(payment => (
+              { sponsorPayments.map(payment => (
                       <PaymentRenderer key={payment.id} payment={payment}/>
-                            )) } */}
+                            )) }
             </tbody>
           </table>
         </div>

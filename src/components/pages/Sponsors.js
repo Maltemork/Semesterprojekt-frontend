@@ -68,12 +68,12 @@ const SponsorsPage =
       {
         id: 7,
         KEY: "reepayHandleDonations",
-        LABEL: "Reepay Handle Donations"
+        LABEL: "RP Handle Donations"
       },
       {
         id: 8,
         KEY: "reepayHandlePeriamma",
-        LABEL: "Reepay Handle Periamma"
+        LABEL: "RP Handle Periamma"
       },
       {
         id: 9,
@@ -122,12 +122,14 @@ const SponsorsPage =
     
     return (
             <>
-              <div id="table-title">
-                <GroupIcon />
-                <h1> Sponsors</h1>
-              </div>
+              
               <div id="table-container">
+                
                 <div id="functions-container">
+                  <div id="table-title">
+                    <GroupIcon />
+                    <h1> Sponsors</h1>
+                  </div>
                   <div className="search-sort-container">
                     <input placeholder="Search" id="search" type="text" onChange={handleSearch}></input>
                   </div>

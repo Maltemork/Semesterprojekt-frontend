@@ -61,17 +61,7 @@ const ChildDetailsRenderer = ({ childObject }) => {
                     <Link to={childObject.sponsoredBy && `../sponsors/` + childObject.sponsoredBy } name="sponsor">
                         {childObject.sponsoredBy ? childObject.sponsoredBy : ""}
                     </Link>
-    
-                    <label htmlFor="sponsor1">Previous sponsor:</label>
-                    <Link to={childObject.previousSponsor && `../sponsors/` + childObject.previousSponsor } name="sponsor1">
-                        {childObject.previousSponsor ? childObject.previousSponsor : ""}
-                    </Link>
-    
-                    <label htmlFor="sponsor2">Additional sponsors:</label>
-                    <Link to={childObject.additionalSponsor && `../sponsors/` + childObject.additionalSponsor } name="sponsor2">
-                        {childObject.additionalSponsor ? childObject.additionalSponsor : ""}
-                    </Link>
-    
+                    
                     <hr></hr>
     
                     <label htmlFor="gender">Gender</label>

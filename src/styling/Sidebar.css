@@ -13,7 +13,7 @@
   height: 100%;
   width: 100%;
   padding: 20px 0 0 0;
-  margin: 10px 0 0 0;
+  margin: 10px 0 100px 0;
 }
 
 .SidebarList a {
@@ -22,14 +22,14 @@
   margin-bottom: auto;
   grid-template-columns: 1fr 2fr;
   text-decoration: none;
-  height: 51px;
+  height: 60px;
 }
 
 .SidebarList .row {
   margin-top: 20px;
   margin-bottom: 50px;
   width: 100%;
-  height: 24px;
+  height: 27px;
   justify-content: space-between;
   align-items: center;
 }
