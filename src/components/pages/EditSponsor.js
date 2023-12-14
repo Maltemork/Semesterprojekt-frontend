@@ -42,7 +42,6 @@ const EditSponsor = () => {
     setTimeout(() => {
       navigate("/sponsors/" + sponsorFormData.sponsorId);
     }, "500");
-    
   };
 
   const EditSponsorForm = (
@@ -128,12 +127,13 @@ const EditSponsor = () => {
       />
 
       <div className="double-holder">
-          <label htmlFor="active">Active:</label>
-          <input
-            type="checkbox"
-            name="active"
-            onChange={handleSponsorFormChange}
-          />
+        <label htmlFor="active">Active:</label>
+        <input
+          type="checkbox"
+          name="active"
+          checked={sponsorFormData.active || false}
+          onChange={handleSponsorFormChange}
+        />
       </div>
 
       <button>Submit Changes</button>
@@ -141,10 +141,9 @@ const EditSponsor = () => {
   );
 
   const EditSponsorContainer = (
-    
     <div className="editSponsorContainer">
       <Link to={"../sponsors/" + sponsorFormData.sponsorId}>
-        <ArrowBackIcon id="back-arrow-payments"/>
+        <ArrowBackIcon id="back-arrow-payments" />
       </Link>
       <h1>Edit {id}</h1>
       {EditSponsorForm}
