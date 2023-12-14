@@ -1,7 +1,7 @@
 // Essential
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { deleteObject } from "../crud/getData";
+import { GetChildSponsorsIds, deleteObject } from "../crud/getData";
 import { DeleteDialog } from "../crud/deleteDialog";
 
 // Styling
@@ -15,6 +15,9 @@ import Stack from "@mui/material/Stack";
 const ChildDetailsRenderer = ({ childObject }) => {
   const navigate = useNavigate();
 
+  const childSponsors = GetChildSponsorsIds(childObject.childNo);
+  const sponsor1 = childSponsors[0]?.sponsorId;
+  const sponsor2 = childSponsors[1]?.sponsorId;
   // // DIALOG SECTION // //
   const [open, setOpen] = React.useState(false);
 
@@ -56,24 +59,13 @@ const ChildDetailsRenderer = ({ childObject }) => {
         <p name="childNo">{childObject.childNo}</p>
 
         <label htmlFor="sponsor">Sponsor:</label>
-        <Link
-          to={
-            childObject.sponsoredBy && `../sponsors/` + childObject.sponsoredBy
-          }
-          name="sponsor"
-        >
-          {childObject.sponsoredBy ? childObject.sponsoredBy : ""}
+        <Link to={sponsor1 && `../sponsors/` + sponsor1} name="sponsor">
+          {sponsor1 ? sponsor1 : ""}
         </Link>
 
         <label htmlFor="sponsor2">Second Sponsor:</label>
-        <Link
-          to={
-            childObject.secondSponsor &&
-            `../sponsors/` + childObject.secondSponsor
-          }
-          name="sponsor2"
-        >
-          {childObject.secondSponsor ? childObject.secondSponsor : ""}
+        <Link to={sponsor2 && `../sponsors/` + sponsor2} name="sponsor2">
+          {sponsor2 ? sponsor2 : ""}
         </Link>
 
         <label htmlFor="sponsor1">Previous sponsor:</label>

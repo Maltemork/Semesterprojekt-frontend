@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const endpoint = "https://periamma-projekt-app.azurewebsites.net";
 
 // Get data based on 'type' (could be "sponsors", "children" or "payments").
@@ -31,10 +33,32 @@ async function getSponsorPayments(sponsorId) {
   return data;
 }
 
-async function getChildSponsorsIds(childNo) {
-  const response = await fetch(`${endpoint}/children/${childNo}/sponsors`);
-  const data = await response.json();
-  return data;
+function GetChildSponsorsIds(childNo) {
+  const [childSponsors, setChildSponsors] = useState({});
+
+  useEffect(() => {
+    const fetchChildSponsors = async () => {
+      try {
+        const response = await fetch(
+          `${endpoint}/children/${childNo}/sponsors`
+        );
+        const data = await response.json();
+        setChildSponsors(data);
+        console.log(`SponsorIds for ${childNo}:`, data);
+      } catch (error) {
+        console.error("Couldn't fetch sponsorIds for: " + childNo, error);
+      }
+    };
+
+    fetchChildSponsors();
+  }, [childNo]);
+  return childSponsors;
 }
 
-export { getData, getObject, deleteObject, getSponsorPayments };
+export {
+  getData,
+  getObject,
+  deleteObject,
+  getSponsorPayments,
+  GetChildSponsorsIds,
+};

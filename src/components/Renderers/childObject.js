@@ -3,9 +3,7 @@ export function ConstructChildObject(childdata) {
     id: childdata.id,
     childNo: childdata.childNo,
     subitems: childdata.subitems,
-    sponsor: childdata.sponsor,
     perviousSponsor: childdata.sponsoredBy,
-    additionalSponsor: childdata.secondSponsor,
     name: childdata.fullname,
     gender: childdata.gender,
     birthdate: childdata.birthdate,
@@ -13,8 +11,6 @@ export function ConstructChildObject(childdata) {
     school: childdata.school,
     schoolStart: childdata.schoolStart,
     class: childdata.class,
-    sponsoredBy: childdata.sponsoredBy,
-    secondSponsor: childdata.secondSponsor,
     notes: childdata.notes,
     getAge() {
       let date = new Date(childdata.birthdate);
@@ -24,8 +20,6 @@ export function ConstructChildObject(childdata) {
       return age;
     },
   };
-
-  function getSponsors() {}
 
   Object.defineProperty(ChildObject, "childNo", {
     configurable: false,

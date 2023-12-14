@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../styling/EditChild.css";
 import HandleEditSubmit from "../crud/EditSubmit";
-import { getObject } from "../crud/getData";
+import { GetChildSponsorsIds, getObject } from "../crud/getData";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -10,6 +10,10 @@ const EditChild = () => {
 
   const { id } = useParams();
   const [childFormData, setChildFormData] = useState({});
+
+  const childSponsors = GetChildSponsorsIds(id);
+  const sponsor1 = childSponsors[0]?.sponsorId;
+  const sponsor2 = childSponsors[1]?.sponsorId;
 
   useEffect(() => {
     const fetchChild = async () => {
@@ -124,15 +128,15 @@ const EditChild = () => {
       <input
         type="text"
         name="sponsoredBy"
-        value={childFormData.sponsoredBy || ""}
+        defaultValue={sponsor1 || ""}
         onChange={handleChildFormChange}
       />
-      
+
       <label htmlFor="secondSponsor">Second Sponsor</label>
       <input
         type="text"
         name="secondSponsor"
-        value={childFormData.secondSponsor || ""}
+        defaultValue={sponsor2 || ""}
         onChange={handleChildFormChange}
       />
 
