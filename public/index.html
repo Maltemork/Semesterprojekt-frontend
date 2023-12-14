@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?xml version="1.0"?> <configuration> <system.webServer> <rewrite> <rules> <rule name="React Routes" stopProcessing="true"> <match url=".*" /> <conditions logicalGrouping="MatchAll"> <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" /> <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" /> <add input="{REQUEST_URI}" pattern="^/(api)" negate="true" /> </conditions> <action type="Rewrite" url="/" /> </rule> </rules> </rewrite> </system.webServer> </configuration>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
