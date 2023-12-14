@@ -14,10 +14,14 @@ const HandleEditSubmit = async (data, table, id) => {
   }
 
   function addSponsor(sponsorId) {
+    const sponsorBody = {
+      sponsoredBy: sponsorId,
+    };
+
     fetch(`${endpoint}/${table}/${data.childNo}/addSponsor`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(sponsorBody),
     })
       .then((res) => {
         if (!res.ok) {
