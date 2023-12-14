@@ -29,7 +29,7 @@ const AddChild = () => {
     event.preventDefault();
     HandleAddSubmit(childFormData, "children");
     setTimeout(() => {
-      navigate("/payments/");
+      navigate("/children/");
     }, "500");
   };
 
