@@ -5,7 +5,6 @@
   z-index: 999;
 }
 
-
 .addChildForm {
   display: flex;
   flex-direction: column;
@@ -14,7 +13,9 @@
   max-width: 400px;
 }
 
-.addChildForm input, .form-holder select, .form-holder textarea {
+.addChildForm input,
+.form-holder select,
+.form-holder textarea {
   background: none;
   height: 40px;
   border-radius: 4px;
@@ -32,7 +33,7 @@
   height: 50px;
   margin: 20px auto 20px auto;
   color: white;
-  background-color: #5E5BFF;
+  background-color: #5e5bff;
   border: 0px solid gray;
   border-radius: 7px;
 }
@@ -54,5 +55,5 @@
 }
 
 #back-arrow-child:hover {
- cursor: pointer;
+  cursor: pointer;
 }

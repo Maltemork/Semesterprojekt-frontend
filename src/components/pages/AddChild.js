@@ -49,10 +49,8 @@ const AddChild = () => {
         name="gender"
         onChange={handleChildFormChange}
         placeholder="Gender"
+        required
       >
-        <option value="" default>
-          Choose Gender
-        </option>
         <option value="M">Male</option>
         <option value="F">Female</option>
       </select>

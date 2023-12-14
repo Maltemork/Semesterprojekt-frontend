@@ -259,7 +259,7 @@ const EditPayment = () => {
   const EditPaymentContainer = (
     <div className="editPaymentContainer">
       <Link to={"../payments/" + paymentFormData.invoiceHandle}>
-        <ArrowBackIcon id="back-arrow-payments" />
+        <ArrowBackIcon id="back-arrow-edit-payments" />
       </Link>
       <h1>Edit {id}</h1>
       {EditPaymentForm}

@@ -6,7 +6,7 @@ import "../../styling/AddPayment.css";
 import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddPayment = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [paymentFormData, setPaymentFormData] = useState({
     invoiceAmount: "",

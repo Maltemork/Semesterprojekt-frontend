@@ -9,7 +9,11 @@
   text-align: left;
   align-items: left;
   margin: -80px auto auto auto;
-  max-width: 400px;
+  max-width: 600px;
+  padding: 0px 60px 20px 60px;
+  max-height: calc(100vh - 120px);
+  overflow: scroll;
+  padding: 20px;
 }
 
 .editSponsorContainer h1 {
@@ -33,7 +37,7 @@
   height: 50px;
   margin: 20px auto 20px auto;
   color: white;
-  background-color: #5E5BFF;
+  background-color: #5e5bff;
   border: 0px solid gray;
   border-radius: 7px;
 }
@@ -53,4 +57,17 @@
 .double-holder * {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+#back-arrow-edit-sponsor {
+  position: relative;
+  margin-left: 0px;
+  margin-top: 10px;
+  margin-bottom: -65px;
+  color: black;
+  font-size: 2rem;
+}
+
+#back-arrow-edit-sponsor:hover {
+  cursor: pointer;
 }

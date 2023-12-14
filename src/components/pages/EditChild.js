@@ -163,7 +163,7 @@ const EditChild = () => {
   const EditChildContainer = (
     <div className="editChildContainer">
       <Link to={"/children/" + childFormData.childNo}>
-        <ArrowBackIcon id="back-arrow" />
+        <ArrowBackIcon id="back-arrow-edit-child" />
       </Link>
       <h1>Edit {id}</h1>
       {EditChildForm}

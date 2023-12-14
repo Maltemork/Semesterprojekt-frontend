@@ -131,7 +131,6 @@ const EditSponsor = () => {
         <input
           type="checkbox"
           name="active"
-          checked={sponsorFormData.active || false}
           onChange={handleSponsorFormChange}
         />
       </div>
@@ -143,7 +142,7 @@ const EditSponsor = () => {
   const EditSponsorContainer = (
     <div className="editSponsorContainer">
       <Link to={"../sponsors/" + sponsorFormData.sponsorId}>
-        <ArrowBackIcon id="back-arrow-payments" />
+        <ArrowBackIcon id="back-arrow-edit-sponsor" />
       </Link>
       <h1>Edit {id}</h1>
       {EditSponsorForm}

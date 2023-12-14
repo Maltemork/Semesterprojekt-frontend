@@ -12,6 +12,7 @@ const AddSponsor = () => {
     reepayHandlePeriamma: "",
     reepayHandleDonations: "",
     foreningLetId: "",
+    subitems: "",
     sponsorName: "",
     privatErhverv: "",
     cprCvr: "",
@@ -57,18 +58,30 @@ const AddSponsor = () => {
           placeholder="E-mail"
           required
         />
-          <label htmlFor="privatErhverv">Private / Business</label>
-          <select
-            type="text"
-            name="privatErhverv"
-            onChange={handleSponsorFormChange}
-            placeholder="Privat/Erhverv"
-          >
-            <option value="Privat" default>
-              Private
-            </option>
-            <option value="Erhverv">Business</option>
-          </select>
+
+        <label htmlFor="subitems">Subscription type:</label>
+        <input
+          type="text"
+          name="subitems"
+          onChange={handleSponsorFormChange}
+          placeholder="Kenya, Thailand"
+          defaultValue="Kenya"
+          required
+        />
+
+        <label htmlFor="privatErhverv">Private / Business</label>
+        <select
+          type="text"
+          name="privatErhverv"
+          onChange={handleSponsorFormChange}
+          placeholder="Privat/Erhverv"
+          defaultValue="Privat"
+        >
+          <option value="Privat" default>
+            Private
+          </option>
+          <option value="Erhverv">Business</option>
+        </select>
 
         <label htmlFor="cprCvr"> CPR / CVR</label>
         <input
@@ -134,13 +147,13 @@ const AddSponsor = () => {
           placeholder="Main payment platform"
         />
 
-          <div className="double-holder">
-            <label htmlFor="active">Active</label>
-            <input
-              type="checkbox"
-              name="active"
-              onChange={handleSponsorFormChange}
-            />
+        <div className="double-holder">
+          <label htmlFor="active">Active</label>
+          <input
+            type="checkbox"
+            name="active"
+            onChange={handleSponsorFormChange}
+          />
         </div>
       </div>
 
