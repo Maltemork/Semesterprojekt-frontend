@@ -31,6 +31,10 @@ async function getSponsorPayments(sponsorId) {
   return data;
 }
 
-async function getChildSponsors() {}
+async function getChildSponsorsIds(childNo) {
+  const response = await fetch(`${endpoint}/children/${childNo}/sponsors`);
+  const data = await response.json();
+  return data;
+}
 
 export { getData, getObject, deleteObject, getSponsorPayments };
