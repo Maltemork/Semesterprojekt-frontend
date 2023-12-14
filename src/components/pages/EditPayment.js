@@ -59,98 +59,97 @@ const EditPayment = () => {
 
   const EditPaymentForm = (
     <form className="editPaymentForm" onSubmit={handlePaymentEditFormSubmit}>
-      
-        <label htmlFor="">Sponsor:</label>
+      <label htmlFor="">Sponsor:</label>
+      <input
+        type="text"
+        name="customerHandle"
+        value={paymentFormData.customerHandle || ""}
+        onChange={handlePaymentFormChange}
+      />
+
+      <label htmlFor="subscriptionHandle">Subscription:</label>
+      <input
+        type="text"
+        name="subscriptionHandle"
+        value={paymentFormData.subscriptionHandle || ""}
+        onChange={handlePaymentFormChange}
+      />
+
+      <label htmlFor="paymentPlanId">Plan:</label>
+      <input
+        type="text"
+        name="paymentPlanId"
+        value={paymentFormData.paymentPlanId || ""}
+        onChange={handlePaymentFormChange}
+      />
+
+      <div className="double-holder">
+        <label htmlFor="invoiceAuthorized">Authorized:</label>
         <input
-          type="text"
-          name="customerHandle"
-          value={paymentFormData.customerHandle || ""}
+          type="checkbox"
+          name="invoiceAuthorized"
+          checked={paymentFormData.invoiceAuthorized || false}
           onChange={handlePaymentFormChange}
         />
+      </div>
 
-        <label htmlFor="subscriptionHandle">Subscription:</label>
+      <label htmlFor="invoiceAuthorizedAmount">Authorized Amount:</label>
+      <input
+        type="text"
+        name="invoiceAuthorizedAmount"
+        value={paymentFormData.invoiceAuthorizedAmount || ""}
+        onChange={handlePaymentFormChange}
+      />
+
+      <label htmlFor="invoiceCreditedAmount">Credited:</label>
+      <input
+        type="text"
+        name="invoiceCreditedAmount"
+        value={paymentFormData.invoiceCreditedAmount || ""}
+        onChange={handlePaymentFormChange}
+      />
+
+      <label htmlFor="invoiceAmount">Amount:</label>
+      <input
+        type="text"
+        name="invoiceAmount"
+        value={paymentFormData.invoiceAmount || ""}
+        onChange={handlePaymentFormChange}
+      />
+
+      <label htmlFor="invoiceCreated">Created:</label>
+      <input
+        type="date"
+        name="invoiceCreated"
+        value={paymentFormData.invoiceCreated || ""}
+        onChange={handlePaymentFormChange}
+      />
+
+      <label htmlFor="invoiceCurrency">Currency:</label>
+      <input
+        type="text"
+        name="invoiceCurrency"
+        value={paymentFormData.invoiceCurrency || ""}
+        onChange={handlePaymentFormChange}
+      />
+
+      <div className="double-holder">
+        <label htmlFor="invoiceCancelled">Cancelled:</label>
         <input
-          type="text"
-          name="subscriptionHandle"
-          value={paymentFormData.subscriptionHandle || ""}
+          type="checkbox"
+          name="invoiceCancelled"
+          checked={paymentFormData.invoiceCancelled || false}
           onChange={handlePaymentFormChange}
         />
+      </div>
 
-        <label htmlFor="planHandle">Plan:</label>
-        <input
-          type="text"
-          name="planHandle"
-          value={paymentFormData.planHandle || ""}
-          onChange={handlePaymentFormChange}
-        />
-
-        <div className="double-holder">
-          <label htmlFor="invoiceAuthorized">Authorized:</label>
-          <input
-            type="checkbox"
-            name="invoiceAuthorized"
-            checked={paymentFormData.invoiceAuthorized || false}
-            onChange={handlePaymentFormChange}
-          />
-        </div>
-
-        <label htmlFor="invoiceAuthorizedAmount">Authorized Amount:</label>
-        <input
-          type="text"
-          name="invoiceAuthorizedAmount"
-          value={paymentFormData.invoiceAuthorizedAmount || ""}
-          onChange={handlePaymentFormChange}
-        />
-
-        <label htmlFor="invoiceCreditedAmount">Credited:</label>
-        <input
-          type="text"
-          name="invoiceCreditedAmount"
-          value={paymentFormData.invoiceCreditedAmount || ""}
-          onChange={handlePaymentFormChange}
-        />
-
-        <label htmlFor="invoiceAmount">Amount:</label>
-        <input
-          type="text"
-          name="invoiceAmount"
-          value={paymentFormData.invoiceAmount || ""}
-          onChange={handlePaymentFormChange}
-        />
-
-        <label htmlFor="invoiceCreated">Created:</label>
-        <input
-          type="date"
-          name="invoiceCreated"
-          value={paymentFormData.invoiceCreated || ""}
-          onChange={handlePaymentFormChange}
-        />
-
-        <label htmlFor="invoiceCurrency">Currency:</label>
-        <input
-          type="text"
-          name="invoiceCurrency"
-          value={paymentFormData.invoiceCurrency || ""}
-          onChange={handlePaymentFormChange}
-        />
-
-        <div className="double-holder">
-          <label htmlFor="invoiceCancelled">Cancelled:</label>
-          <input
-            type="checkbox"
-            name="invoiceCancelled"
-            checked={paymentFormData.invoiceCancelled || false}
-            onChange={handlePaymentFormChange}
-          />
-        </div>
-
-        <label htmlFor="invoiceState">State:</label>
-        <input
-          type="text"
-          name="invoiceState"
-          value={paymentFormData.invoiceState || ""}
-          onChange={handlePaymentFormChange}
-        />
+      <label htmlFor="invoiceState">State:</label>
+      <input
+        type="text"
+        name="invoiceState"
+        value={paymentFormData.invoiceState || ""}
+        onChange={handlePaymentFormChange}
+      />
       <label htmlFor="invoiceDue">Due:</label>
       <input
         type="date"
@@ -168,13 +167,13 @@ const EditPayment = () => {
       />
 
       <div className="double-holder">
-          <label htmlFor="invoiceDunningSuccess">Dunning Success:</label>
-          <input
-            type="checkbox"
-            name="invoiceDunningSuccess"
-            checked={paymentFormData.invoiceDunningSuccess || false}
-            onChange={handlePaymentFormChange}
-          />
+        <label htmlFor="invoiceDunningSuccess">Dunning Success:</label>
+        <input
+          type="checkbox"
+          name="invoiceDunningSuccess"
+          checked={paymentFormData.invoiceDunningSuccess || false}
+          onChange={handlePaymentFormChange}
+        />
       </div>
 
       <div className="double-holder">
@@ -260,7 +259,7 @@ const EditPayment = () => {
   const EditPaymentContainer = (
     <div className="editPaymentContainer">
       <Link to={"../payments/" + paymentFormData.invoiceHandle}>
-        <ArrowBackIcon id="back-arrow-payments"/>
+        <ArrowBackIcon id="back-arrow-payments" />
       </Link>
       <h1>Edit {id}</h1>
       {EditPaymentForm}
