@@ -11,7 +11,7 @@ const AddChild = () => {
     fullname: "",
     gender: "",
     birthdate: "",
-    subitems: "";
+    subitems: "",
     school: "",
     type: "",
     schoolStart: "",
