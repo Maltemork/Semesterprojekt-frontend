@@ -199,6 +199,19 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
         <GroupIcon id="icon" />
         {/* DETAILS TEXT */}
         <DetailsHTML />
+        {/* BUTTONS */}
+        <Stack direction="row" spacing={2} className="detail-buttons">
+          <Button variant="contained" onClick={handleEditButton}>
+            <EditIcon />
+          </Button>
+          <Button
+            variant="contained"
+            onClick={handleDeleteButton}
+            style={{ backgroundColor: "red" }}
+          >
+            <DeleteForeverIcon />
+          </Button>
+        </Stack>
         <div className="sponsor-payments-table">
           <h1>Payments</h1>
           <table>
@@ -219,19 +232,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
             </tbody>
           </table>
         </div>
-        {/* BUTTONS */}
-        <Stack direction="row" spacing={2} className="detail-buttons">
-          <Button variant="contained" onClick={handleEditButton}>
-            <EditIcon />
-          </Button>
-          <Button
-            variant="contained"
-            onClick={handleDeleteButton}
-            style={{ backgroundColor: "red" }}
-          >
-            <DeleteForeverIcon />
-          </Button>
-        </Stack>
+        
         {/* DIALOG SECTION */}
         <DeleteDialog
           open={open}

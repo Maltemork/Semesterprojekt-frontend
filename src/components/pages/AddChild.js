@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styling/AddChild.css";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddChild = () => {
+  const navigate = useNavigate();
+
   const [childFormData, setChildFormData] = useState({
     fullname: "",
     gender: "",
@@ -26,6 +28,9 @@ const AddChild = () => {
   const handleChildAddFormSubmit = (event) => {
     event.preventDefault();
     HandleAddSubmit(childFormData, "children");
+    setTimeout(() => {
+      navigate("/children/");
+    }, "500");
   };
 
   const AddChildForm = (

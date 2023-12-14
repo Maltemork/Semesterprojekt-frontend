@@ -68,10 +68,10 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
                           }}> {paymentObject.authorized ? "✓" : "✕"}</p>
   
                       <label htmlFor="authorizedAmount">Authorized amount:</label>
-                      <p name="authorizedAmount"> {paymentObject.authorizedAmount ? paymentObject.authorizedAmount : "None."}</p>
+                      <p name="authorizedAmount">{paymentObject.authorizedAmount && Number(paymentObject.authorizedAmount / 100).toFixed(2)}</p>
   
                       <label htmlFor="credited">Credited:</label>
-                      <p name="credited"> {paymentObject.creditedAmount ? paymentObject.creditedAmount : "None."}</p>
+                      <p name="credited"> {paymentObject.creditedAmount && Number(paymentObject.creditedAmount / 100).toFixed(2)}</p>
   
                       <hr />
   
@@ -120,9 +120,6 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
                       <label htmlFor="invoiceNumber">Invoice Number:</label>
                       <p name="invoiceNumber"> {paymentObject.invoiceNumber}</p>
   
-                      <label htmlFor="refunded">Refunded:</label>
-                      <p name="refunded"> {paymentObject.invoiceRefundedAmount}</p>
-  
                       <label htmlFor="settled">Settled:</label>
                       <p name="settled" style={paymentObject.settled ? {
                               'color': 'green'
@@ -131,7 +128,7 @@ const PaymentDetailsRenderer = ({ paymentObject }) => {
                           }}> {paymentObject.settled ? "Yes." : "No."}</p>
   
                       <label htmlFor="settledAmount">Settled Amount:</label>
-                      <p name="settledAmount">{paymentObject.settledAmount}</p>
+                      <p name="settledAmount">{paymentObject.settledAmount && Number(paymentObject.settledAmount / 100).toFixed(2)}</p>
   
                       <hr />
   

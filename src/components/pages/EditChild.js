@@ -76,12 +76,17 @@ const EditChild = () => {
       />
 
       <label htmlFor="gender">Gender</label>
-      <input
+      <select
         type="text"
         name="gender"
-        value={childFormData.gender || ""}
+        value={childFormData.gender || "none"}
         onChange={handleChildFormChange}
-      />
+        required
+      >
+        <option default>Pick a gender</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+      </select>
 
       <label htmlFor="subitems">Country</label>
       <input
@@ -122,6 +127,7 @@ const EditChild = () => {
         value={childFormData.sponsoredBy || ""}
         onChange={handleChildFormChange}
       />
+      
       <label htmlFor="secondSponsor">Second Sponsor</label>
       <input
         type="text"

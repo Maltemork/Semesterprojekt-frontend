@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.editSponsorContainer input select {
+.editSponsorForm input {
   background: none;
   height: 40px;
   border-radius: 4px;
