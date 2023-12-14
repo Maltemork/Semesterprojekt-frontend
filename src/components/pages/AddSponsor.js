@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styling/AddSponsor.css";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddSponsor = () => {
+  const navigate = useNavigate();
+
   const [sponsorFormData, setSponsorFormData] = useState({
     sponsorEmail: "",
     reepayHandlePeriamma: "",
@@ -30,6 +32,9 @@ const AddSponsor = () => {
   const handleSponsorAddFormSubmit = (event) => {
     event.preventDefault();
     HandleAddSubmit(sponsorFormData, "sponsors");
+    setTimeout(() => {
+      navigate("/sponsors/");
+    }, "500");
   };
 
   const AddSponsorForm = (

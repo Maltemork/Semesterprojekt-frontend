@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.editChildContainer input select {
+.editChildForm input {
   background: none;
   height: 40px;
   border-radius: 4px;

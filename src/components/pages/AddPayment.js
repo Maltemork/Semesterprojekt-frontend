@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "../../styling/AddPayment.css";
 
 import HandleAddSubmit from "../crud/AddSubmit";
 
 const AddPayment = () => {
+  const navigate = useNavigate(); 
+
   const [paymentFormData, setPaymentFormData] = useState({
     invoiceAmount: "",
     invoiceCreated: "",
@@ -26,6 +28,9 @@ const AddPayment = () => {
   const handlePaymentAddFormSubmit = (event) => {
     event.preventDefault();
     HandleAddSubmit(paymentFormData, "payments");
+    setTimeout(() => {
+      navigate("/payments/");
+    }, "500");
   };
 
   const AddPaymentForm = (
