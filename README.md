@@ -1,6 +1,6 @@
 # Semesterprojekt - Periamma App Frontend
 
-Dette er GitHub repository for frontend appen lavet til semesterprojekt og eksamen.
+Dette er GitHub repository for frontend appen lavet til semesterprojekt og eksamen af Malte Mørkeberg Sørensen og Malte Bjørklund.
 
 For at køre koden lokalt skal man gøre følgende:
 
