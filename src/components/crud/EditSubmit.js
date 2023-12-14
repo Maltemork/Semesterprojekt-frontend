@@ -5,51 +5,35 @@ const HandleEditSubmit = async (data, table, id) => {
 
   if (table === "children") {
     if (data.sponsoredBy) {
-      fetch(
-        `${endpoint}/${table}/${data.childNo}/addSponsor/${data.sponsoredBy}`,
-        {
-          method: "POST",
-        }
-      )
-        .then((res) => {
-          if (!res.ok) {
-            console.log(
-              `Response from POST to children_sponsors (childNo, sponsorId)(${data.childNo}, ${data.sponsoredBy}) failed`,
-              res
-            );
-          }
-          return res.json();
-        })
-        .then(() => {
-          console.log("POST Request to children_sponsors successful");
-        })
-        .catch((err) => {
-          console.log("POST Request to children_sponsors failed", err);
-        });
+      addSponsor(data.sponsoredBy);
     }
+
     if (data.secondSponsor) {
-      fetch(
-        `${endpoint}/${table}/${data.childNo}/addSponsor/${data.secondSponsor}`,
-        {
-          method: "POST",
-        }
-      )
-        .then((res) => {
-          if (!res.ok) {
-            console.log(
-              `Response from POST to children_sponsors (childNo, sponsorId)(${data.childNo}, ${data.secondSponsor}) failed`,
-              res
-            );
-          }
-          return res.json();
-        })
-        .then(() => {
-          console.log("POST Request to children_sponsors successful");
-        })
-        .catch((err) => {
-          console.log("POST Request to children_sponsors failed", err);
-        });
+      addSponsor(data.secondSponsor);
     }
+  }
+
+  function addSponsor(sponsorId) {
+    fetch(`${endpoint}/${table}/${data.childNo}/addSponsor`, {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          console.log(
+            `Response from POST to children_sponsors (childNo, sponsorId)(${data.childNo}, ${sponsorId}) failed`,
+            res
+          );
+        }
+        return res.json();
+      })
+      .then(() => {
+        console.log("POST Request to children_sponsors successful");
+      })
+      .catch((err) => {
+        console.log("POST Request to children_sponsors failed", err);
+      });
   }
 
   fetch(`${endpoint}/${table}/${id}/update`, {
