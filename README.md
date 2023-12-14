@@ -1,4 +1,4 @@
-# M&M Semesterprojekt - Periamma App Frontend
+# Semesterprojekt - Periamma App Frontend
 
 Dette er GitHub repository for frontend appen lavet til semesterprojekt og eksamen.
 
