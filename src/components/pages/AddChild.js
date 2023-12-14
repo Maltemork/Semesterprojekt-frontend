@@ -11,6 +11,7 @@ const AddChild = () => {
     fullname: "",
     gender: "",
     birthdate: "",
+    subitems: "";
     school: "",
     type: "",
     schoolStart: "",
@@ -69,6 +70,16 @@ const AddChild = () => {
         name="school"
         onChange={handleChildFormChange}
         placeholder="School name"
+        required
+      />
+
+      <label htmlFor="subitems">Country</label>
+      <input
+        type="text"
+        name="subitems"
+        onChange={handleChildFormChange}
+        placeholder="Kenya, Thailand, etc"
+        defaultValue="Kenya"
         required
       />
 
