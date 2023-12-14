@@ -4,18 +4,18 @@ const HandleEditSubmit = async (data, table, id) => {
   const endpoint = "https://periamma-projekt-app.azurewebsites.net";
 
   if (table === "children") {
-    if (table.sponsoredBy) {
+    if (data.sponsoredBy) {
       fetch(
-        `${endpoint}/${table}/${table.childNo}/addSponsor/${table.sponsoredBy}`,
+        `${endpoint}/${table}/${data.childNo}/addSponsor/${data.sponsoredBy}`,
         {
           method: "POST",
-          headers: { "Content-type": "application/json" },
         }
       )
         .then((res) => {
           if (!res.ok) {
             console.log(
-              `Response from POST to children_sponsors (childNo, sponsorId)(${table.childNo}, ${table.sponsoredBy})`
+              `Response from POST to children_sponsors (childNo, sponsorId)(${data.childNo}, ${data.sponsoredBy}) failed`,
+              res
             );
           }
           return res.json();
@@ -27,18 +27,18 @@ const HandleEditSubmit = async (data, table, id) => {
           console.log("POST Request to children_sponsors failed", err);
         });
     }
-    if (table.secondSponsor) {
+    if (data.secondSponsor) {
       fetch(
-        `${endpoint}/${table}/${table.childNo}/addSponsor/${table.secondSponsor}`,
+        `${endpoint}/${table}/${data.childNo}/addSponsor/${data.secondSponsor}`,
         {
           method: "POST",
-          headers: { "Content-type": "application/json" },
         }
       )
         .then((res) => {
           if (!res.ok) {
             console.log(
-              `Response from POST to children_sponsors (childNo, sponsorId)(${table.childNo}, ${table.sponsoredBy})`
+              `Response from POST to children_sponsors (childNo, sponsorId)(${data.childNo}, ${data.secondSponsor}) failed`,
+              res
             );
           }
           return res.json();
