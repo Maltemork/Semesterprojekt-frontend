@@ -31,4 +31,6 @@ async function getSponsorPayments(sponsorId) {
   return data;
 }
 
+async function getChildSponsors() {}
+
 export { getData, getObject, deleteObject, getSponsorPayments };
