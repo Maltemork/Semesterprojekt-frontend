@@ -1,26 +1,33 @@
-export function ConstructSponsorObject(sponsordata) {
-    const SponsorObject = {
-        id: sponsordata.id,
-        customerId: sponsordata.sponsorId,
-        subitems: sponsordata.subitems,
-        name: sponsordata.sponsorName,
-        email: sponsordata.sponsorEmail,
-        phone: sponsordata.sponsorPhone,
-        active: sponsordata.active,
-        paymentPlatform: sponsordata.paymentPlatform,
-        reepayHandleDonations: sponsordata.reepayHandleDonations,
-        reepayHandlePeriamma: sponsordata.reepayHandlePeriamma,
-        foreningLetID: sponsordata.foreningLetId,
-        type: sponsordata.privatErhverv,
-        cprCvr: sponsordata.cprCvr,
-        notes: sponsordata.notes
-    }
-
-    Object.defineProperty(SponsorObject, "id", {
-        configurable: false,
-        writable: false
-      });
-
-    return SponsorObject;
-}
-
+module.exports = class SponsorObject {
+  constructor(
+    id,
+    sponsorId,
+    subitems,
+    name,
+    email,
+    phone,
+    active,
+    paymentPlatform,
+    reepayHandlePeriamma,
+    foreningLetID,
+    type,
+    reepayHandleDonations,
+    cprCvr,
+    notes
+  ) {
+    this.id = id;
+    this.sponsorId = sponsorId;
+    this.subitems = subitems;
+    this.name = name;
+    this.email = email;
+    this.phone = phone;
+    this.active = active;
+    this.paymentPlatform = paymentPlatform;
+    this.reepayHandleDonations = reepayHandleDonations;
+    this.reepayHandlePeriamma = reepayHandlePeriamma;
+    this.foreningLetId = foreningLetID;
+    this.type = type;
+    this.cprCvr = cprCvr;
+    this.notes = notes;
+  }
+};

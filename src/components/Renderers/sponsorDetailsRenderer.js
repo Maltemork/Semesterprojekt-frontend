@@ -13,27 +13,22 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 const SponsorDetailsRenderer = ({ sponsorObject }) => {
-
   const PaymentRenderer = ({ payment }) => {
-
     const handleRowClick = () => {
-        navigate(`/payments/${payment.invoiceHandle}`);
+      navigate(`/payments/${payment.invoiceHandle}`);
     };
 
     return (
-        
-            <tr key={payment.id} className="table-item" onClick={handleRowClick}>
-                <td>
-                    {payment.invoiceHandle}
-                </td>
-                <td>{Number(payment.invoiceAmount / 100).toFixed(2)}</td>
-                <td>{payment.invoiceCurrency}</td>
-                <td>{payment.invoiceState}</td>
-                <td>{payment.invoiceNumber}</td>
-                <td>{new Date(payment.invoiceCreated).toLocaleString("en-DE")}</td>
-            </tr>
+      <tr key={payment.id} className="table-item" onClick={handleRowClick}>
+        <td>{payment.invoiceHandle}</td>
+        <td>{Number(payment.invoiceAmount / 100).toFixed(2)}</td>
+        <td>{payment.invoiceCurrency}</td>
+        <td>{payment.invoiceState}</td>
+        <td>{payment.invoiceNumber}</td>
+        <td>{new Date(payment.invoiceCreated).toLocaleString("en-DE")}</td>
+      </tr>
     );
-}
+  };
 
   const navigate = useNavigate();
 
@@ -43,20 +38,20 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
     const fetchSponsorPaymentsData = async () => {
       try {
         const sponsorPaymentsData = await getSponsorPayments(
-          sponsorObject.customerId
+          sponsorObject.sponsorId
         );
         setSponsorPayments(sponsorPaymentsData);
       } catch (error) {
         console.error(
           "Couldn't fetch payments data for sponsor: " +
-            sponsorObject.customerId,
+            sponsorObject.sponsorId,
           error
         );
       }
     };
 
     fetchSponsorPaymentsData();
-  }, [sponsorObject.customerId]);
+  }, [sponsorObject.sponsorId]);
 
   console.log("Sponsor Payments: ", sponsorPayments);
 
@@ -80,7 +75,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
 
   // SEND REQUEST TO DELETE OBJECT IN THE DATABASE
   function handleDelete() {
-    deleteObject("sponsors", sponsorObject.customerId);
+    deleteObject("sponsors", sponsorObject.sponsorId);
     setOpen(false);
     setTimeout(() => {
       navigate("../sponsors");
@@ -97,7 +92,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
         <p name="sponsor">{sponsorObject.name}</p>
 
         <label htmlFor="sponsorId">Sponsor id:</label>
-        <p name="sponsorId">{sponsorObject.customerId}</p>
+        <p name="sponsorId">{sponsorObject.sponsorId}</p>
 
         <label htmlFor="subitems">Subscription:</label>
         <p name="subitems"> {sponsorObject.subitems}</p>
@@ -185,7 +180,7 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
   }
 
   // async function sponsorPaymentsList() {
-  //   return await getSponsorPayments(sponsorObject.customerId);
+  //   return await getSponsorPayments(sponsorObject.sponsorId);
   // }
 
   return (
@@ -226,13 +221,13 @@ const SponsorDetailsRenderer = ({ sponsorObject }) => {
               </tr>
             </thead>
             <tbody>
-              { sponsorPayments.map(payment => (
-                      <PaymentRenderer key={payment.id} payment={payment}/>
-                            )) }
+              {sponsorPayments.map((payment) => (
+                <PaymentRenderer key={payment.id} payment={payment} />
+              ))}
             </tbody>
           </table>
         </div>
-        
+
         {/* DIALOG SECTION */}
         <DeleteDialog
           open={open}
