@@ -120,7 +120,6 @@ const ChildrensPage =
 
     return (
             <>
-              
               <div id="table-container">
                 <div id="functions-container">
                   <div id="table-title">
@@ -158,6 +157,5 @@ const ChildrensPage =
             </>
           );
         };
-
 
 export default ChildrensPage;
